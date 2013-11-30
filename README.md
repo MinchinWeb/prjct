@@ -91,6 +91,7 @@ Usage:
 							list
   prjct goal (project number | project name)
 						Displays the goal for a given project
+  prjct generate		generates a list of project based on your todo list
   prjct top				List top todo items
   prjct do <item>...	Do item on todo.txt
   prjct pri <item>... <priority>
@@ -134,3 +135,22 @@ Options:
 
 Goals are pulled `jrnl` by filtering for entries tagged with the project name
 and '@goal'.
+
+## Getting Things Done - 7 lists
+
+In *Getting Things Done*, he mentions 7 types lists to manage:
+
+* a projects list
+* project support material
+* calendared actions and information
+* a waiting for list
+* reference material
+* a someday/maybe list
+
+This project aims mainly to maintain the first - the project list. Some project
+support material can to provided using `jrnl` (particularly goals), but most
+will be kept elsewhere. Nothing is a attempted (yet) with either calendared
+items or the 'tickler' file he mentions in the book. A 'waiting for' list can
+quasi implemented by assigning the tasks in question a (W) priority. Reference
+materail is intended to be kept elsewhere. The 'someday/maybe' project list
+is designed, ultimately, to be supported.
