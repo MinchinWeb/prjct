@@ -151,7 +151,9 @@ Data File Structure
       |    |                             export of jrnl entries and todo list)
       |    |- all-todo.md
       |    |- 2015-07-20_project_entry.md
-      +- site\                          (Exported Pelican site)
+	  |    `- ...
+      `- site\                          (Exported Pelican site)
+	       `- ...
 
 Usage
 -----
