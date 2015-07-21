@@ -151,16 +151,16 @@ Data File Structure
       |    |                             export of jrnl entries and todo list)
       |    |- all-todo.md
       |    |- 2015-07-20_project_entry.md
-	  |    `- ...
+      |    `- ...
       `- site\                          (Exported Pelican site)
-	       `- ...
+           `- ...
 
 Usage
 -----
 
 .. code-block::
 
-    """Project Management
+    Project Management
 
     Usage:
       prjct [options]
@@ -217,10 +217,9 @@ Usage
                                         items)
       --prjct=<path to prjct.txt file>  Select a prjct.txt file (project list)
       --export=<path>                   Specify the export path
-    """
 
 Goals are pulled ``jrnl`` by filtering for entries tagged with the project name
-and ``@goal``.
+and looking for a ``Goal`` heading.
 
 Getting Things Done -- 7 lists
 ------------------------------
