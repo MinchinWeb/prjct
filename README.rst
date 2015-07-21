@@ -24,12 +24,9 @@ Philosophy
 
 A couple of philosophical notes that are built in to this project:
 
-* where possible, data should be stored in text files. Furthermore, these text
-files should be editable on the go with a simple text editor.
+* where possible, data should be stored in text files. Furthermore, these text files should be editable on the go with a simple text editor.
 * a 'project' is some end goal that requires more than one action
-* by writing everything that needs done down, I can spend my mental energy on
-projects other than remembering what needs to be done. This only works if it is
-easy, at a glance, to review what I need to do next.
+* by writing everything that needs done down, I can spend my mental energy on projects other than remembering what needs to be done. This only works if it is easy, at a glance, to review what I need to do next.
 * if something exists that does the job well, there is no need to rebuild it
 
 Programming Language
@@ -40,9 +37,9 @@ Python 3.4 on Windows.
 jrnl Integration
 ''''''''''''''''
 
-`jrnl` is a commandline program written in Python. It allows notes to be
+``jrnl`` is a commandline program written in Python. It allows notes to be
 written in plain text, and has various importers and exporters. The thought is
-to write a note in `jrnl` about a project, and include todo items as part of
+to write a note in ``jrnl`` about a project, and include todo items as part of
 the note. The though was to use the checkbox style used on GitHub.
 
 So an entry might look like:
@@ -68,28 +65,28 @@ entry.
 Pelican Integration
 '''''''''''''''''''
 
-`Pelican` is a static site generator, written in Python. Currently, entries from
-`jrnl` can be exported to Markdown formatted text files, and these text files
-can then be fed to `pelican` to create a blog. `prjct` can build off this
+``Pelican`` is a static site generator, written in Python. Currently, entries from
+``jrnl`` can be exported to Markdown formatted text files, and these text files
+can then be fed to `pelican` to create a blog. ``prjct`` can build off this
 behaviour. If a category is used to denote a project, that each category page
 will provide an update on the status of each project. On the pelican-generated
 site, there should be a 'post' of the open todo items pinned to the top.
 
-`Pelican` is by no means the only option, but does provide a relatively simple
+``Pelican`` is by no means the only option, but does provide a relatively simple
 (from a development point of view) method to create the presentation.
 
 todo.txt Integration
 ''''''''''''''''''''
 
-One of the goals of `prjct` is to allow other todo.txt clients to manage the
-todo list. To this end, a `todo.txt` and a `done.txt` file will need to be
+One of the goals of ``prjct`` is to allow other todo.txt clients to manage the
+todo list. To this end, a ``todo.txt`` and a ``done.txt`` file will need to be
 maintained. As well, items that are added directly to the todo list (rather
-that through a `jrnl` entry) will be directly added to the `todo.txt` file.
+that through a ``jrnl`` entry) will be directly added to the ``todo.txt`` file.
 
-When run, `prjct` would add new items in `jrnl` entries to the `todo.txt` file,
-and update completed tasks from the `done.txt` file listed in `jrnl` entries.
+When run, ``prjct`` would add new items in ``jrnl`` entries to the ``todo.txt`` file,
+and update completed tasks from the `done.txt` file listed in ``jrnl`` entries.
 
-To cross-reference todo items in `jrnl` entries and on `todo.txt`, I propose
+To cross-reference todo items in ``jrnl`` entries and on ``todo.txt``, I propose
 adding a 'key' to each item. I haven't decided what format to use for the key.
 One option is using a UUID (128 bits, base 16, typically 35 characters).
 Another option is to use
@@ -99,7 +96,7 @@ key lenghts by 25% for keys in the same sample space.
 
 The advantage of using UUID's is they look like numbers because they have so
 many digits in them. In either case, we may be by referring to items by a
-shortened version of the identifier, a little like `git` treats commit ID's.
+shortened version of the identifier, a little like ``git`` treats commit ID's.
 
 So a todo item might look like this:
 
@@ -107,15 +104,15 @@ So a todo item might look like this:
 
 	2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
 	
-(`due` refers to when the task is due; `t` refers to the "threshold date", i.e.
-don't show this task before this date; `prjct` is our added key (in this case,
+(``due`` refers to when the task is due; ``t`` refers to the "threshold date", i.e.
+don't show this task before this date; ``prjct`` is our added key (in this case,
 an UUID)).
 
 prjct.txt
 '''''''''
 
-This is a file listing all projects. Format somewhat based on `todo.txt`. One
-project per line. Projects with the context `@someday` will not be considered
+This is a file listing all projects. Format somewhat based on ``todo.txt``. One
+project per line. Projects with the context ``@someday`` will not be considered
 when the user reviews project, unless he explicitly asks to review them.
 
 Packaged Format
@@ -123,25 +120,26 @@ Packaged Format
 
 In three stages:
 
-1. Python script installable via `pip`
+1. Python script installable via ``pip``
 2. self-contained Windows exe (still commandline)
-3. self-contained Windows exe with GUI (although that GUI was effectively be
-a website)
+3. self-contained Windows exe with GUI (although that GUI was effectively be a website)
 
 Libraries / Supporting Programs
 -------------------------------
 
 * Python
-* [jrnl](https://github.com/maebert/jrnl) -- useful to store general notes
-* todo manager -- I haven't found a good Python todo manager quite yet. I'll keep
-looking
-* [docopt](http://docopt.org/) -- for managing command line options
+* `jrnl <https://github.com/maebert/jrnl>`_ -- useful to store general notes
+* todo manager -- I haven't found a good Python todo manager quite yet. I'll keep looking
+* `docopt <http://docopt.org/>`_ -- for managing command line options
+* ``todo.txt``
+* ``Pelican``
 * Travis-CI - for automated testing
 
 Data File Structure
 -------------------
 
 .. code-block::
+
 	.prjct\
 	  |- .prjct-config					(configuration file)
 	  |- jrnl.txt						(jrnl entries)
@@ -159,6 +157,7 @@ Usage
 -----
 
 .. code-block::
+
 	"""Project Management
 
 	Usage:
@@ -218,8 +217,8 @@ Usage
 	  --export=<path>					Specify the export path
 	"""
 
-Goals are pulled `jrnl` by filtering for entries tagged with the project name
-and '@goal'.
+Goals are pulled ``jrnl`` by filtering for entries tagged with the project name
+and ``@goal``.
 
 Getting Things Done -- 7 lists
 ------------------------------
@@ -233,8 +232,8 @@ In *Getting Things Done*, he mentions 7 types lists to manage:
 * reference material
 * a someday/maybe list
 
-This project aims mainly to maintain the first - the project list. Some project
-support material can to provided using `jrnl` (particularly goals), but most
+This project aims mainly to maintain the first -- the project list. Some project
+support material can to provided using ``jrnl`` (particularly goals), but most
 will be kept elsewhere. Nothing is a attempted (yet) with either calendared
 items or the 'tickler' file he mentions in the book. A 'waiting for' list can
 quasi implemented by assigning the tasks in question a (W) priority. Reference
@@ -252,4 +251,4 @@ Version History
 *Version*: 0.2, 2015-07-20
 ''''''''''''''''''''''''''
 
-* detail `jrnl` and `todo.txt` integration
+* detail ``jrnl`` and ``todo.txt`` integration
