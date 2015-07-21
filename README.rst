@@ -46,16 +46,16 @@ So an entry might look like:
 
 .. code-block::
 
-	[2015-07-20 20:34] Project Update -- July 20
+    [2015-07-20 20:34] Project Update -- July 20
 
-	All about my new project...blah, blah, blah.
+    All about my new project...blah, blah, blah.
 
-	More about my project.
+    More about my project.
 
-	- [ ] something that needs done
-	- [ ] some other todo item
+    - [ ] something that needs done
+    - [ ] some other todo item
 
-	+Project_Name
+    +Project_Name
 
 
 Todo items in an entry would automatically be assigned the creation date of
@@ -102,8 +102,8 @@ So a todo item might look like this:
 
 .. code-block::
 
-	2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
-	
+    2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
+    
 (``due`` refers to when the task is due; ``t`` refers to the "threshold date", i.e.
 don't show this task before this date; ``prjct`` is our added key (in this case,
 an UUID)).
@@ -140,82 +140,82 @@ Data File Structure
 
 .. code-block::
 
-	.prjct\
-	  |- .prjct-config					(configuration file)
-	  |- jrnl.txt						(jrnl entries)
-	  |- todo.txt						(todo items)
-	  |- done.txt						(completed todo items)
-	  |- prjct.txt						(list of all projects)
-	  |- pelican.conf					(Pelican configuration file)
-	  +- export\						(temporary folder holding Markdown
-	  |	   |							 export of jrnl entries and todo list)
-	  |	   |- all-todo.md
-	  |	   |- 2015-07-20_project_entry.md
-	  +- site\							(Exported Pelican site)
+    .prjct\
+      |- .prjct-config                  (configuration file)
+      |- jrnl.txt                       (jrnl entries)
+      |- todo.txt                       (todo items)
+      |- done.txt                       (completed todo items)
+      |- prjct.txt                      (list of all projects)
+      |- pelican.conf                   (Pelican configuration file)
+      +- export\                        (temporary folder holding Markdown
+      |    |                             export of jrnl entries and todo list)
+      |    |- all-todo.md
+      |    |- 2015-07-20_project_entry.md
+      +- site\                          (Exported Pelican site)
 
 Usage
 -----
 
 .. code-block::
 
-	"""Project Management
+    """Project Management
 
-	Usage:
-	  prjct [options]
-	  prjct.py [options]
-	  prjct usage			Displays this screen and exits
-	  prjct review			Review all projects listed in in the prjct.txt file to
-								ensure they all have a next item. If there is no
-								next item, you are asked to either select one of
-								the existing todo items, or add a new one
-	  prjct (ls | list)		List all projects in the default prjct.txt file
-	  prjct add <project>	Add a project to the list
-	  prjct rm <project number>
-							Remove a project from the list
-	  prjct someday <project number>
-							Move a project from the default list to the someday
-								list
-	  prjct goal (project number | project name)
-							Displays the goal for a given project
-	  prjct generate		Generates a list of project based on your todo list
-	  todo top				List top todo items
-	  todo add <item>		Add an item to the todo list
-	  todo do <item>...		Do item on todo.txt
-	  todo pri <item>... <priority>
-							Changes (or adds) the priority (A-Z) to the given todo
-								item(s)
-	  todo depri <item>... <priority>
-							Removes the priority to the given todo item(s)
-	  todo (ls | list) [filter text]
-							Lists all items on the todo list after applying the
-								filter
-	  jrnl [jrnl options]	calls the jrnl program; allows entry of goals, notes, etc
-	  prjct report 			Generates a report listing all projects, goals, notes,
-								done todo items, and outstanding todo items
-	  
-	  todo context			Generates a report, listed all todo items, which each
-								context in a separate file
-	  prjct about			Displays a more complete 'version' page, including
-								the goals of the project and import dates
-	  prjct changes			Displays the changelog
-	  prjct credits			Displays all contributors to the project
-	  prjct (phil | philosophy)
-							Displays some philosophical thoughts on how to get the
-								most out of the system
-	  prjct howto			Displays a basic tutorial on how to use the program
+    Usage:
+      prjct [options]
+      prjct.py [options]
+      prjct usage           Displays this screen and exits
+      prjct review          Review all projects listed in in the prjct.txt file to
+                                ensure they all have a next item. If there is no
+                                next item, you are asked to either select one of
+                                the existing todo items, or add a new one
+      prjct (ls | list)     List all projects in the default prjct.txt file
+      prjct add <project>   Add a project to the list
+      prjct rm <project number>
+                            Remove a project from the list
+      prjct someday <project number>
+                            Move a project from the default list to the someday
+                                list
+      prjct goal (project number | project name)
+                            Displays the goal for a given project
+      prjct generate        Generates a list of project based on your todo list
+      todo top              List top todo items
+      todo add <item>       Add an item to the todo list
+      todo do <item>...     Do item on todo.txt
+      todo pri <item>... <priority>
+                            Changes (or adds) the priority (A-Z) to the given todo
+                                item(s)
+      todo depri <item>... <priority>
+                            Removes the priority to the given todo item(s)
+      todo (ls | list) [filter text]
+                            Lists all items on the todo list after applying the
+                                filter
+      jrnl [jrnl options]   calls the jrnl program; allows entry of goals, notes, etc
+      prjct report          Generates a report listing all projects, goals, notes,
+                                done todo items, and outstanding todo items
+      
+      todo context          Generates a report, listed all todo items, which each
+                                context in a separate file
+      prjct about           Displays a more complete 'version' page, including
+                                the goals of the project and import dates
+      prjct changes         Displays the changelog
+      prjct credits         Displays all contributors to the project
+      prjct (phil | philosophy)
+                            Displays some philosophical thoughts on how to get the
+                                most out of the system
+      prjct howto           Displays a basic tutorial on how to use the program
 
-	Options:
-	  -h --help							Dispalys a list of available commands,
-											recommends running 'usage' for more
-											details, and exits
-	  -v --version						Show version, and exit
-	  --config=<path to .prjct-config>	Select a configuration file
-	  --todo=<path to todo.txt file>	Select a todo.txt file
-	  --done=<path to done.txt file>	Select a done.txt file (completed todo
-										items)
-	  --prjct=<path to prjct.txt file>	Select a prjct.txt file (project list)
-	  --export=<path>					Specify the export path
-	"""
+    Options:
+      -h --help                         Dispalys a list of available commands,
+                                            recommends running 'usage' for more
+                                            details, and exits
+      -v --version                      Show version, and exit
+      --config=<path to .prjct-config>  Select a configuration file
+      --todo=<path to todo.txt file>    Select a todo.txt file
+      --done=<path to done.txt file>    Select a done.txt file (completed todo
+                                        items)
+      --prjct=<path to prjct.txt file>  Select a prjct.txt file (project list)
+      --export=<path>                   Specify the export path
+    """
 
 Goals are pulled ``jrnl`` by filtering for entries tagged with the project name
 and ``@goal``.
