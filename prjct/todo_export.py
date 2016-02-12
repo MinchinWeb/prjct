@@ -12,6 +12,7 @@ import timestring
 
 from topydo.cli.CLIApplicationBase import error
 from topydo.lib import TodoFile
+from topydo.lib.Sorter import Sorter
 from topydo.lib.Config import config, ConfigError
 # First thing is to poke the configuration and check whether it's sane
 # The modules below may already read in configuration upon import, so
@@ -24,6 +25,10 @@ except ConfigError as config_error:
 
 from topydo.lib.JsonPrinter import JsonPrinter
 from topydo.lib import TodoList
+
+
+# SORT_STRING = 'desc:importance,priority,asc:creation'
+SORT_STRING = 'desc:done,desc:importance,due,desc:priority,asc:creation'
 
 
 def to_html_dicts(completion_cutoff=30):
@@ -40,17 +45,22 @@ def to_html_dicts(completion_cutoff=30):
 
     completion_range = timestring.Range('last {} days'.format(completion_cutoff))
 
+    my_sorter = Sorter(p_sortstring=SORT_STRING)
+
     todofile = TodoFile.TodoFile(config().todotxt())
     # print('Loaded todo file from {}'.format(todofile.path))
-    todolist = TodoList.TodoList(todofile.read())
+    todotodos = TodoList.TodoList(todofile.read())
+    # todolist = my_sorter.sort(todolist)            # in topydo v0.10
     # json_str = JsonPrinter().print_list(todolist)  # in topydo v0.10
-    todo_json_str = JsonPrinter().print_list(todolist.todos())
+    todolist = my_sorter.sort(todotodos.todos())
+    todo_json_str = JsonPrinter().print_list(todolist)
     todo_json = json.loads(todo_json_str)
 
     donefile = TodoFile.TodoFile(config().archive())
     # print('Loaded done file from {}'.format(donefile.path))
-    donelist = TodoList.TodoList(donefile.read())
-    done_json_str = JsonPrinter().print_list(donelist.todos())
+    donetodos = TodoList.TodoList(donefile.read())
+    donelist = my_sorter.sort(donetodos.todos())
+    done_json_str = JsonPrinter().print_list(donelist)
     done_json = json.loads(done_json_str)
 
     active_todos = {}
@@ -89,4 +99,4 @@ def to_html_dicts(completion_cutoff=30):
     return todo_html, done_html
 
 if __name__ == "__main__":
-    to_html_lists()
+    to_html_dicts()
