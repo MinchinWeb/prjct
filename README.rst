@@ -1,7 +1,7 @@
 prjct
 =====
 
-Project Management, v0.2, 2015-07-20
+Project Management, v0.3, 2016-02-11
 
 Background
 ----------
@@ -32,7 +32,7 @@ A couple of philosophical notes that are built in to this project:
 Programming Language
 --------------------
 
-Python 3.4 on Windows.
+Python 3.5 on Windows.
 
 jrnl Integration
 ''''''''''''''''
@@ -91,8 +91,8 @@ adding a 'key' to each item. I haven't decided what format to use for the key.
 One option is using a UUID (128 bits, base 16, typically 35 characters).
 Another option is to use
 `base32 crockford <https://pypi.python.org/pypi/base32-crockford/0.3.0>`_ which
-could be vaiable lenght, but packs 5 bits per character instead of 4, decreasing
-key lenghts by 25% for keys in the same sample space.
+could be variable length, but packs 5 bits per character instead of 4, decreasing
+key lengths by 25% for keys in the same sample space.
 
 The advantage of using UUID's is they look like numbers because they have so
 many digits in them. In either case, we may be by referring to items by a
@@ -129,11 +129,11 @@ Libraries / Supporting Programs
 
 * Python
 * `jrnl <https://github.com/maebert/jrnl>`_ -- useful to store general notes
-* todo manager -- I haven't found a good Python todo manager quite yet. I'll keep looking
-* `docopt <http://docopt.org/>`_ -- for managing command line options
+* `topydo <https://github.com/bram85/topydo>`_ -- todo list manager
+* `click <http://click.pocoo.org/6/>`_ -- for managing command line options
 * ``todo.txt``
-* ``Pelican``
-* Travis-CI - for automated testing
+* `Pelican <http://docs.getpelican.com/en/>`_ -- static site generator
+* `Travis-CI <https://travis-ci.org/>`_ -- for automated testing
 
 Data File Structure
 -------------------
@@ -238,7 +238,7 @@ support material can to provided using ``jrnl`` (particularly goals), but most
 will be kept elsewhere. Nothing is a attempted (yet) with either calendared
 items or the 'tickler' file he mentions in the book. A 'waiting for' list can
 quasi implemented by assigning the tasks in question a (W) priority. Reference
-materail is intended to be kept elsewhere. The 'someday/maybe' project list
+material is intended to be kept elsewhere. The 'someday/maybe' project list
 is designed, ultimately, to be supported.
 
 Version History
@@ -253,3 +253,9 @@ Version History
 ''''''''''''''''''''''''''
 
 * detail ``jrnl`` and ``todo.txt`` integration
+
+*Version*: 0.3, 2016-02-11
+''''''''''''''''''''''''''
+
+* working version of ``todo_export.to_html_lists()``
+* add ``setup.py`` file
