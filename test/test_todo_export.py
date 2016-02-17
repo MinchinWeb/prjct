@@ -6,6 +6,7 @@
 """
 from datetime import datetime
 import os
+from pathlib import Path
 import unittest
 
 import prjct
@@ -14,8 +15,12 @@ from prjct.todo_export import to_html_dicts
 
 class Test_todo_export(unittest.TestCase):
 
+    # TODO: Add setup that removes all files in test/results directory
+
     def test_to_html_lists(self):
-        OUTPUT_FILE = 'test_todo_export.html'
+        p = Path(__file__)  # location of this file
+        OUTPUT_FILE_NAME = 'test_todo_export.html'
+        output_file = p.parent / 'results' / OUTPUT_FILE_NAME
 
         todos, dones = to_html_dicts()
 
@@ -40,11 +45,10 @@ class Test_todo_export(unittest.TestCase):
         </head>
         """.format(prjct.__doc__, todos_split, dones_split, prjct.__version__, datetime.now())
 
-        with open(OUTPUT_FILE, mode="w") as f:
-            f.write(html)
+        output_file.write_text(html)
 
-        self.assertTrue(os.path.isfile(OUTPUT_FILE))
+        self.assertTrue(os.path.isfile(str(output_file)))
 
 
-if __name__ == "__main__":
-    Test_todo_export.test_to_html_lists()
+if __name__ == '__main__':
+    unittest.main()
