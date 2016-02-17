@@ -12,4 +12,6 @@ __license__ = 'MIT License'
 __copyright__ = 'Copyright 2013-16 William Minchin'
 __url__ = 'https://github.com/MinchinWeb/prjct'
 
+# import submodules
 from . import todo_export
+from . import config
