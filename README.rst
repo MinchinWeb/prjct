@@ -24,9 +24,12 @@ Philosophy
 
 A couple of philosophical notes that are built in to this project:
 
-* where possible, data should be stored in text files. Furthermore, these text files should be editable on the go with a simple text editor.
+* where possible, data should be stored in text files. Furthermore, these text
+   files should be editable on the go with a simple text editor.
 * a 'project' is some end goal that requires more than one action
-* by writing everything that needs done down, I can spend my mental energy on projects other than remembering what needs to be done. This only works if it is easy, at a glance, to review what I need to do next.
+* by writing everything that needs done down, I can spend my mental energy on
+   projects other than remembering what needs to be done. This only works if it
+   is easy, at a glance, to review what I need to do next.
 * if something exists that does the job well, there is no need to rebuild it
 
 Programming Language
@@ -62,41 +65,51 @@ Todo items in an entry would automatically be assigned the creation date of
 the entry, and any tags on the entry would apply to the todo items in that
 entry.
 
+
+
+
 Pelican Integration
 '''''''''''''''''''
 
-``Pelican`` is a static site generator, written in Python. Currently, entries from
-``jrnl`` can be exported to Markdown formatted text files, and these text files
-can then be fed to `pelican` to create a blog. ``prjct`` can build off this
-behaviour. If a category is used to denote a project, that each category page
-will provide an update on the status of each project. On the pelican-generated
-site, there should be a 'post' of the open todo items pinned to the top.
+*Pelican* integration has been deprciated in favour of Sphinx, which now
+allows *jrnl* content to be written in Markdown, but allows more powerful
+control of the rest of the site presentation.
 
-``Pelican`` is by no means the only option, but does provide a relatively simple
-(from a development point of view) method to create the presentation.
+Sphinx Integration
+''''''''''''''''''
+
+*Sphinx* is a static site generator, originally concieved for generating
+Python documentation, written in Python. Currently, entries from
+*`jrnl* can be exported to Markdown formatted text files, and these text files
+can then be fed to *Sphinx* to create a blog using the *ABlog* extention.
+*prjct* can build on this behaviour. For each defined project, a page,
+similiar to a tag page, will be generated. This page will list the project
+overview, a list of the open todo items, the recently completed items, and then
+a list entries tagged with the project name.
 
 todo.txt Integration
 ''''''''''''''''''''
 
-One of the goals of ``prjct`` is to allow other todo.txt clients to manage the
-todo list. To this end, a ``todo.txt`` and a ``done.txt`` file will need to be
+One of the goals of *prjct* is to allow other todo.txt clients to manage the
+todo list. To this end, a *todo.txt* and a *done.txt* file will need to be
 maintained. As well, items that are added directly to the todo list (rather
-that through a ``jrnl`` entry) will be directly added to the ``todo.txt`` file.
+that through a *jrnl* entry) will be directly added to the *todo.txt* file.
 
-When run, ``prjct`` would add new items in ``jrnl`` entries to the ``todo.txt`` file,
-and update completed tasks from the `done.txt` file listed in ``jrnl`` entries.
+When run, *prjct* would add new items in *jrnl* entries to the *todo.txt*
+file, and update completed tasks from the *done.txt* file listed in *jrnl*
+entries.
 
-To cross-reference todo items in ``jrnl`` entries and on ``todo.txt``, I propose
+To cross-reference todo items in *jrnl* entries and on *todo.txt*, I propose
 adding a 'key' to each item. I haven't decided what format to use for the key.
 One option is using a UUID (128 bits, base 16, typically 35 characters).
 Another option is to use
 `base32 crockford <https://pypi.python.org/pypi/base32-crockford/0.3.0>`_ which
-could be variable length, but packs 5 bits per character instead of 4, decreasing
-key lengths by 25% for keys in the same sample space.
+could be variable length, but packs 5 bits per character instead of 4,
+decreasing key lengths by 25% for keys in the same sample space.
 
 The advantage of using UUID's is they look like numbers because they have so
 many digits in them. In either case, we may be by referring to items by a
-shortened version of the identifier, a little like ``git`` treats commit ID's.
+shortened version of the identifier, a little like *git* treats commit ID's.
 
 So a todo item might look like this:
 
@@ -104,15 +117,15 @@ So a todo item might look like this:
 
     2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
     
-(``due`` refers to when the task is due; ``t`` refers to the "threshold date", i.e.
-don't show this task before this date; ``prjct`` is our added key (in this case,
-an UUID)).
+(*due* refers to when the task is due; *t* refers to the "threshold date",
+i.e. don't show this task before this date; *prjct* is our added key (in this
+case, an UUID)).
 
 prjct.txt
 '''''''''
 
-This is a file listing all projects. Format somewhat based on ``todo.txt``. One
-project per line. Projects with the context ``@someday`` will not be considered
+This is a file listing all projects. Format somewhat based on *todo.txt*. One
+project per line. Projects with the context *@someday* will not be considered
 when the user reviews project, unless he explicitly asks to review them.
 
 Packaged Format
@@ -120,7 +133,7 @@ Packaged Format
 
 In three stages:
 
-1. Python script installable via ``pip``
+1. Python script installable via *pip*
 2. self-contained Windows exe (still commandline)
 3. self-contained Windows exe with GUI (although that GUI was effectively be a website)
 
@@ -131,8 +144,9 @@ Libraries / Supporting Programs
 * `jrnl <https://github.com/maebert/jrnl>`_ -- useful to store general notes
 * `topydo <https://github.com/bram85/topydo>`_ -- todo list manager
 * `click <http://click.pocoo.org/6/>`_ -- for managing command line options
-* ``todo.txt``
-* `Pelican <http://docs.getpelican.com/en/>`_ -- static site generator
+* *todo.txt*
+* `Sphinx <http://www.sphinx-doc.org/>`_ -- static site generator
+* `ABlog <https://ablog.readthedocs.org/>`_ -- blogging extention to Sphinx
 * `Travis-CI <https://travis-ci.org/>`_ -- for automated testing
 
 Data File Structure
@@ -146,14 +160,25 @@ Data File Structure
       |- todo.txt                       (todo items)
       |- done.txt                       (completed todo items)
       |- prjct.txt                      (list of all projects)
-      |- pelican.conf                   (Pelican configuration file)
-      +- export\                        (temporary folder holding Markdown
-      |    |                             export of jrnl entries and todo list)
-      |    |- all-todo.md
-      |    |- 2015-07-20_project_entry.md
-      |    `- ...
-      `- site\                          (Exported Pelican site)
-           `- ...
+      |- source\                        (used as the Sphinx source files)
+      |    |- _static                   (folder for storage of images, etc.)
+      |    |- docs                      (folder contain documenation for prjct,
+      |    |                              including philosopy, getting started,
+      |    |                              etc.)
+      |    |- jrnl                      (temporary folder holding Markdown
+      |    |    |                         export of jrnl entries)
+      |    |    |- 2015-07-20_project_entry.md
+      |    |    ` ...
+      |    |- prjct                     (temporary folder holding reST export
+      |    |    |                         of project overviews)
+      |    |    |- my_project_name.rst
+      |    |    ` ...
+      |    |- conf.py                   (Sphinx main configuraiton file)
+      |    `- index.rst                 (source page for website front page)
+      `- build
+           `- dirhtml                   (Exported Sphinx site)
+                |- index.html
+                ` ...
 
 Usage
 -----
@@ -218,8 +243,8 @@ Usage
       --prjct=<path to prjct.txt file>  Select a prjct.txt file (project list)
       --export=<path>                   Specify the export path
 
-Goals are pulled ``jrnl`` by filtering for entries tagged with the project name
-and looking for a ``Goal`` heading.
+Goals are pulled *jrnl* by filtering for entries tagged with the project name
+and looking for a *Goal* heading.
 
 Getting Things Done -- 7 lists
 ------------------------------
@@ -259,3 +284,5 @@ Version History
 
 * working version of ``todo_export.to_html_lists()``
 * add ``setup.py`` file
+* sort todos intelligently
+* switch from *Pelican* to *Sphinx*
