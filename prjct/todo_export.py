@@ -30,19 +30,16 @@ from topydo.lib import TodoList
 from .config import COMPLETION_CUTOFF, TODO_SORT_STRING
 
 
-def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF, indent=''):
+def sorted_todos_by_project(completion_cutoff=COMPLETION_CUTOFF):
     ''' Takes our todo list, and returns two dictionaries of where the keys
-        equal to the project name, and the value is a string of the todo items
-        for that project as an HTML unordered list.
+        equal to the project name, and the value is a list of todo items under
+        that project.
 
         - Note that a todo item may be appended to multiple second level HTML
             lists if the item is listed under multiple projects.
         - Note that todo items without a project are discarded.
         - Note that completed items beyond `completion_cutoff` (measured in
-            days) are discarded.
-
-        Args:
-            indent  each line of the output is indented by this
+            days) are discarded.1
     '''
 
     completion_range = timestring.Range('last {} days'.format(completion_cutoff))
@@ -84,6 +81,26 @@ def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF, indent=''):
                             completed_todos[project].append(todo['source'])
                         except KeyError:
                             completed_todos[project] = [todo['source']]
+
+    return active_todos, completed_todos
+
+
+def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF, indent=''):
+    ''' Takes our todo list, and returns two dictionaries of where the keys
+        equal to the project name, and the value is a string of the todo items
+        for that project as an HTML unordered list.
+
+        - Note that a todo item may be appended to multiple second level HTML
+            lists if the item is listed under multiple projects.
+        - Note that todo items without a project are discarded.
+        - Note that completed items beyond `completion_cutoff` (measured in
+            days) are discarded.
+
+        Args:
+            indent  each line of the output is indented by this
+    '''
+
+    active_todos, completed_todos = sorted_todos_by_project(completion_cutoff)
 
     todo_html = {
         project.lower(): '{0}<ul class="prjct-task-list">\n{0}    <li class="prjct-task-list-item"><input type="checkbox" disabled>'.format(indent) + \

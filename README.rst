@@ -1,7 +1,7 @@
 prjct
 =====
 
-Project Management, v0.3, 2016-02-11
+Project Management for Living Life, v0.3, 2016-02-17
 
 Background
 ----------
@@ -47,7 +47,7 @@ the note. The though was to use the checkbox style used on GitHub.
 
 So an entry might look like:
 
-.. code-block::
+.. code-block:: text
 
     [2015-07-20 20:34] Project Update -- July 20
 
@@ -64,9 +64,6 @@ So an entry might look like:
 Todo items in an entry would automatically be assigned the creation date of
 the entry, and any tags on the entry would apply to the todo items in that
 entry.
-
-
-
 
 Pelican Integration
 '''''''''''''''''''
@@ -113,7 +110,7 @@ shortened version of the identifier, a little like *git* treats commit ID's.
 
 So a todo item might look like this:
 
-.. code-block::
+.. code-block:: text
 
     2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
     
@@ -152,7 +149,7 @@ Libraries / Supporting Programs
 Data File Structure
 -------------------
 
-.. code-block::
+.. code-block:: text
 
     .prjct\
       |- .prjct-config                  (configuration file)
@@ -162,9 +159,9 @@ Data File Structure
       |- prjct.txt                      (list of all projects)
       |- source\                        (used as the Sphinx source files)
       |    |- _static                   (folder for storage of images, etc.)
-      |    |- docs                      (folder contain documenation for prjct,
-      |    |                              including philosopy, getting started,
-      |    |                              etc.)
+      |    |- docs                      (folder contain documenation for
+      |    |                              prjct, including philosopy, getting
+      |    |                              started, etc.)
       |    |- jrnl                      (temporary folder holding Markdown
       |    |    |                         export of jrnl entries)
       |    |    |- 2015-07-20_project_entry.md
@@ -183,7 +180,7 @@ Data File Structure
 Usage
 -----
 
-.. code-block::
+.. code-block:: text
 
     Project Management
 

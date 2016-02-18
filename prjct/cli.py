@@ -12,19 +12,12 @@ import invoke
 
 from . import __version__, __title__
 from . import sphinx as prjct_sphinx
-from.config import JOURNALS, SPHINX_JRNL_SOURCES
+from.config import JOURNALS, SPHINX_JRNL_SOURCES, SPHINX_DOC_SOURCES, SPHINX_PROJECT_SOURCES
 
 
 @click.group()
 @click.pass_context
-# @click.argument('workbook_path')  # Data Source (Excel workbook)
-# @click.option('--config', default='sample_config',
-#              help='Directory containing configuration files.',
-#              show_default=True)
-# @click.option('-v', '--verbose', count=True,
-#              default=0,  # set default so a value gets passed, even if not set by the user
-#              help='Display more debugging output. Can be used up to twice.')
-#@click.argument('subcommand')
+
 @click.version_option(__version__, prog_name=__title__)
 def main(ctx, **kwag):
     pass
@@ -33,8 +26,12 @@ def main(ctx, **kwag):
 @main.command()
 @click.pass_context
 def sphinx(ctx):
+    invoke.run('del {}\\*.rst'.format(SPHINX_DOC_SOURCES))
+    invoke.run('del {}\\*.rst'.format(SPHINX_PROJECT_SOURCES))
     prjct_sphinx.generate_prjct_docs()
+    prjct_sphinx.geneate_projects_page()
     prjct_sphinx.generate_project_summaries()
+
 
 
 @main.command()
@@ -49,7 +46,10 @@ def jrnl(ctx):
 @click.pass_context
 def build(ctx):
     invoke.run('make dirhtml')
-    # TODO: this kills the colour output...
+    # set `pty` to True for colour output, but that's no supported on Windows :(
 
 
-# TODO: empty source folders before we run
+@main.command()
+@click.pass_context
+def z(ctx):
+    prjct_sphinx.geneate_projects_page()
