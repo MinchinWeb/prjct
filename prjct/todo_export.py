@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-"""
+'''
 Export Todo and Done items.
-"""
+'''
 
 import json
 import sys
@@ -30,7 +30,7 @@ from topydo.lib import TodoList
 from .config import COMPLETION_CUTOFF, TODO_SORT_STRING
 
 
-def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF):
+def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF, indent=''):
     ''' Takes our todo list, and returns two dictionaries of where the keys
         equal to the project name, and the value is a string of the todo items
         for that project as an HTML unordered list.
@@ -40,6 +40,9 @@ def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF):
         - Note that todo items without a project are discarded.
         - Note that completed items beyond `completion_cutoff` (measured in
             days) are discarded.
+
+        Args:
+            indent  each line of the output is indented by this
     '''
 
     completion_range = timestring.Range('last {} days'.format(completion_cutoff))
@@ -83,19 +86,38 @@ def to_html_dicts(completion_cutoff=COMPLETION_CUTOFF):
                             completed_todos[project] = [todo['source']]
 
     todo_html = {
-        project.lower(): '<ul class="prjct-task-list"><li class="prjct-task-list-item"><input type="checkbox" disabled>' + \
-                         '</li><li class="prjct-task-list-item"><input type="checkbox" disabled>'.join(todo_list) + \
-                         '</li></ul>'
+        project.lower(): '{0}<ul class="prjct-task-list">\n{0}    <li class="prjct-task-list-item"><input type="checkbox" disabled>'.format(indent) + \
+                         '</li>\n{}    <li class="prjct-task-list-item"><input type="checkbox" disabled>'.format(indent).join(todo_list) + \
+                         '</li>\n{}</ul>'.format(indent)
         for project, todo_list in active_todos.items()
     }
     done_html = {
-        project.lower(): '<ul class="prjct-task-list"><li class="prjct-task-list-item"><input type="checkbox" disabled checked>' + \
-                         '</li><li class="prjct-task-list-item"><input type="checkbox" disabled checked>'.join([todo[2:] for todo in todo_list]) + \
-                         '</li></ul>'
+        project.lower(): '{0}<ul class="prjct-task-list">\n{0}    <li class="prjct-task-list-item"><input type="checkbox" disabled checked>'.format(indent) + \
+                         '</li>\n{}    <li class="prjct-task-list-item"><input type="checkbox" disabled checked>'.format(indent).join([todo[2:] for todo in todo_list]) + \
+                         '</li>\n{}</ul>'.format(indent)
         for project, todo_list in completed_todos.items()
     }
 
     return todo_html, done_html
 
-if __name__ == "__main__":
+
+def project_list():
+    ''' Takes our todo list and our done list, and returns a (Python) list of
+        all projects found.
+    '''
+
+    todofile = TodoFile.TodoFile(topydo_config().todotxt())
+    # print('Loaded todo file from {}'.format(todofile.path))
+    todotodos = TodoList.TodoList(todofile.read())
+    todo_projects = todotodos.projects()
+
+    donefile = TodoFile.TodoFile(topydo_config().archive())
+    # print('Loaded done file from {}'.format(donefile.path))
+    donetodos = TodoList.TodoList(donefile.read())
+    done_projects = donetodos.projects()
+
+    return list(todo_projects | done_projects)  # operater called 'join' and gives the union of the two sets
+
+
+if __name__ == '__main__':
     to_html_dicts()

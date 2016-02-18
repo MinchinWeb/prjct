@@ -286,3 +286,6 @@ Version History
 * add ``setup.py`` file
 * sort todos intelligently
 * switch from *Pelican* to *Sphinx*
+
+
+* possible reST primer -- https://aert-notes-dev.readthedocs.org/en/latest/content/rest/

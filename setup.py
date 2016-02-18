@@ -57,4 +57,7 @@ setup(
         'Topic :: Office/Business',
         'Topic :: Text Processing',
         ],
+    entry_points={
+        'console_scripts': ['prjct=prjct.cli:main'],
+    }
 )
