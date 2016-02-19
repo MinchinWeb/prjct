@@ -23,10 +23,11 @@ def generate_prjct_docs(export_path=SPHINX_DOC_SOURCES, relative_path=True):
     '''
 
     here = Path(__file__)
-    readme_loc = here.parent / '..' / 'README.rst'
+    readme_loc = here.parent / '..' / 'readme.rst'
+    changes_loc = readme_loc.with_name('changes.rst')
 
     # everything but documentation front page
-    docs_files = []
+    docs_files = [changes_loc]
 
     if relative_path:
         export_loc = Path.cwd() / export_path / '.no-file'
@@ -151,6 +152,9 @@ def geneate_projects_page(export_path=(SPHINX_PROJECT_SOURCES + '/index.rst'), r
         my_html += ':doc:`{0} <{2}>`{width} {1}\n'.format(project[0].replace('_', ' '), project[1], project[0].lower(), width=' '*2*(table_width_1-len(project[0])))
     my_html += '='*(table_width_1*2 + 10) + ' ' + '='*table_width_2 + '\n'
 
-    my_html += '\n\n.. :toctree::\n    :hidden:\n    :glob:\n\n    *\n'
+    my_html += '\n\n.. :toctree::\n    :hidden:\n    :glob:\n\n'
+    for project in project_list:
+        my_html += '    {} Summary\n'.format(project.lower())
+    my_html += '\n'
 
     export_loc.write_text(my_html)

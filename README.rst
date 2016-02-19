@@ -158,20 +158,21 @@ Data File Structure
       |- done.txt                       (completed todo items)
       |- prjct.txt                      (list of all projects)
       |- source\                        (used as the Sphinx source files)
-      |    |- _static                   (folder for storage of images, etc.)
+      |    |- _static                   (folder for storage of images, etc)
       |    |- docs                      (folder contain documenation for
-      |    |                              prjct, including philosopy, getting
-      |    |                              started, etc.)
+      |    |                              getting prjct, including
+      |    |                              philosopy, started, etc.)
       |    |- jrnl                      (temporary folder holding Markdown
       |    |    |                         export of jrnl entries)
       |    |    |- 2015-07-20_project_entry.md
       |    |    ` ...
-      |    |- prjct                     (temporary folder holding reST export
-      |    |    |                         of project overviews)
+      |    |- prjct                     (temporary folder holding reST
+      |    |    |                         export of project overviews)
       |    |    |- my_project_name.rst
       |    |    ` ...
       |    |- conf.py                   (Sphinx main configuraiton file)
-      |    `- index.rst                 (source page for website front page)
+      |    `- index.rst                 (source page for website front
+      |                                   page)
       `- build
            `- dirhtml                   (Exported Sphinx site)
                 |- index.html
@@ -188,56 +189,64 @@ Usage
       prjct [options]
       prjct.py [options]
       prjct usage           Displays this screen and exits
-      prjct review          Review all projects listed in in the prjct.txt file to
-                                ensure they all have a next item. If there is no
-                                next item, you are asked to either select one of
-                                the existing todo items, or add a new one
-      prjct (ls | list)     List all projects in the default prjct.txt file
+      prjct review          Review all projects listed in in the prjct.txt
+                                file to ensure they all have a next item.
+                                If there is nonext item, you are asked to
+                                either select one ofthe existing todo
+                                items, or add a new one
+      prjct (ls | list)     List all projects in the default prjct.txt
+                                file
       prjct add <project>   Add a project to the list
       prjct rm <project number>
                             Remove a project from the list
       prjct someday <project number>
-                            Move a project from the default list to the someday
-                                list
+                            Move a project from the default list to the
+                                someday list
       prjct goal (project number | project name)
                             Displays the goal for a given project
-      prjct generate        Generates a list of project based on your todo list
+      prjct generate        Generates a list of project based on your todo
+                                list
       todo top              List top todo items
       todo add <item>       Add an item to the todo list
       todo do <item>...     Do item on todo.txt
       todo pri <item>... <priority>
-                            Changes (or adds) the priority (A-Z) to the given todo
-                                item(s)
+                            Changes (or adds) the priority (A-Z) to the
+                                given todo item(s)
       todo depri <item>... <priority>
                             Removes the priority to the given todo item(s)
       todo (ls | list) [filter text]
-                            Lists all items on the todo list after applying the
-                                filter
-      jrnl [jrnl options]   calls the jrnl program; allows entry of goals, notes, etc
-      prjct report          Generates a report listing all projects, goals, notes,
-                                done todo items, and outstanding todo items
-      
-      todo context          Generates a report, listed all todo items, which each
-                                context in a separate file
-      prjct about           Displays a more complete 'version' page, including
-                                the goals of the project and import dates
+                            Lists all items on the todo list after
+                                applying the filter
+      jrnl [jrnl options]   calls the jrnl program; allows entry of goals,
+                                notes, etc
+      prjct report          Generates a report listing all projects,
+                                goals, notes, done todo items, and
+                                outstanding todo items
+      todo context          Generates a report, listed all todo items,
+                                which each context in a separate file
+      prjct about           Displays a more complete 'version' page,
+                                including the goals of the project and
+                                import dates
       prjct changes         Displays the changelog
       prjct credits         Displays all contributors to the project
       prjct (phil | philosophy)
-                            Displays some philosophical thoughts on how to get the
-                                most out of the system
-      prjct howto           Displays a basic tutorial on how to use the program
+                            Displays some philosophical thoughts on how to
+                                get the most out of the system
+      prjct howto           Displays a basic tutorial on how to use the
+                                program
 
     Options:
-      -h --help                         Dispalys a list of available commands,
-                                            recommends running 'usage' for more
-                                            details, and exits
+      -h --help                         Dispalys a list of available
+                                            commands, recommends running
+                                            'usage' for more details, and
+                                            exits
       -v --version                      Show version, and exit
       --config=<path to .prjct-config>  Select a configuration file
       --todo=<path to todo.txt file>    Select a todo.txt file
-      --done=<path to done.txt file>    Select a done.txt file (completed todo
-                                        items)
-      --prjct=<path to prjct.txt file>  Select a prjct.txt file (project list)
+      --done=<path to done.txt file>    Select a done.txt file (completed
+                                            todo items)
+      --prjct=<path to prjct.txt file>  Select a prjct.txt file (project
+                                            list)
       --export=<path>                   Specify the export path
 
 Goals are pulled *jrnl* by filtering for entries tagged with the project name
@@ -263,26 +272,10 @@ quasi implemented by assigning the tasks in question a (W) priority. Reference
 material is intended to be kept elsewhere. The 'someday/maybe' project list
 is designed, ultimately, to be supported.
 
-Version History
----------------
+.. for Version History, see changes.rst
 
-*Version*: 0.1, 2013-11-30
-''''''''''''''''''''''''''
+.. toctree::
+   :hidden:
 
-* original conception
-
-*Version*: 0.2, 2015-07-20
-''''''''''''''''''''''''''
-
-* detail ``jrnl`` and ``todo.txt`` integration
-
-*Version*: 0.3, 2016-02-11
-''''''''''''''''''''''''''
-
-* working version of ``todo_export.to_html_lists()``
-* add ``setup.py`` file
-* sort todos intelligently
-* switch from *Pelican* to *Sphinx*
-
-
-* possible reST primer -- https://aert-notes-dev.readthedocs.org/en/latest/content/rest/
+   changes
+   *
