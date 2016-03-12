@@ -40,6 +40,7 @@ setup(
                       'invoke',
                       'winshell',
                       'green',
+                      'titlecase'
                       ],
     author_email='w_minchin@hotmail.com',
     description='Project Management for Living Life',

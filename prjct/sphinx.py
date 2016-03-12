@@ -12,6 +12,7 @@ import jrnl.install as jrnl_install
 import jrnl.util as jrnl_util
 import jrnl.Journal as jrnl_Journal
 import jrnl.plugins.util as jrnl_plugins_util
+from titlecase import titlecase
 
 from .config import SPHINX_DOC_SOURCES, SPHINX_PROJECT_SOURCES, JOURNALS
 from . import todo_export
@@ -62,10 +63,10 @@ def generate_project_summaries(export_path=SPHINX_PROJECT_SOURCES, relative_path
     ''' Generates prjct's summeries of the user's projects. '''
 
     if relative_path:
-        export_loc = Path.cwd() / export_path / '.no-file'
+        export_loc = Path.cwd() / export_path / 'tag' / '.no-file'
     else:
         # we have an absolute path
-        export_loc = Path(export_path)
+        export_loc = Path(export_path) /  'tag'
 
     # make the folder if it doesn't exist
     export_loc.parent.mkdir(exist_ok=True)
@@ -98,22 +99,25 @@ def generate_project_summaries(export_path=SPHINX_PROJECT_SOURCES, relative_path
     # for project_name in project_list:
     # only do projects with todo and done items (or project summaries, when we get those defined)
     for project_name in todo_project_list_lower:
-        html_parts = ['']*6
+        html_parts = ['']*7
 
-        html_parts[0] = '{} Summary'.format(project_name)
-        html_parts[1] = '='*len(html_parts[0]) + '\n'
-        html_parts[2] = ''  # project summary
+        html_parts[0] = '.. _prjct-{}:\n'.format(project_name.lower())
+        html_parts[1] = '{} Summary'.format(titlecase(project_name.replace('_', ' ')))
+        html_parts[2] = '='*len(html_parts[0]) + '\n'
+        html_parts[3] = ''  # project summary
         if todo_html.get(project_name):
-            html_parts[3] = 'To-Do Items\n-----------\n\n.. raw :: html\n\n{}\n'.format(todo_html.get(project_name))
+            html_parts[4] = 'To-Do Items\n-----------\n\n.. raw :: html\n\n{}\n'.format(todo_html.get(project_name))
         if done_html.get(project_name):
-            html_parts[4] = 'Done Items\n----------\n\n.. raw :: html\n\n{}\n'.format(done_html.get(project_name))
+            html_parts[5] = 'Done Items\n----------\n\n.. raw :: html\n\n{}\n'.format(done_html.get(project_name))
         if project_name in jrnl_projects:
-            html_parts[5] = 'Notes\n-----\n\n.. postlist::\n   :tags: {}\n   :date: %A, %B %d, %Y\n   :list-style: circle\n   :format: {{title}} on {{date}}\n   :excerpts:\n'.format(project_name)
+            html_parts[6] = 'Notes\n-----\n\n.. postlist::\n   :tags: {}\n   :date: %A, %B %d, %Y\n   :list-style: circle\n   :format: {{title}} on {{date}}\n   :excerpts:\n'.format(project_name)
 
         my_html = '\n'.join(html_parts)
 
         dest_loc = export_loc.with_name('{}.rst'.format(project_name))
         dest_loc.write_text(my_html)
+
+    print('[Per Project tag files exported to {}]'.format(dest_loc.parent))
 
 
 def geneate_projects_page(export_path=(SPHINX_PROJECT_SOURCES + '/index.rst'), relative_path=True):
@@ -147,14 +151,18 @@ def geneate_projects_page(export_path=(SPHINX_PROJECT_SOURCES + '/index.rst'), r
     #print(table_width_1, table_width_2)
 
     my_html = 'All Projects\n============\n\n'
-    my_html += '='*(table_width_1*2 + 10) + ' ' + '='*table_width_2 + '\n'
+    my_html += '='*(table_width_1*2 + 16) + ' ' + '='*table_width_2 + '\n'
     for project in table_prep:
-        my_html += ':doc:`{0} <{2}>`{width} {1}\n'.format(project[0].replace('_', ' '), project[1], project[0].lower(), width=' '*2*(table_width_1-len(project[0])))
-    my_html += '='*(table_width_1*2 + 10) + ' ' + '='*table_width_2 + '\n'
+        my_html += ':ref:`{0} <prjct-{2}>`{width} {1}\n'.format(project[0].replace('_', ' '), project[1], project[0].lower(), width=' '*2*(table_width_1-len(project[0])))
+    my_html += '='*(table_width_1*2 + 16) + ' ' + '='*table_width_2 + '\n'
 
+    ''' # not working
     my_html += '\n\n.. :toctree::\n    :hidden:\n    :glob:\n\n'
+    my_html += '    ../jrnl/tag/*\n'
     for project in project_list:
         my_html += '    {} Summary\n'.format(project.lower())
+    '''
     my_html += '\n'
 
     export_loc.write_text(my_html)
+    print('[Project Index exported to {}]'.format(export_loc))

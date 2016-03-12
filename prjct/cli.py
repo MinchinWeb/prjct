@@ -9,6 +9,7 @@ Command Line Interface
 
 import click
 import invoke
+from pathlib import Path
 
 from . import __version__, __title__
 from . import sphinx as prjct_sphinx
@@ -26,18 +27,31 @@ def main(ctx, **kwag):
 @main.command()
 @click.pass_context
 def sphinx(ctx):
-    invoke.run('del {}\\*.rst'.format(SPHINX_DOC_SOURCES))
-    invoke.run('del {}\\*.rst'.format(SPHINX_PROJECT_SOURCES))
+    try:
+        invoke.run('del {}\\*.rst'.format(SPHINX_DOC_SOURCES))
+    except invoke.exceptions.Failure:
+        pass
+    try:
+        invoke.run('del {}\\*.rst'.format(SPHINX_PROJECT_SOURCES))
+    except invoke.exceptions.Failure:
+        pass
     prjct_sphinx.generate_prjct_docs()
     prjct_sphinx.geneate_projects_page()
-    prjct_sphinx.generate_project_summaries()
+    prjct_sphinx.generate_project_summaries(SPHINX_JRNL_SOURCES)
 
 
 
 @main.command()
 @click.pass_context
 def jrnl(ctx):
-    invoke.run('del {}\\*.md'.format(SPHINX_JRNL_SOURCES))
+    # make the directory if it doesn't exist
+    Path(SPHINX_JRNL_SOURCES).mkdir(exist_ok=True)
+
+    try:
+        invoke.run('del {}\\*.md'.format(SPHINX_JRNL_SOURCES))
+    except invoke.exceptions.Failure:
+        pass
+
     for journal in JOURNALS:
         invoke.run('jrnl {} --export prjct -o {}'.format(journal, SPHINX_JRNL_SOURCES))
 
