@@ -138,6 +138,7 @@ def project_list():
 
     return list(todo_projects | done_projects)  # operater called 'join' and gives the union of the two sets
 
-
+'''
 if __name__ == '__main__':
     to_html_dicts()
+'''

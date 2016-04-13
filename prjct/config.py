@@ -51,10 +51,13 @@ todo:
     sort_string: 'desc:done,desc:importance,due,desc:priority,asc:creation'
 
 sphinx:
-    sources_dir: source
     doc_source: sources\docs
     jrnl_sources: sources\jrnl
     project_sources: sources\projects
+
+# can be an absolute or relative path
+# if a relative path is given, it is relative to this file
+descriptions_dir: descriptions
 
 # which journals should be included
 jrnl:
@@ -68,5 +71,7 @@ jrnl:
 def load(): 
     config_file = file_path()
     cfg = reyaml.load_from_file(str(config_file))
+    cfg['file_path'] = str(config_file)
     # TODO: add error checking
+    # TODO: add inserting default values
     return cfg

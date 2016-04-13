@@ -1,6 +1,8 @@
 prjct Changelog
 ===============
 
+- :feature:`-` render project descirptions files
+- :feature:`-` move configuration to external file
 - :bug:`-` working version of ``todo_export.to_html_lists()``
 - :support:`-` add ``setup.py`` file
 - :bug:`-` sort todos intelligently

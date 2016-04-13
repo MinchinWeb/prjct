@@ -1,21 +1,23 @@
 <div class='prjct'>
+	<h1>{{ tag }}</h1>
+
 	<!-- Project Description -->
+	{% if tag in PRJCT_DESC %}
+		{{ PRJCT_DESC[tag] }}
+		<hr />
+	{% endif %}
 
 	<!-- To-do items -->
-	{% for project, value in PRJCT_TODO.items() %}
-		{% if project == tag %}
-			<h2>To Do Items</h2>
-			{{ value }}
-			<hr />
-		{% endif %}
-	{% endfor %}
+	{% if tag in PRJCT_TODO %}
+		<h2>To Do Items</h2>
+		{{ PRJCT_TODO[tag] }}
+		<hr />
+	{% endif %}
 
 	<!-- Done items -->
-	{% for project, value in PRJCT_DONE.items() %}
-		{% if project == tag %}
-			<h2>Completed Items</h2>
-			{{ value }}
-			<hr />
-		{% endif %}
-	{% endfor %}
+	{% if tag in PRJCT_DONE %}
+		<h2>Completed Items</h2>
+		{{ PRJCT_DONE[tag] }}
+		<hr />
+	{% endif %}
 </div>
