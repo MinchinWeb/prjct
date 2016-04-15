@@ -18,3 +18,4 @@ from . import todo_export
 from . import config
 from . import sphinx
 from . import descriptions
+from . import titlecase
