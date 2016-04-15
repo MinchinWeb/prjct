@@ -23,7 +23,7 @@ def generate_prjct_docs(export_path=None, relative_path=True):
         `export_path`.
     '''
     if config.confirm():
-        cfg = confirm.load()
+        cfg = config.load()
         if export_path is None:
             export_path = cfg['sphinx']['doc_sources']
 
@@ -71,7 +71,7 @@ def generate_project_summaries(export_path=None, relative_path=True):
     ''' Generates prjct's summeries of the user's projects. '''
 
     if config.confirm():
-        cfg = confirm.load()
+        cfg = config.load()
         if export_path is None:
             export_path = cfg['sphinx']['project_sources']
 
@@ -87,7 +87,7 @@ def generate_project_summaries(export_path=None, relative_path=True):
         project_list = []
         # get list of projects from Jrnl
         all_journal_config = jrnl_install.load_or_install_jrnl()
-        for journal_name in JOURNALS:
+        for journal_name in cfg['jrnl']['journals']:
             journal_config = jrnl_util.scope_config(all_journal_config, journal_name)
             journal = jrnl_Journal.open_journal(journal_name, journal_config)
             jrnl_project_list = jrnl_plugins_util.get_tags_count(journal)
@@ -107,7 +107,7 @@ def generate_project_summaries(export_path=None, relative_path=True):
 
         project_list = set(project_list)
 
-        todo_html, done_html = todo_export.to_html_dicts(indent=" "*4)
+        todo_html, done_html = todo_export.to_html_dicts(cfg, indent=" "*4)
 
         # for project_name in project_list:
         # only do projects with todo and done items (or project summaries, when we get those defined)
@@ -143,7 +143,7 @@ def geneate_projects_page(export_path=None, relative_path=True):
     '''
 
     if config.confirm():
-        cfg = confirm.load()
+        cfg = config.load()
         if export_path is None:
             export_path = cfg['sphinx']['project_sources'] + '/index.rst'
 
@@ -159,7 +159,7 @@ def geneate_projects_page(export_path=None, relative_path=True):
         # sort alphabetically, case-insensitive, by project
         project_list = sorted(todo_project_list, key=lambda i: str(i[0]).lower())
 
-        active_todos, _ = todo_export.sorted_todos_by_project()
+        active_todos, _ = todo_export.sorted_todos_by_project(cfg)
 
         # create a list of tuples of each project and it's top rated item
         table_prep = []
