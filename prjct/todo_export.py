@@ -88,7 +88,8 @@ def sorted_todos_by_project(cfg):
     return active_todos, completed_todos
 
 
-def to_html_dicts(cfg, indent=''):
+def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
+                                  done_icon='<i class="fa fa-check-square-o"></i> '):
     ''' Takes our todo list, and returns two dictionaries of where the keys
         equal to the project name, and the value is a string of the todo items
         for that project as an HTML unordered list.
@@ -99,6 +100,16 @@ def to_html_dicts(cfg, indent=''):
         - Note that completed items beyond `completion_cutoff` (measured in
             days) are discarded.
 
+        To make use of the default checkboxes, install FontAwesome in your page.
+
+        Alternate icons:
+
+        ```
+        open_icon = '<input type="checkbox" disabled> '
+        done_icon = '<input type="checkbox" disabled checked> '
+
+        ```
+
         Args:
             indent  each line of the output is indented by this
     '''
@@ -106,15 +117,17 @@ def to_html_dicts(cfg, indent=''):
     active_todos, completed_todos = sorted_todos_by_project(cfg)
 
     todo_html = {
-        project.lower(): '{0}<ul class="prjct-task-list">\n{0}    <li class="prjct-task-list-item"><input type="checkbox" disabled>'.format(indent) + \
-                         '</li>\n{}    <li class="prjct-task-list-item"><input type="checkbox" disabled>'.format(indent).join(todo_list) + \
-                         '</li>\n{}</ul>'.format(indent)
+        project.lower(): '{0}<ul class="prjct-task-list">\n\
+                          {0}    <li class="prjct-task-list-item">{1}'.format(indent, open_icon) + \
+                         '</li>\n{0}    <li class="prjct-task-list-item">{1}'.format(indent, open_icon).join(todo_list) + \
+                         '</li>\n{0}</ul>'.format(indent)
         for project, todo_list in active_todos.items()
     }
     done_html = {
-        project.lower(): '{0}<ul class="prjct-task-list">\n{0}    <li class="prjct-task-list-item"><input type="checkbox" disabled checked>'.format(indent) + \
-                         '</li>\n{}    <li class="prjct-task-list-item"><input type="checkbox" disabled checked>'.format(indent).join([todo[2:] for todo in todo_list]) + \
-                         '</li>\n{}</ul>'.format(indent)
+        project.lower(): '{0}<ul class="prjct-task-list">\n\
+                          {0}    <li class="prjct-task-list-item">{1}'.format(indent, done_icon) + \
+                         '</li>\n{0}    <li class="prjct-task-list-item">{1}'.format(indent, done_icon).join([todo[2:] for todo in todo_list]) + \
+                         '</li>\n{0}</ul>'.format(indent)
         for project, todo_list in completed_todos.items()
     }
 
