@@ -83,3 +83,21 @@ def to_html_dict(cfg, markdown_extensions=[]):
         html_dict[k] = markdown(v, extensions=markdown_extensions)
 
     return html_dict
+
+
+def all_projects_entry(cfg):
+    ''' Creates a (basic) markdown entry that is tagged with all projects.
+    '''
+
+    all_tags_str = ', '.join(project_list(cfg))
+
+    my_entry = '''\
+title: All Projects
+date: 2012-1-1
+tags: {}
+
+This is a placeholder entry created by *prjct*, tagged with all projects with
+description files.
+'''.format(all_tags_str)
+
+    return my_entry

@@ -14,6 +14,7 @@ from pathlib import Path
 from . import __version__, __title__
 from . import sphinx as prjct_sphinx
 from . import config as prjct_config
+from . import multi_source
 
 
 @click.group()
@@ -89,6 +90,15 @@ def config(ctx):
         print('No existing configuration file found. Default configuration '
               'written to\n{}\nPlease reveiw configuration.'\
               .format(prjct_config.file_path()))
+
+
+@main.command()
+@click.pass_context
+@click.argument('output', type=click.File('w'))
+def project_entry(ctx, output):
+    '''Creates an entry listing all projects defined.'''
+    output.write(multi_source.all_projects_entry())
+    print('[All Projects Entry exported to {}]'.format(output.name))
 
 
 @main.command()

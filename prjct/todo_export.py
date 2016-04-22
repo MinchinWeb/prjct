@@ -37,7 +37,7 @@ def sorted_todos_by_project(cfg):
             lists if the item is listed under multiple projects.
         - Note that todo items without a project are discarded.
         - Note that completed items beyond `completion_cutoff` (measured in
-            days) are discarded.1
+            days) are discarded.
     '''
     '''
     print(type(cfg))
@@ -149,7 +149,26 @@ def project_list():
     donetodos = TodoList.TodoList(donefile.read())
     done_projects = donetodos.projects()
 
-    return list(todo_projects | done_projects)  # operater called 'join' and gives the union of the two sets
+    return list(todo_projects | done_projects)  # operator called 'join' and gives the union of the two sets
+
+
+def all_projects_entry():
+    ''' Creates a (basic) markdown entry that is tagged with all projects.
+    '''
+
+    all_tags_str = ', '.join(project_list())
+
+    my_entry = '''\
+title: All Projects
+date: 2012-1-1
+tags: {}
+
+This is a placeholder entry created by *prjct*, tagged with all projects listed
+on your todo and done lists.
+'''.format(all_tags_str)
+
+    return my_entry
+
 
 '''
 if __name__ == '__main__':
