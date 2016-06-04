@@ -10,11 +10,13 @@ import sys
 
 import timestring
 
-from topydo.cli.CLIApplicationBase import error
+from topydo.ui.CLIApplicationBase import error
 from topydo.lib import TodoFile
-from topydo.lib.Sorter import Sorter
 from topydo.lib.Config import config as topydo_config
 from topydo.lib.Config import ConfigError
+from topydo.lib.Filter import HiddenTagFilter
+from topydo.lib.Sorter import Sorter
+
 # First thing is to poke the configuration and check whether it's sane
 # The modules below may already read in configuration upon import, so
 # make sure to bail out if the configuration is invalid.
@@ -54,7 +56,8 @@ def sorted_todos_by_project(cfg):
     todotodos = TodoList.TodoList(todofile.read())
     # todolist = my_sorter.sort(todolist)            # in topydo v0.10
     # json_str = JsonPrinter().print_list(todolist)  # in topydo v0.10
-    todolist = my_sorter.sort(todotodos.todos())
+    todolist = my_sorter.sort(todotodos.todos())            # sort before filters
+    todolist = HiddenTagFilter(todolist).filter(todolist)   # filters return a list, so apply them all at once?
     todo_json_str = JsonPrinter().print_list(todolist)
     todo_json = json.loads(todo_json_str)
 
@@ -62,6 +65,7 @@ def sorted_todos_by_project(cfg):
     # print('Loaded done file from {}'.format(donefile.path))
     donetodos = TodoList.TodoList(donefile.read())
     donelist = my_sorter.sort(donetodos.todos())
+    donelist = HiddenTagFilter(donelist).filter(donelist)
     done_json_str = JsonPrinter().print_list(donelist)
     done_json = json.loads(done_json_str)
 

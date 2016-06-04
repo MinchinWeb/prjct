@@ -22,7 +22,7 @@ class Test_todo_export(unittest.TestCase):
         OUTPUT_FILE_NAME = 'test_todo_export.html'
         output_file = p.parent / 'results' / OUTPUT_FILE_NAME
 
-        todos, dones = to_html_dicts()
+        todos, dones = to_html_dicts(prjct.config.load())
 
         todos_split = "\n".join(["<h3>" + project + "</h3>" + todo_list for project, todo_list in todos.items()])
         dones_split = "\n".join(["<h3>" + project + "</h3>" + done_list for project, done_list in dones.items()])
