@@ -32,7 +32,7 @@ setup(
     author='William Minchin',
     install_requires=[#'timestring>1.6.2',
                       'cloudmesh-timestring',
-                      'topydo',
+                      'topydo>0.10.1',
                       'jrnl>=2.0.0rc1',
                       'ablog>=0.8',
                       'sphinx>=1.3',

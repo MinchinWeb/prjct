@@ -1,6 +1,7 @@
 prjct Changelog
 ===============
 
+- :bug:`-` updated for `topydo` v0.10.2
 - :feature:`-` render project descirptions files
 - :feature:`-` move configuration to external file
 - :bug:`-` working version of ``todo_export.to_html_lists()``
