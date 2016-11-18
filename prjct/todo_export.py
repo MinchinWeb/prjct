@@ -17,6 +17,8 @@ from topydo.lib.Config import ConfigError
 from topydo.lib.Filter import HiddenTagFilter
 from topydo.lib.Sorter import Sorter
 
+from . import __version__
+
 # First thing is to poke the configuration and check whether it's sane
 # The modules below may already read in configuration upon import, so
 # make sure to bail out if the configuration is invalid.
@@ -57,7 +59,8 @@ def sorted_todos_by_project(cfg):
     # todolist = my_sorter.sort(todolist)            # in topydo v0.10
     # json_str = JsonPrinter().print_list(todolist)  # in topydo v0.10
     todolist = my_sorter.sort(todotodos.todos())    # sort before filters
-    todolist = HiddenTagFilter().filter(todolist)   # filters return a list, so apply them all at once?
+    # filters return a list, so apply them all at once?
+    todolist = HiddenTagFilter().filter(todolist)
     todo_json_str = JsonPrinter().print_list(todolist)
     todo_json = json.loads(todo_json_str)
 
@@ -153,7 +156,15 @@ def project_list():
     donetodos = TodoList.TodoList(donefile.read())
     done_projects = donetodos.projects()
 
-    return list(todo_projects | done_projects)  # operator called 'join' and gives the union of the two sets
+    # operator called 'join' and gives the union of the two sets
+    all_projects_list = list(todo_projects | done_projects)
+    # remove duplicate values if we ignore case
+    # http://stackoverflow.com/a/27531275/4276230
+    unique_projects_dict = {v.lower(): v for v in all_projects_list}.values()
+    unique_projects_list = list(unique_projects_dict)
+    # sort the list, case insensitive
+    sorted_project_list = sorted(unique_projects_list, key=str.lower)
+    return sorted_project_list
 
 
 def all_projects_entry():
@@ -167,9 +178,9 @@ title: All Projects
 date: 2012-1-1
 tags: {}
 
-This is a placeholder entry created by *prjct*, tagged with all projects listed
-on your todo and done lists.
-'''.format(all_tags_str)
+This is a placeholder entry created by *prjct* v.{}, tagged with all projects
+listed on your todo and done lists.
+'''.format(all_tags_str, __version__)
 
     return my_entry
 
