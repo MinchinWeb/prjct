@@ -9,7 +9,19 @@ from pathlib import Path
 import reyaml
 import appdirs
 
+# TODO: Can we pull invoke's config and use it here?
+#       That is set up to allow nested configuration, and configuaration using
+#       YAML< JSON, or py files.
+#       http://docs.pyinvoke.org/en/0.13.0/concepts/configuration.html
+#       https://github.com/pyinvoke/invoke/blob/master/invoke/config.py
+
+# TODO: deal with versioning, and updating on version updates
+
+# TODO: add default configuration, so it doesn't break if values aren't
+#       provided
+
 CFG_FILE = 'prjct.yaml'
+MARKDOWN_EXT = ['.md', ]
 
 '''
 # module constants
@@ -20,6 +32,7 @@ SPHINX_DOC_SOURCES = SPHINX_SOURCES + '\docs'
 SPHINX_JRNL_SOURCES = SPHINX_SOURCES + '\jrnl'
 SPHINX_PROJECT_SOURCES = SPHINX_SOURCES + '\projects'
 JOURNALS = ['default', 'dayone']
+ALL_PROJECTS_ENTRY_DATE = '2012-01-01'
 '''
 
 
@@ -42,6 +55,7 @@ def confirm():
     if not config_file.exists():
         config_file.write_text('''\
 # This is the configuration file for PRJCT.
+# http://www.github.com/MinchinWeb/prjct
 # All values are required. This is a YAML formatted file.
  
 
@@ -63,6 +77,9 @@ descriptions_dir: descriptions
 jrnl:
     journals:
         - default
+
+export:
+    all_projects_date: 2012-01-01
 ''')
         return False
     else:

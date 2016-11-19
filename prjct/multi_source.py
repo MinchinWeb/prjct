@@ -35,14 +35,15 @@ def all_projects_entry():
     '''
 
     all_tags_str = ', '.join(project_list())
+    cfg = prjct_config.load()
 
     my_entry = '''\
 title: All Projects
-date: 2012-1-1
+date: {}
 tags: {}
 
 This is a placeholder entry created by *prjct* v.{}, tagged with all projects
 listed on your todo list, your done lists, and your project description files.
-'''.format(all_tags_str, __version__)
+'''.format(cfg['export']['all_projects_date'], all_tags_str, __version__)
 
     return my_entry

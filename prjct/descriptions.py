@@ -12,8 +12,10 @@ from pathlib import Path
 
 from markdown import markdown
 
+from . import __version__
+from . import config as prjct_config
+from .config import MARKDOWN_EXT
 
-MARKDOWN_EXT = ['.md', ]
 
 
 def file_path(cfg):
@@ -85,19 +87,20 @@ def to_html_dict(cfg, markdown_extensions=[]):
     return html_dict
 
 
-def all_projects_entry(cfg):
+def all_projects_entry():
     ''' Creates a (basic) markdown entry that is tagged with all projects.
     '''
 
+    cfg = prjct_config.load()
     all_tags_str = ', '.join(project_list(cfg))
 
     my_entry = '''\
 title: All Projects
-date: 2012-1-1
+date: {}
 tags: {}
 
-This is a placeholder entry created by *prjct*, tagged with all projects with
-description files.
-'''.format(all_tags_str)
+This is a placeholder entry created by *prjct* v.{}, tagged with all projects
+with description files.
+'''.format(cfg['export']['all_projects_date'], all_tags_str, __version__)
 
     return my_entry

@@ -18,6 +18,7 @@ from topydo.lib.Filter import HiddenTagFilter
 from topydo.lib.Sorter import Sorter
 
 from . import __version__
+from . import config as prjct_config
 
 # First thing is to poke the configuration and check whether it's sane
 # The modules below may already read in configuration upon import, so
@@ -172,20 +173,15 @@ def all_projects_entry():
     '''
 
     all_tags_str = ', '.join(project_list())
+    cfg = prjct_config.load()
 
     my_entry = '''\
 title: All Projects
-date: 2012-1-1
+date: {}
 tags: {}
 
 This is a placeholder entry created by *prjct* v.{}, tagged with all projects
 listed on your todo and done lists.
-'''.format(all_tags_str, __version__)
+'''.format(cfg['export']['all_projects_date'], all_tags_str, __version__)
 
     return my_entry
-
-
-'''
-if __name__ == '__main__':
-    to_html_dicts()
-'''
