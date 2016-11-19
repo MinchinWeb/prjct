@@ -40,6 +40,7 @@ setup(
                       'click',
                       'invoke',
                       'winshell',
+                      'appdirs',
                       'green',
                       'markdown',
                       # for titlecase filter

@@ -6,8 +6,8 @@ Configuration for prjct
 """
 
 from pathlib import Path
-import winshell
 import reyaml
+import appdirs
 
 CFG_FILE = 'prjct.yaml'
 
@@ -24,7 +24,7 @@ JOURNALS = ['default', 'dayone']
 
 
 def file_path():
-    return Path(winshell.folder('local_appdata')) / 'Minchin' / 'prjct' / CFG_FILE
+    return Path(appdirs.user_config_dir('prjct', 'Minchin')) / CFG_FILE
 
 
 def confirm():
@@ -68,7 +68,8 @@ jrnl:
     else:
         return True
 
-def load(): 
+
+def load():
     config_file = file_path()
     cfg = reyaml.load_from_file(str(config_file))
     cfg['file_path'] = str(config_file)

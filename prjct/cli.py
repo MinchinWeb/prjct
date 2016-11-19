@@ -17,9 +17,10 @@ from . import config as prjct_config
 from . import multi_source
 
 
+# TODO: switch over to run shell commands directly from click ??
+
 @click.group()
 @click.pass_context
-
 @click.version_option(__version__, prog_name=__title__)
 def main(ctx, **kwag):
     pass
@@ -45,7 +46,6 @@ def sphinx(ctx):
         print('No existing configuration file found. Default configuration \
               written to\n{}\nPlease reveiw configuration and re-run.'\
               .format(prjct_config.file_path()))
-
 
 
 @main.command()
