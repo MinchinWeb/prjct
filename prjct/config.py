@@ -20,6 +20,9 @@ import appdirs
 # TODO: add default configuration, so it doesn't break if values aren't
 #       provided
 
+# TODO: consider replacing `reyaml` with `pyyaml`
+
+
 CFG_FILE = 'prjct.yaml'
 MARKDOWN_EXT = ['.md', ]
 
@@ -89,7 +92,11 @@ export:
 def load():
     config_file = file_path()
     cfg = reyaml.load_from_file(str(config_file))
+
+    # add key of the location of the configuration file to the configuration
+    # itself
     cfg['file_path'] = str(config_file)
+
     # TODO: add error checking
     # TODO: add inserting default values
     return cfg
