@@ -29,7 +29,7 @@ except ConfigError as config_error:
     error(str(config_error))
     sys.exit(1)
 
-from topydo.lib.JsonPrinter import JsonPrinter
+from topydo.lib.printers.Json import JsonPrinter
 from topydo.lib import TodoList
 
 

@@ -32,7 +32,7 @@ setup(
     author='William Minchin',
     install_requires=[#'timestring>1.6.2',
                       'cloudmesh-timestring',
-                      'topydo>0.10.1',
+                      'topydo>=0.11.0',
                       'jrnl>=2.0.0rc1',
                       #'ablog>=0.8',
                       #'sphinx>=1.3',
@@ -40,11 +40,14 @@ setup(
                       'click',
                       'invoke',
                       'winshell',
+                      # required by winshell, but not automatically installed
+                      'pywin32',
                       'appdirs',
                       'green',
                       'markdown',
                       # for titlecase filter
                       'minchin.pelican.jinja_filters',
+                      'reyaml',
                       ],
     author_email='w_minchin@hotmail.com',
     description='Project Management for Living Life',
