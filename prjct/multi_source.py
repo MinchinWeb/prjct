@@ -41,8 +41,9 @@ def active_project_list():
     someday_projects = set(prjct_config.someday_projects())
 
     exclude_projects = list(completed_projects | someday_projects)
+    exclude_projects_2 = sort_project_list(exclude_projects)
 
-    my_project_list = [i for i in all_projects if i not in exclude_projects]
+    my_project_list = [i for i in all_projects if i not in exclude_projects_2]
 
     return sort_project_list(my_project_list)
 
