@@ -77,7 +77,7 @@ Sphinx Integration
 
 *Sphinx* is a static site generator, originally concieved for generating
 Python documentation, written in Python. Currently, entries from
-*`jrnl* can be exported to Markdown formatted text files, and these text files
+*jrnl* can be exported to Markdown formatted text files, and these text files
 can then be fed to *Sphinx* to create a blog using the *ABlog* extention.
 *prjct* can build on this behaviour. For each defined project, a page,
 similiar to a tag page, will be generated. This page will list the project

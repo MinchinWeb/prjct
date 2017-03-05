@@ -41,6 +41,7 @@ setup(
                       'invoke',
                       'winshell',
                       # required by winshell, but not automatically installed
+                      # try pypiwin32??
                       'pywin32',
                       'appdirs',
                       'green',

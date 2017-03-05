@@ -63,10 +63,11 @@ def jrnl(ctx):
             pass
 
         for journal in cfg['jrnl']['journals']:
-            invoke.run('jrnl {} --export prjct -o {}'.format(journal, cfg['sphinx']['jrnl_sources']))
+            invoke.run('jrnl {} --export prjct -o {}'
+                       .format(journal, cfg['sphinx']['jrnl_sources']))
     else:
-        print('No existing configuration file found. Default configuration \
-              written to\n{}\nPlease reveiw configuration and re-run.'\
+        print("No existing configuration file found. Default configuration "
+              "written to\n{}\nPlease reveiw configuration and re-run."
               .format(prjct_config.file_path()))
 
 
@@ -96,7 +97,7 @@ def config(ctx):
 @click.pass_context
 @click.argument('output', type=click.File('w'))
 def project_entry(ctx, output):
-    """Creates an entry listing all projects defined."""
+    """Create an entry listing all projects defined."""
     output.write(multi_source.all_projects_entry())
     print('[All Projects Entry exported to {}]'.format(output.name))
 

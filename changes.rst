@@ -1,7 +1,7 @@
 prjct Changelog
 ===============
 
-= :bug:`-` use ``appdirs`` to allow cross-platform placement of config
+- :bug:`-` use ``appdirs`` to allow cross-platform placement of config
   directory
 - :bug:`-` updated for `topydo` v0.11.0
 - :feature:`-` render project descirptions files
