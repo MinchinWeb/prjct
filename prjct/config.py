@@ -4,8 +4,11 @@
 """Configuration for prjct."""
 
 from pathlib import Path
-import reyaml
+
 import appdirs
+import reyaml
+
+from .util import sort_project_list
 
 # TODO: Can we pull invoke's config and use it here?
 #       That is set up to allow nested configuration, and configuaration using
@@ -107,3 +110,43 @@ def load():
     # TODO: add error checking
     # TODO: add inserting default values
     return cfg
+
+
+def someday_projects():
+    """
+    Return a list of "someday" projects.
+
+    These tend to be projects that aren't under active progressions at the
+    moment, and also haven't been completed.
+    """
+    cfg = load()
+    someday_projects_list = cfg['someday_projects'] if 'someday_projects' in cfg else []
+    return sort_project_list(someday_projects_list)
+
+
+def compeleted_projects():
+    """
+    Return a list of "completed" projects.
+
+    These are projects deemed completed (at least for now).
+    """
+    cfg = load()
+    completed_projects_list = cfg['completed_projects'] if 'someday_projects' in cfg else []
+    return sort_project_list(completed_projects_list)
+
+
+def project_list():
+    """
+    Create a list of projects from the configuration.
+
+    Merges the projects lists from the configuration of someday and completed
+    projects.
+    """
+    cfg = load()
+
+    completed_projects_list = set(cfg['completed_projects'] if 'someday_projects' in cfg else [])
+    someday_projects_list = set(cfg['someday_projects'] if 'someday_projects' in cfg else [])
+
+    # operator called 'join' and gives the union of the two sets
+    all_projects_list = list(completed_projects_list | someday_projects_list)
+    return sort_project_list(all_projects_list)

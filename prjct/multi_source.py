@@ -5,32 +5,47 @@
 
 
 from . import config as prjct_config
-from . import todo_export
-from . import descriptions
-from . import __version__
+from . import __version__, descriptions, todo_export
+from .util import sort_project_list
 
 
 def project_list():
     """
     Create a full list of projects.
 
-    Merges the projects lists from the todo file, the done file, and the
-    description files.
+    Merges the projects lists from the todo file, the done file, the
+    description files, and the project configuration.
     """
     cfg = prjct_config.load()
 
     todo_done_projects = set(todo_export.project_list())
     desc_projects = set(descriptions.project_list(cfg))
+    config_projects = set(prjct_config.project_list())
 
     # operator called 'join' and gives the union of the two sets
-    all_projects_list = list(todo_done_projects | desc_projects)
-    # remove duplicate values if we ignore case
-    # http://stackoverflow.com/a/27531275/4276230
-    unique_projects_dict = {v.lower(): v for v in all_projects_list}.values()
-    unique_projects_list = list(unique_projects_dict)
-    # sort the list, case insensitive
-    sorted_project_list = sorted(unique_projects_list, key=str.lower)
-    return sorted_project_list
+    all_projects_list = list(todo_done_projects | desc_projects |
+                             config_projects)
+    return sort_project_list(all_projects_list)
+
+
+def active_project_list():
+    """
+    Create a full list of projects.
+
+    Merges the projects lists from the todo file, the done file, the
+    description files, and the project configuration.
+    """
+    all_projects = project_list()
+
+    completed_projects = set(prjct_config.compeleted_projects())
+    someday_projects = set(prjct_config.someday_projects())
+
+    exclude_projects = list(completed_projects | someday_projects)
+
+    my_project_list = [i for i in all_projects if i not in exclude_projects]
+
+    return sort_project_list(my_project_list)
+
 
 
 def all_projects_entry():
