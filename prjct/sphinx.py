@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-'''
-Generate Sphinx source files
-'''
+"""Generate Sphinx source files."""
 
 from pathlib import Path
 
@@ -19,9 +17,12 @@ from . import todo_export
 
 
 def generate_prjct_docs(export_path=None, relative_path=True):
-    ''' Generates prjct's included documentation sources, and exports it to the
-        `export_path`.
-    '''
+    """
+    Provide prjct documentation.
+
+    Generates prjct's included documentation sources, and exports it to the
+    `export_path`.
+    """
     if config.confirm():
         cfg = config.load()
         if export_path is None:
@@ -68,8 +69,7 @@ def generate_prjct_docs(export_path=None, relative_path=True):
 
 
 def generate_project_summaries(export_path=None, relative_path=True):
-    ''' Generates prjct's summeries of the user's projects. '''
-
+    """Generate prjct's summeries of the user's projects."""
     if config.confirm():
         cfg = config.load()
         if export_path is None:
@@ -138,10 +138,7 @@ def generate_project_summaries(export_path=None, relative_path=True):
 
 
 def geneate_projects_page(export_path=None, relative_path=True):
-    ''' Generates the 'front page' for our projects. Lists each project with
-        its next todo item.
-    '''
-
+    """Generates the 'front page' for our projects. Lists each project with its next todo item."""
     if config.confirm():
         cfg = config.load()
         if export_path is None:

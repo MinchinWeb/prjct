@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-'''
-Export Todo and Done items.
-'''
+"""Export Todo and Done items."""
 
 import json
 import sys
@@ -34,16 +32,17 @@ from topydo.lib import TodoList
 
 
 def sorted_todos_by_project(cfg):
-    ''' Takes our todo list, and returns two dictionaries of where the keys
-        equal to the project name, and the value is a list of todo items under
-        that project.
+    """
+    Takes our todo list, and returns two dictionaries of where the keys equal
+    to the project name, and the value is a list of todo items under that
+    project.
 
-        - Note that a todo item may be appended to multiple second level HTML
-            lists if the item is listed under multiple projects.
-        - Note that todo items without a project are discarded.
-        - Note that completed items beyond `completion_cutoff` (measured in
-            days) are discarded.
-    '''
+    - Note that a todo item may be appended to multiple second level HTML lists
+        if the item is listed under multiple projects.
+    - Note that todo items without a project are discarded.
+    - Note that completed items beyond `completion_cutoff` (measured in days)
+        are discarded.
+    """
     '''
     print(type(cfg))
     print(cfg)
@@ -98,29 +97,30 @@ def sorted_todos_by_project(cfg):
 
 def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
                                   done_icon='<i class="fa fa-check-square-o"></i> '):
-    ''' Takes our todo list, and returns two dictionaries of where the keys
-        equal to the project name, and the value is a string of the todo items
-        for that project as an HTML unordered list.
+    """
+    Takes our todo list, and returns two dictionaries of where the keys equal
+    to the project name, and the value is a string of the todo items for that
+    project as an HTML unordered list.
 
-        - Note that a todo item may be appended to multiple second level HTML
-            lists if the item is listed under multiple projects.
-        - Note that todo items without a project are discarded.
-        - Note that completed items beyond `completion_cutoff` (measured in
-            days) are discarded.
+    - Note that a todo item may be appended to multiple second level HTML lists
+        if the item is listed under multiple projects.
+    - Note that todo items without a project are discarded.
+    - Note that completed items beyond `completion_cutoff` (measured in days)
+        are discarded.
 
-        To make use of the default checkboxes, install FontAwesome in your page.
+    To make use of the default checkboxes, install FontAwesome in your page.
 
-        Alternate icons:
+    Alternate icons:
 
-        ```
-        open_icon = '<input type="checkbox" disabled> '
-        done_icon = '<input type="checkbox" disabled checked> '
+    ```
+    open_icon = '<input type="checkbox" disabled> '
+    done_icon = '<input type="checkbox" disabled checked> '
 
-        ```
+    ```
 
-        Args:
-            indent  each line of the output is indented by this
-    '''
+    Args:
+        indent  each line of the output is indented by this
+    """
 
     active_todos, completed_todos = sorted_todos_by_project(cfg)
 
@@ -143,10 +143,12 @@ def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
 
 
 def project_list():
-    ''' Takes our todo list and our done list, and returns a (Python) list of
-        all projects found.
-    '''
+    """
+    Provide a full (Python) list of all projects.
 
+    Takes our todo list and our done list, and returns a (Python) list of all
+    projects found.
+    """
     todofile = TodoFile.TodoFile(topydo_config().todotxt())
     # print('Loaded todo file from {}'.format(todofile.path))
     todotodos = TodoList.TodoList(todofile.read())
@@ -169,19 +171,18 @@ def project_list():
 
 
 def all_projects_entry():
-    ''' Creates a (basic) markdown entry that is tagged with all projects.
-    '''
+    """Create a (basic) markdown entry that is tagged with all projects."""
 
     all_tags_str = ', '.join(project_list())
     cfg = prjct_config.load()
 
-    my_entry = '''\
+    my_entry = """\
 title: All Projects
 date: {}
 tags: {}
 
 This is a placeholder entry created by *prjct* v.{}, tagged with all projects
 listed on your todo and done lists.
-'''.format(cfg['export']['all_projects_date'], all_tags_str, __version__)
+""".format(cfg['export']['all_projects_date'], all_tags_str, __version__)
 
     return my_entry

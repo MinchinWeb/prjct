@@ -80,10 +80,10 @@ def build(ctx):
 @main.command()
 @click.pass_context
 def config(ctx):
-    '''
+    """
     Prints the location of the configuration files. If none is found, the
     default is written to disk.
-    '''
+    """
     if prjct_config.confirm():
         print('Existing configuration file found at\n{}'.format(prjct_config.file_path()))
     else:
@@ -96,7 +96,7 @@ def config(ctx):
 @click.pass_context
 @click.argument('output', type=click.File('w'))
 def project_entry(ctx, output):
-    '''Creates an entry listing all projects defined.'''
+    """Creates an entry listing all projects defined."""
     output.write(multi_source.all_projects_entry())
     print('[All Projects Entry exported to {}]'.format(output.name))
 

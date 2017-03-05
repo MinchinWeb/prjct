@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-"""
-Configuration for prjct
-"""
+"""Configuration for prjct."""
 
 from pathlib import Path
 import reyaml
@@ -44,19 +42,22 @@ def file_path():
 
 
 def confirm():
-    ''' This attempts to confirm that the configuration exists as expected.
-        If it does not, it writes the default configuration to disk.
+    """
+    Confirm configuration exists.
 
-        If configuration file exists already, return True. If the congifuration
-        is written to disk, return False.
-    '''
+    This attempts to confirm that the configuration exists as expected. If it
+    does not, it writes the default configuration to disk.
+
+    If configuration file exists already, return True. If the congifuration is
+    written to disk, return False.
+    """
     config_file = file_path()
     # make the folder, if it doesn't exist yet
     config_file.parent.mkdir(exist_ok=True)
 
     # if the configuration file doesn't exist, write the default
     if not config_file.exists():
-        config_file.write_text('''\
+        config_file.write_text(r"""\
 # This is the configuration file for PRJCT.
 # http://www.github.com/MinchinWeb/prjct
 # All values are required. This is a YAML formatted file.
@@ -83,13 +84,19 @@ jrnl:
 
 export:
     all_projects_date: 2012-01-01
-''')
+
+someday_projects:
+
+completed_projects:
+
+""")
         return False
     else:
         return True
 
 
 def load():
+    """Load configuration."""
     config_file = file_path()
     cfg = reyaml.load_from_file(str(config_file))
 

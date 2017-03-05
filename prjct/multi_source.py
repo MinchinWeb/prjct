@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-''' These are elements relating to data merged from multiple sources. '''
+"""These are elements relating to data merged from multiple sources."""
 
 
 from . import config as prjct_config
@@ -11,9 +11,12 @@ from . import __version__
 
 
 def project_list():
-    ''' Merges the projects lists from the todo file, the done file, and the
-        description files.
-    '''
+    """
+    Create a full list of projects.
+
+    Merges the projects lists from the todo file, the done file, and the
+    description files.
+    """
     cfg = prjct_config.load()
 
     todo_done_projects = set(todo_export.project_list())
@@ -31,19 +34,17 @@ def project_list():
 
 
 def all_projects_entry():
-    ''' Creates a (basic) markdown entry that is tagged with all projects.
-    '''
-
+    """Create a (basic) markdown entry that is tagged with all projects."""
     all_tags_str = ', '.join(project_list())
     cfg = prjct_config.load()
 
-    my_entry = '''\
+    my_entry = """\
 title: All Projects
 date: {}
 tags: {}
 
 This is a placeholder entry created by *prjct* v.{}, tagged with all projects
 listed on your todo list, your done lists, and your project description files.
-'''.format(cfg['export']['all_projects_date'], all_tags_str, __version__)
+""".format(cfg['export']['all_projects_date'], all_tags_str, __version__)
 
     return my_entry

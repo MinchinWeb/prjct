@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-""" Tests the `todo_export.to_html_dicts() function by generate a webpage
-    containing their results.
+"""
+Tests the `todo_export.to_html_dicts() function by generate a webpage
+containing their results.
 """
 
 import os
@@ -12,7 +13,7 @@ import unittest
 from prjct.sphinx import generate_prjct_docs
 
 
-class Test_Sphinx(unittest.TestCase):
+class TestSphinx(unittest.TestCase):
 
     # TODO: Add setup that removes all files in test/results directory
 
