@@ -17,6 +17,7 @@ from topydo.lib.Sorter import Sorter
 
 from . import __version__
 from . import config as prjct_config
+from .util import sort_project_list
 
 # First thing is to poke the configuration and check whether it's sane
 # The modules below may already read in configuration upon import, so
@@ -31,7 +32,7 @@ from topydo.lib.printers.Json import JsonPrinter
 from topydo.lib import TodoList
 
 
-def sorted_todos_by_project(cfg):
+def sorted_todos_by_project(cfg, todo_cfg=None):
     """
     Takes our todo list, and returns two dictionaries of where the keys equal
     to the project name, and the value is a list of todo items under that
@@ -42,6 +43,9 @@ def sorted_todos_by_project(cfg):
     - Note that todo items without a project are discarded.
     - Note that completed items beyond `completion_cutoff` (measured in days)
         are discarded.
+
+    todo_cfg is called to topydo.config directs as the path of the test
+        configuration. Setting this to None will use the normal configuration.
     """
     '''
     print(type(cfg))
@@ -53,7 +57,7 @@ def sorted_todos_by_project(cfg):
 
     my_sorter = Sorter(p_sortstring=cfg['todo']['sort_string'])
 
-    todofile = TodoFile.TodoFile(topydo_config().todotxt())
+    todofile = TodoFile.TodoFile(topydo_config(todo_cfg).todotxt())
     # print('Loaded todo file from {}'.format(todofile.path))
     todotodos = TodoList.TodoList(todofile.read())
     # todolist = my_sorter.sort(todolist)            # in topydo v0.10
@@ -64,7 +68,7 @@ def sorted_todos_by_project(cfg):
     todo_json_str = JsonPrinter().print_list(todolist)
     todo_json = json.loads(todo_json_str)
 
-    donefile = TodoFile.TodoFile(topydo_config().archive())
+    donefile = TodoFile.TodoFile(topydo_config(todo_cfg).archive())
     # print('Loaded done file from {}'.format(donefile.path))
     donetodos = TodoList.TodoList(donefile.read())
     donelist = my_sorter.sort(donetodos.todos())
@@ -142,32 +146,26 @@ def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
     return todo_html, done_html
 
 
-def project_list():
+def project_list(todo_cfg=None):
     """
     Provide a full (Python) list of all projects.
 
     Takes our todo list and our done list, and returns a (Python) list of all
     projects found.
     """
-    todofile = TodoFile.TodoFile(topydo_config().todotxt())
+    todofile = TodoFile.TodoFile(topydo_config(todo_cfg).todotxt())
     # print('Loaded todo file from {}'.format(todofile.path))
     todotodos = TodoList.TodoList(todofile.read())
     todo_projects = todotodos.projects()
 
-    donefile = TodoFile.TodoFile(topydo_config().archive())
+    donefile = TodoFile.TodoFile(topydo_config(todo_cfg).archive())
     # print('Loaded done file from {}'.format(donefile.path))
     donetodos = TodoList.TodoList(donefile.read())
     done_projects = donetodos.projects()
 
     # operator called 'join' and gives the union of the two sets
     all_projects_list = list(todo_projects | done_projects)
-    # remove duplicate values if we ignore case
-    # http://stackoverflow.com/a/27531275/4276230
-    unique_projects_dict = {v.lower(): v for v in all_projects_list}.values()
-    unique_projects_list = list(unique_projects_dict)
-    # sort the list, case insensitive
-    sorted_project_list = sorted(unique_projects_list, key=str.lower)
-    return sorted_project_list
+    return sort_project_list(all_projects_list)
 
 
 def all_projects_entry():

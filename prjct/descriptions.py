@@ -19,30 +19,46 @@ from .config import MARKDOWN_EXT
 
 
 def file_path(cfg):
-    """Return the directory containing the description files as an absolute path."""
-    desc_path = Path(cfg['descriptions_dir'])
-    # if the path is relative, convert to an absolute path
-    if not desc_path.is_absolute():
-        desc_path = Path(cfg['file_path']).parent / desc_path
+    """
+    Return the directory containing the description files as an absolute path.
 
-    # make the folder, if it doesn't exist yet
-    desc_path.mkdir(exist_ok=True)
+    Returns None if the configuration does not define this.
+    """
+    if 'descriptions_dir' in cfg:
+        desc_path = Path(cfg['descriptions_dir'])
+        # if the path is relative, convert to an absolute path
+        if not desc_path.is_absolute():
+            desc_path = Path(cfg['file_path']).parent / desc_path
 
-    return str(desc_path)
+        # make the folder, if it doesn't exist yet
+        desc_path.mkdir(exist_ok=True)
+
+        return str(desc_path)
+    else:
+        return None
 
 
 def project_list(cfg):
-    """Return a list of the projects for which the appropriate description file can be found."""
+    """
+    Return a list of the projects for which the appropriate description file can be found.
+
+    Returns an empty list is the description filepath is not defined in the
+    configuration.
+    """
     # descriptions folder
-    desc_path = Path(file_path(cfg))
+    desc_path_str = file_path(cfg)
+    if desc_path_str is not None:
+        desc_path = Path(file_path(cfg))
 
-    projects = []
+        projects = []
 
-    for my_file in desc_path.iterdir():
-        if my_file.suffix in MARKDOWN_EXT:
-            projects.append((my_file.stem).lower())
+        for my_file in desc_path.iterdir():
+            if my_file.suffix in MARKDOWN_EXT:
+                projects.append((my_file.stem).lower())
 
-    return projects
+        return projects
+    else:
+        return []
 
 
 def to_markdown_dicts(cfg):
@@ -52,15 +68,19 @@ def to_markdown_dicts(cfg):
     description file as unprocessed, raw text.
     """
 
-    desc_path = Path(file_path(cfg))
+    desc_path_str = file_path(cfg)
+    if desc_path_str is not None:
+        desc_path = Path(file_path(cfg))
 
-    markdown_dict = {}
+        markdown_dict = {}
 
-    for my_file in desc_path.iterdir():
-        if my_file.suffix in MARKDOWN_EXT:
-            markdown_dict[(my_file.stem).lower()] = my_file.read_text()
+        for my_file in desc_path.iterdir():
+            if my_file.suffix in MARKDOWN_EXT:
+                markdown_dict[(my_file.stem).lower()] = my_file.read_text()
 
-    return markdown_dict
+        return markdown_dict
+    else:
+        return {}
 
 
 def to_html_dict(cfg, markdown_extensions=[]):

@@ -9,18 +9,18 @@ from . import __version__, descriptions, todo_export
 from .util import sort_project_list
 
 
-def project_list():
+def project_list(config_file=None, todo_config_file=None):
     """
     Create a full list of projects.
 
     Merges the projects lists from the todo file, the done file, the
     description files, and the project configuration.
     """
-    cfg = prjct_config.load()
+    cfg = prjct_config.load(config_file)
 
-    todo_done_projects = set(todo_export.project_list())
+    todo_done_projects = set(todo_export.project_list(todo_config_file))
     desc_projects = set(descriptions.project_list(cfg))
-    config_projects = set(prjct_config.project_list())
+    config_projects = set(prjct_config.project_list(config_file))
 
     # operator called 'join' and gives the union of the two sets
     all_projects_list = list(todo_done_projects | desc_projects |
@@ -28,17 +28,18 @@ def project_list():
     return sort_project_list(all_projects_list)
 
 
-def active_project_list():
+def active_project_list(config_file=None, todo_config_file=None):
     """
     Create a full list of projects.
 
     Merges the projects lists from the todo file, the done file, the
     description files, and the project configuration.
     """
-    all_projects = project_list()
+    all_projects = project_list(config_file=config_file,
+                                todo_config_file=todo_config_file)
 
-    completed_projects = set(prjct_config.compeleted_projects())
-    someday_projects = set(prjct_config.someday_projects())
+    completed_projects = set(prjct_config.completed_projects(config_file=config_file))
+    someday_projects = set(prjct_config.someday_projects(config_file=config_file))
 
     exclude_projects = list(completed_projects | someday_projects)
     exclude_projects_2 = sort_project_list(exclude_projects)

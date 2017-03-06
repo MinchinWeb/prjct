@@ -12,7 +12,7 @@ from .util import sort_project_list
 
 # TODO: Can we pull invoke's config and use it here?
 #       That is set up to allow nested configuration, and configuaration using
-#       YAML< JSON, or py files.
+#       YAML, JSON, or py files.
 #       http://docs.pyinvoke.org/en/0.13.0/concepts/configuration.html
 #       https://github.com/pyinvoke/invoke/blob/master/invoke/config.py
 
@@ -44,17 +44,18 @@ def file_path():
     return Path(appdirs.user_config_dir('prjct', 'Minchin')) / CFG_FILE
 
 
-def confirm():
+def confirm(config_file=None):
     """
     Confirm configuration exists.
 
     This attempts to confirm that the configuration exists as expected. If it
     does not, it writes the default configuration to disk.
 
-    If configuration file exists already, return True. If the congifuration is
+    If configuration file exists already, return True. If the configuration is
     written to disk, return False.
     """
-    config_file = file_path()
+    if config_file is None:
+        config_file = file_path()
     # make the folder, if it doesn't exist yet
     config_file.parent.mkdir(exist_ok=True)
 
@@ -98,9 +99,14 @@ completed_projects:
         return True
 
 
-def load():
-    """Load configuration."""
-    config_file = file_path()
+def load(config_file=None):
+    """
+    Load configuration.
+
+    config_file is a pathlib.Path object.
+    """
+    if config_file is None:
+        config_file = file_path()
     cfg = reyaml.load_from_file(str(config_file))
 
     # add key of the location of the configuration file to the configuration
@@ -112,37 +118,37 @@ def load():
     return cfg
 
 
-def someday_projects():
+def someday_projects(config_file=None):
     """
     Return a list of "someday" projects.
 
     These tend to be projects that aren't under active progressions at the
     moment, and also haven't been completed.
     """
-    cfg = load()
+    cfg = load(config_file)
     someday_projects_list = cfg['someday_projects'] if 'someday_projects' in cfg else []
     return sort_project_list(someday_projects_list)
 
 
-def compeleted_projects():
+def completed_projects(config_file=None):
     """
     Return a list of "completed" projects.
 
     These are projects deemed completed (at least for now).
     """
-    cfg = load()
+    cfg = load(config_file)
     completed_projects_list = cfg['completed_projects'] if 'someday_projects' in cfg else []
     return sort_project_list(completed_projects_list)
 
 
-def project_list():
+def project_list(config_file=None):
     """
     Create a list of projects from the configuration.
 
     Merges the projects lists from the configuration of someday and completed
     projects.
     """
-    cfg = load()
+    cfg = load(config_file)
 
     completed_projects_list = set(cfg['completed_projects'] if 'someday_projects' in cfg else [])
     someday_projects_list = set(cfg['someday_projects'] if 'someday_projects' in cfg else [])

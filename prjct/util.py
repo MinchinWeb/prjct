@@ -6,10 +6,14 @@ def sort_project_list(in_list):
 
     Removes duplicates and sorts alphabetically, case-insensitively.
     """
+    # replace spaces with underscores
+    in_list_2 = [i.replace(" ", "_") for i in in_list]
     # remove duplicate values if we ignore case
     # http://stackoverflow.com/a/27531275/4276230
-    unique_projects_dict = {v.lower(): v for v in in_list}.values()
+    unique_projects_dict = {v.lower(): v for v in in_list_2}.values()
     unique_projects_list = list(unique_projects_dict)
-    # sort the list, case insensitive
-    sorted_project_list = sorted(unique_projects_list, key=str.lower)
+    # lowercase
+    lowercase_list = [i.lower() for i in unique_projects_list]
+    # sort the list
+    sorted_project_list = sorted(lowercase_list)
     return sorted_project_list
