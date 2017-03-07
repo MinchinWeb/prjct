@@ -38,3 +38,4 @@ test_todo_export.html
 .pydevproject
 
 *.sublime-workspace
+.vscode/tags

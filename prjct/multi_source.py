@@ -49,7 +49,6 @@ def active_project_list(config_file=None, todo_config_file=None):
     return sort_project_list(my_project_list)
 
 
-
 def all_projects_entry():
     """Create a (basic) markdown entry that is tagged with all projects."""
     all_tags_str = ', '.join(project_list())

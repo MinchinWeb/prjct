@@ -12,10 +12,10 @@ from pathlib import Path
 
 from markdown import markdown
 
-from . import __version__
 from . import config as prjct_config
+from . import __version__
 from .config import MARKDOWN_EXT
-
+from .exceptions import ConfigKeyMissingError
 
 
 def file_path(cfg):
@@ -24,18 +24,19 @@ def file_path(cfg):
 
     Returns None if the configuration does not define this.
     """
-    if 'descriptions_dir' in cfg:
+    try:
         desc_path = Path(cfg['descriptions_dir'])
-        # if the path is relative, convert to an absolute path
-        if not desc_path.is_absolute():
-            desc_path = Path(cfg['file_path']).parent / desc_path
+    except KeyError:
+        raise ConfigKeyMissingError('description_dir')
 
-        # make the folder, if it doesn't exist yet
-        desc_path.mkdir(exist_ok=True)
+    # if the path is relative, convert to an absolute path
+    if not desc_path.is_absolute():
+        desc_path = Path(cfg['file_path']).parent / desc_path
 
-        return str(desc_path)
-    else:
-        return None
+    # make the folder, if it doesn't exist yet
+    desc_path.mkdir(exist_ok=True)
+
+    return str(desc_path)
 
 
 def project_list(cfg):
@@ -46,19 +47,18 @@ def project_list(cfg):
     configuration.
     """
     # descriptions folder
-    desc_path_str = file_path(cfg)
-    if desc_path_str is not None:
+    try:
         desc_path = Path(file_path(cfg))
-
-        projects = []
-
-        for my_file in desc_path.iterdir():
-            if my_file.suffix in MARKDOWN_EXT:
-                projects.append((my_file.stem).lower())
-
-        return projects
-    else:
+    except ConfigKeyMissingError:
         return []
+
+    projects = []
+
+    for my_file in desc_path.iterdir():
+        if my_file.suffix in MARKDOWN_EXT:
+            projects.append((my_file.stem).lower())
+
+    return projects
 
 
 def to_markdown_dicts(cfg):
@@ -67,20 +67,18 @@ def to_markdown_dicts(cfg):
     keys equal to the project name, and the value is the contents of project
     description file as unprocessed, raw text.
     """
-
-    desc_path_str = file_path(cfg)
-    if desc_path_str is not None:
+    try:
         desc_path = Path(file_path(cfg))
-
-        markdown_dict = {}
-
-        for my_file in desc_path.iterdir():
-            if my_file.suffix in MARKDOWN_EXT:
-                markdown_dict[(my_file.stem).lower()] = my_file.read_text()
-
-        return markdown_dict
-    else:
+    except ConfigKeyMissingError:
         return {}
+
+    markdown_dict = {}
+
+    for my_file in desc_path.iterdir():
+        if my_file.suffix in MARKDOWN_EXT:
+            markdown_dict[(my_file.stem).lower()] = my_file.read_text()
+
+    return markdown_dict
 
 
 def to_html_dict(cfg, markdown_extensions=[]):
