@@ -81,7 +81,7 @@ def to_markdown_dicts(cfg):
     return markdown_dict
 
 
-def to_html_dict(cfg, markdown_extensions=[]):
+def to_html_dict(*, cfg, markdown_extension_config=None):
     """
     Takes our project description folder, and returns a dictionary where the
     keys equal to the project name, and the value is the contents of project
@@ -92,11 +92,15 @@ def to_html_dict(cfg, markdown_extensions=[]):
                                 transparently through to the markdown
                                 render.
     """
+    if markdown_extension_config is None:
+        markdown_extension_config = {}
     markdown_dict = to_markdown_dicts(cfg)
+    extensions = [k for k, _ in markdown_extension_config.items()]
     html_dict = {}
 
     for k, v in markdown_dict.items():
-        html_dict[k] = markdown(v, extensions=markdown_extensions)
+        html_dict[k] = markdown(v, extensions=extensions,
+                                extension_config=markdown_extension_config)
 
     return html_dict
 
