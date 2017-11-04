@@ -1,0 +1,14 @@
+releaser:
+    module_name: prjct
+    here: .
+    docs: none
+    test: test
+    source: prjct
+    changelog: changelog.rst
+    version: prjct\__init__.py
+    test_command: none
+    version_bump: none
+    extra_packages:
+        test:
+            - pelican
+        pypi:

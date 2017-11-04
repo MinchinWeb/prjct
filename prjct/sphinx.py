@@ -6,14 +6,14 @@
 from pathlib import Path
 
 import winshell
-import jrnl.install as jrnl_install
-import jrnl.util as jrnl_util
-import jrnl.Journal as jrnl_Journal
-import jrnl.plugins.util as jrnl_plugins_util
 from titlecase import titlecase
 
-from . import config
-from . import todo_export
+import jrnl.install as jrnl_install
+import jrnl.Journal as jrnl_Journal
+import jrnl.plugins.util as jrnl_plugins_util
+import jrnl.util as jrnl_util
+
+from . import config, todo_export
 
 
 def generate_prjct_docs(export_path=None, relative_path=True):

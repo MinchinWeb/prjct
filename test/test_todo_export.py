@@ -5,10 +5,10 @@
 Tests the `todo_export.to_html_dicts() function by generate a webpage
 containing their results.
 """
-from datetime import datetime
 import os
-from pathlib import Path
 import unittest
+from datetime import datetime
+from pathlib import Path
 
 import prjct
 from prjct.todo_export import to_html_dicts

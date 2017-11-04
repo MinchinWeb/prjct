@@ -7,15 +7,14 @@ prjct: Project Management for Living Life
 Command Line Interface
 """
 
-import click
-import invoke
 from pathlib import Path
 
-from . import __version__, __title__
-from . import sphinx as prjct_sphinx
-from . import config as prjct_config
-from . import multi_source
+import click
+import invoke
 
+from . import config as prjct_config
+from . import sphinx as prjct_sphinx
+from . import __title__, __version__, multi_source
 
 # TODO: switch over to run shell commands directly from click ??
 

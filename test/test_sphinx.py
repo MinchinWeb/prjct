@@ -7,8 +7,8 @@ containing their results.
 """
 
 import os
-from pathlib import Path
 import unittest
+from pathlib import Path
 
 from prjct.sphinx import generate_prjct_docs
 

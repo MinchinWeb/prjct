@@ -1,0 +1,8 @@
+-r requirements.txt
+# ablog>=0.8
+# sphinx>=1.3
+releases
+green
+pip-tools
+minchin.releaser
+check-manifest

@@ -7,16 +7,16 @@ import json
 import sys
 
 import timestring
-
-from topydo.ui.CLIApplicationBase import error
-from topydo.lib import TodoFile
+from topydo.lib import TodoFile, TodoList
 from topydo.lib.Config import config as topydo_config
 from topydo.lib.Config import ConfigError
 from topydo.lib.Filter import HiddenTagFilter
+from topydo.lib.printers.Json import JsonPrinter
 from topydo.lib.Sorter import Sorter
+from topydo.ui.CLIApplicationBase import error
 
-from . import __version__
 from . import config as prjct_config
+from . import __version__
 from .util import sort_project_list
 
 # First thing is to poke the configuration and check whether it's sane
@@ -28,8 +28,6 @@ except ConfigError as config_error:
     error(str(config_error))
     sys.exit(1)
 
-from topydo.lib.printers.Json import JsonPrinter
-from topydo.lib import TodoList
 
 
 def sorted_todos_by_project(cfg, todo_cfg=None):

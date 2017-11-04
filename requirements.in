@@ -1,0 +1,16 @@
+# timestring>1.6.2
+cloudmesh-timestring
+topydo>=0.11.0
+# updated jrnl is not on PyPI, so vendor...
+# jrnl>=2.0.0rc1
+click
+invoke
+winshell
+# pywin32 is required by winshell, but not automatically installed
+# try pypiwin32??
+pypiwin32
+appdirs
+markdown
+# for titlecase filter
+minchin.pelican.jinja_filters
+reyaml

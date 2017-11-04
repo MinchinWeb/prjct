@@ -39,3 +39,4 @@ test_todo_export.html
 
 *.sublime-workspace
 .vscode/tags
+env/*
