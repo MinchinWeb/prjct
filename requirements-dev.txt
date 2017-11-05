@@ -9,7 +9,7 @@ appdirs==1.4.3
 arrow==0.10.0
 babel==2.5.1              # via sphinx
 blinker==1.4
-certifi==2017.7.27.1      # via requests
+certifi==2017.11.5      # via requests
 chardet==3.0.4            # via requests
 click==6.7
 cloudmesh-timestring==1.6.2.1
