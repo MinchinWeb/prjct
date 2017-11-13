@@ -22,3 +22,4 @@ from . import multi_source
 from . import sphinx
 from . import todo_export
 from . import util
+from . import _vendor
