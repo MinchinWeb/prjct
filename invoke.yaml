@@ -1,14 +1,21 @@
 releaser:
-    module_name: prjct
-    here: .
-    docs: none
-    test: test
-    source: prjct
-    changelog: changelog.rst
-    version: prjct\__init__.py
-    test_command: none
-    version_bump: none
-    extra_packages:
-        test:
-            - pelican
-        pypi:
+  module_name: prjct
+  here: .
+  docs: none
+  test: test
+  source: prjct
+  changelog: changelog.rst
+  version: prjct\__init__.py
+  test_command: none
+  version_bump: none
+  extra_packages:
+    test:
+      - pelican
+    pypi:
+  vendor_dest: prjct\_vendor
+  vendor_packages:
+    "jrnl":
+      src: ..\jrnl\jrnl
+      dest: jrnl
+      # requirements: none
+  vendor_override_src: vendor_src

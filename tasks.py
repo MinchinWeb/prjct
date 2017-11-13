@@ -1,4 +1,4 @@
 import invoke
 
 #import minchin.releaser
-from minchin.releaser import make_release
+from minchin.releaser import make_release, vendorize
