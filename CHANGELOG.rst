@@ -1,7 +1,11 @@
 prjct Changelog
 ===============
 
-- :support:`-` vendorize ``jrnl``
+- :support:`-` includes a ``jrnl`` console script that uses the vendorized
+  version of ``jrnl``. Also, the vendorized version of ``jrnl`` uses the global
+  ``jnrl`` configuration. Therefore, this may cause issues if you install
+  ``jrnl`` separately.
+- :support:`-` vendorize ``jrnl``; tracks ``prjct`` branch
 - :support:`-` adjust ``setup.py`` to make use of ``minchin.releaser``
 - :release:`0.5.1 <2017-05-20>`
 - :bug:`-` use ``appdirs`` to allow cross-platform placement of config

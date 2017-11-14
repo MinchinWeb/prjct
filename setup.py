@@ -66,7 +66,38 @@ LICENSE      = find_meta(*META_PATH, meta_key='license')
 PACKAGES     = setuptools.find_packages()
 
 # pull from requirements.IN, requirements.TXT is generated from this
-INSTALL_REQUIRES = read_requirements('requirements.in')
+INSTALL_REQUIRES = [
+
+    'cloudmesh-timestring',            # timestring>1.6.2
+    'topydo>=0.11.0',
+    # 'jrnl>=2.0.0rc1',                # updated jrnl is not on PyPI, so vendor...
+    'click',
+    'invoke',
+    'winshell',
+    'pypiwin32',                       # pywin32 is required by winshell, but not automatically installed
+    'appdirs',
+    'markdown',
+    'minchin.pelican.jinja_filters',   # for titlecase filter
+    'reyaml',                          # switch to PyYAML?
+
+    # jrnl
+    "parsedatetime>=1.5",
+    "pytz>=2015.7",
+    "six>=1.10.0",
+    "cryptography>=1.4,<2.0",           # was pinned to 1.4
+    "tzlocal>=1.2",
+    "pyyaml>=3.11",
+    "keyring>=7.3",
+    "passlib>=1.6.2",
+    "pyxdg>=0.25",
+    "asteval>=0.9.8",                   # requires numpy
+    "pyreadline>=2.0; sys_platform == 'win32'",     # if readline is unavailable
+    "readline>=6.2; sys_platform != 'win32'",       # if readline is unavailable
+    "colorama>=0.2.5; sys_platform == 'win32'",
+    "python-dateutil==1.5; python_version == '2.6' or python_version=='2.7'",
+    "python-dateutil>=2.2; python_version >= '3.0'",
+]
+
 DEV_REQUIRES = read_requirements('requirements-dev.in')
 
 EXTRA_REQUIRES = {
@@ -159,11 +190,12 @@ setuptools.setup(
     extras_require=EXTRA_REQUIRES,
     platforms='any',
     classifiers=CLASSIFIERS,
-    # namespace_packages=['prjct', 
+    # namespace_packages=['prjct',
     #                     ],
     entry_points={
         'console_scripts': [
             'prjct=prjct.cli:main',
+            'jrnl = prjct._vendor.jrnl.cli:run',
         ],
     },
 )

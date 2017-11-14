@@ -8,10 +8,10 @@ from pathlib import Path
 import winshell
 from titlecase import titlecase
 
-import jrnl.install as jrnl_install
-import jrnl.Journal as jrnl_Journal
-import jrnl.plugins.util as jrnl_plugins_util
-import jrnl.util as jrnl_util
+from ._vendor.jrnl import install as jrnl_install
+from ._vendor.jrnl import Journal as jrnl_Journal
+from ._vendor.jrnl.plugins import util as jrnl_plugins_util
+from ._vendor.jrnl import util as jrnl_util
 
 from . import config, todo_export
 
