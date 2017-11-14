@@ -1,6 +1,7 @@
 prjct Changelog
 ===============
 
+- :release:`0.6.0 <2017-11-13>`
 - :support:`-` includes a ``jrnl`` console script that uses the vendorized
   version of ``jrnl``. Also, the vendorized version of ``jrnl`` uses the global
   ``jnrl`` configuration. Therefore, this may cause issues if you install

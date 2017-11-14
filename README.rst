@@ -1,7 +1,9 @@
 prjct
 =====
 
-Project Management for Living Life, v0.3, 2016-02-17
+Project Management for Living Life, v0.6, 2017-11-13
+
+.. note:: Not all features have been implemented yet. I use this day-to-day, but really, it's alpha-level software.
 
 Background
 ----------
@@ -40,7 +42,7 @@ Python 3.5 on Windows.
 jrnl Integration
 ''''''''''''''''
 
-``jrnl`` is a commandline program written in Python. It allows notes to be
+``jrnl`` is a command line program written in Python. It allows notes to be
 written in plain text, and has various importers and exporters. The thought is
 to write a note in ``jrnl`` about a project, and include todo items as part of
 the note. The though was to use the checkbox style used on GitHub.
@@ -78,9 +80,9 @@ Sphinx Integration
 *Sphinx* is a static site generator, originally concieved for generating
 Python documentation, written in Python. Currently, entries from
 *jrnl* can be exported to Markdown formatted text files, and these text files
-can then be fed to *Sphinx* to create a blog using the *ABlog* extention.
+can then be fed to *Sphinx* to create a blog using the *ABlog* extension.
 *prjct* can build on this behaviour. For each defined project, a page,
-similiar to a tag page, will be generated. This page will list the project
+similar to a tag page, will be generated. This page will list the project
 overview, a list of the open todo items, the recently completed items, and then
 a list entries tagged with the project name.
 
@@ -113,7 +115,7 @@ So a todo item might look like this:
 .. code-block:: text
 
     2015-07-20 Some item that needs doing +my_project due:2016-01-01 t:2015-12-01 prjct:d95ff071-9443-49f0-8f11-b2787649a481
-    
+
 (*due* refers to when the task is due; *t* refers to the "threshold date",
 i.e. don't show this task before this date; *prjct* is our added key (in this
 case, an UUID)).
@@ -131,7 +133,7 @@ Packaged Format
 In three stages:
 
 1. Python script installable via *pip*
-2. self-contained Windows exe (still commandline)
+2. self-contained Windows exe (still command line)
 3. self-contained Windows exe with GUI (although that GUI was effectively be a website)
 
 Libraries / Supporting Programs
@@ -272,10 +274,10 @@ quasi implemented by assigning the tasks in question a (W) priority. Reference
 material is intended to be kept elsewhere. The 'someday/maybe' project list
 is designed, ultimately, to be supported.
 
-.. for Version History, see changes.rst
+.. for Version History, see CHANGELOG.rst
 
 .. toctree::
    :hidden:
 
-   changes
+   prjct Changelog
    *

@@ -91,16 +91,20 @@ INSTALL_REQUIRES = [
     "passlib>=1.6.2",
     "pyxdg>=0.25",
     "asteval>=0.9.8",                   # requires numpy
-    "pyreadline>=2.0; sys_platform == 'win32'",     # if readline is unavailable
-    "readline>=6.2; sys_platform != 'win32'",       # if readline is unavailable
-    "colorama>=0.2.5; sys_platform == 'win32'",
-    "python-dateutil==1.5; python_version == '2.6' or python_version=='2.7'",
-    "python-dateutil>=2.2; python_version >= '3.0'",
 ]
 
 DEV_REQUIRES = read_requirements('requirements-dev.in')
 
 EXTRA_REQUIRES = {
+    # conditional requirements for jrnl
+    ":python_version<'3.3'": ["monotonic"],
+    ":sys_platform == 'win32'" : ["pyreadline>=2.0",     # if readline is unavailable
+                                  "colorama>=0.2.5"],
+    ":sys_platform != 'win32'" :["readline>=6.2"],       # if readline is unavailable
+    ":python_version == '2.6'": ["python-dateutil==1.5"],
+    ":python_version == '2.7'": ["python-dateutil==1.5"],
+    ":python_version >= '3.0'": ["python-dateutil>=2.2"],
+
     'build': DEV_REQUIRES,
     'docs': [
         # 'sphinx >= 1.4',  # theme requires at least 1.4
