@@ -8,12 +8,11 @@ from pathlib import Path
 import winshell
 from titlecase import titlecase
 
-from ._vendor.jrnl import install as jrnl_install
-from ._vendor.jrnl import Journal as jrnl_Journal
-from ._vendor.jrnl.plugins import util as jrnl_plugins_util
-from ._vendor.jrnl import util as jrnl_util
-
 from . import config, todo_export
+from ._vendor.jrnl import Journal as jrnl_Journal
+from ._vendor.jrnl import install as jrnl_install
+from ._vendor.jrnl import util as jrnl_util
+from ._vendor.jrnl.plugins import util as jrnl_plugins_util
 
 
 def generate_prjct_docs(export_path=None, relative_path=True):
