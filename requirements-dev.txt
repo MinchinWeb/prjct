@@ -19,7 +19,7 @@ feedgenerator==1.9
 first==2.0.1              # via pip-tools
 gitdb2==2.0.3             # via gitpython
 gitpython==2.1.7          # via minchin.releaser
-green==2.11.1
+green==2.11.2
 idna==2.6                 # via requests
 imagesize==0.7.1          # via sphinx
 invoke==0.21.0
