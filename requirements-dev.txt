@@ -30,7 +30,7 @@ markupsafe==1.0
 minchin.pelican.jinja-filters==1.0.4
 minchin.releaser==0.5.4
 pelican==3.7.1
-pip-tools==1.10.1
+pip-tools==1.10.2
 pkginfo==1.4.1            # via twine
 pygments==2.2.0
 pypiwin32==220
