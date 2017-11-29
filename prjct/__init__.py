@@ -7,7 +7,7 @@ prjct: Project Management for Living Life
 
 __title__ = 'prjct'
 __tagline__ = 'Project Management for Living Life'
-__version__ = "0.6.0"
+__version__ = "0.6.1-dev.20171128.0"
 __author__ = 'William Minchin'
 __email__ = 'w_minchin@hotmail.com'
 __license__ = 'MIT License'

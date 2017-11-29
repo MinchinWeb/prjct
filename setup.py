@@ -105,21 +105,7 @@ EXTRA_REQUIRES = {
     ":python_version == '2.7'": ["python-dateutil==1.5"],
     ":python_version >= '3.0'": ["python-dateutil>=2.2"],
 
-    'build': DEV_REQUIRES,
-    'docs': [
-        # 'sphinx >= 1.4',  # theme requires at least 1.4
-        # 'cloud_sptheme >=1.8',
-        # 'releases',
-        # 'Babel >=1.3,!=2.0',  # 2.0 breaks on Windows
-    ],
-    'test': [
-        # 'green >=1.9.4',  # v2 works
-        # 'coverage',
-        # 'isort',
-        # 'pydocstyle',
-        # 'pycodestyle',
-        # 'check-manifest'
-    ],
+    'dev': DEV_REQUIRES,
 }
 
 # full list of Classifiers at
