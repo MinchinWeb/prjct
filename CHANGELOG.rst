@@ -1,6 +1,10 @@
 prjct Changelog
 ===============
 
+- :bug:`-` [BREAKING CHANGE] switch from ``appdirs`` to ``xdg`` to determine
+  folder in which to store configuration. This is done so it's easier to find
+  the configuration folder to back it up. Run ``prjct config`` to generate the
+  default configuration and place it in the appropriate folder.
 - :release:`0.6.0 <2017-11-13>`
 - :support:`-` includes a ``jrnl`` console script that uses the vendorized
   version of ``jrnl``. Also, the vendorized version of ``jrnl`` uses the global

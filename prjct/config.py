@@ -3,12 +3,17 @@
 
 """Configuration for prjct."""
 
+import logging
+import os
 from pathlib import Path
 
-import appdirs
-import reyaml
+import xdg.BaseDirectory  # packaged as pyxdg
+import yaml  # packaged at pyyaml
 
+from . import __version__
 from .util import sort_project_list
+
+log = logging.getLogger(__name__)
 
 # TODO: Can we pull invoke's config and use it here?
 #       That is set up to allow nested configuration, and configuaration using
@@ -21,134 +26,151 @@ from .util import sort_project_list
 # TODO: add default configuration, so it doesn't break if values aren't
 #       provided
 
-# TODO: consider replacing `reyaml` with `pyyaml`
+# TODO: consider replacing `reyaml` with `pyyaml` (but then we lose comments)
 
 
-CFG_FILE = 'prjct.yaml'
+DEFAULT_CFG_FILE = 'prjct.yaml'
+XDG_RESOURCE = 'prjct'
+
+USER_HOME = os.path.expanduser('~')
+
+CONFIG_PATH = xdg.BaseDirectory.save_config_path(XDG_RESOURCE) or USER_HOME
+CONFIG_FILE_PATH = os.path.join(CONFIG_PATH, DEFAULT_CFG_FILE)
+
+
 MARKDOWN_EXT = ['.md', ]
 
-'''
-# module constants
-COMPLETION_CUTOFF = 30  # only dispaly done items completed in this many days
-TODO_SORT_STRING = 'desc:done,desc:importance,due,desc:priority,asc:creation'
-SPHINX_SOURCES = 'source'
-SPHINX_DOC_SOURCES = SPHINX_SOURCES + '\docs'
-SPHINX_JRNL_SOURCES = SPHINX_SOURCES + '\jrnl'
-SPHINX_PROJECT_SOURCES = SPHINX_SOURCES + '\projects'
-JOURNALS = ['default', 'dayone']
-ALL_PROJECTS_ENTRY_DATE = '2012-01-01'
-'''
+
+default_cfg = {
+    'version': __version__,
+    'todo': {
+        # in days; items completed beyond this aren't listed
+        'completion_cutoff': 30,
+        'sort_string': 'desc:done,desc:importance,due,desc:priority,asc:creation',
+    },
+    'sphinx': {
+        'doc_source': 'sources\docs',
+        'jrnl_sources': 'sources\jrnl',
+        'project_sources': 'sources\projects',
+    },
+    # can be an absolute or relative path
+    # if a relative path is given, it is relative to this file
+    'descriptions_dir': 'descriptions',
+    # which journals should be included
+    'jrnl': {
+        'journals': 'default',
+    },
+    'export': {
+        'all_projects_date': '2012-01-01',
+    },
+    'someday_projects': None,
+    'completed_projects': None,
+}
 
 
-def file_path():
-    return Path(appdirs.user_config_dir('prjct', 'Minchin')) / CFG_FILE
-
-
-def confirm(config_file=None):
+def upgrade_config(cfg):
     """
-    Confirm configuration exists.
-
-    This attempts to confirm that the configuration exists as expected. If it
-    does not, it writes the default configuration to disk.
-
-    If configuration file exists already, return True. If the configuration is
-    written to disk, return False.
+    Checks if there are keys missing in a given config dict, and if so, updates
+    the config file accordingly. This essentially automatically ports prjct
+    installations if new config parameters are introduced in later versions.
     """
-    if config_file is None:
-        config_file = file_path()
-    # make the folder, if it doesn't exist yet
-    config_file.parent.mkdir(exist_ok=True)
+    missing_keys = set(default_cfg).difference(cfg)
+    if missing_keys or cfg['version'] != __version__:
+        for key in missing_keys:
+            cfg[key] = default_cfg[key]
+        save_config(cfg)
+        print("[Configuration updated to newest version at {}]".format(CONFIG_FILE_PATH))
 
-    # if the configuration file doesn't exist, write the default
-    if not config_file.exists():
-        config_file.write_text(r"""\
-# This is the configuration file for PRJCT.
-# http://www.github.com/MinchinWeb/prjct
-# All values are required. This is a YAML formatted file.
- 
 
-todo:
-    # in days; items completed beyond this aren't listed
-    completion_cutoff: 30
-    sort_string: 'desc:done,desc:importance,due,desc:priority,asc:creation'
+def save_config(config):
+    config['version'] = __version__
+    with open(CONFIG_FILE_PATH, 'w') as f:
+        yaml.safe_dump(config, f, encoding='utf-8', allow_unicode=True, default_flow_style=False)
 
-sphinx:
-    doc_source: sources\docs
-    jrnl_sources: sources\jrnl
-    project_sources: sources\projects
 
-# can be an absolute or relative path
-# if a relative path is given, it is relative to this file
-descriptions_dir: descriptions
+def load_config(config_path):
+    """Tries to load a config file from YAML."""
+    with open(config_path) as f:
+        return yaml.load(f)
 
-# which journals should be included
-jrnl:
-    journals:
-        - default
 
-export:
-    all_projects_date: 2012-01-01
-
-someday_projects:
-
-completed_projects:
-
-""")
-        return False
+def load_or_install_prjct():
+    """
+    If prjct is already installed, loads and returns a config object.
+    Else, perform various prompts to install prjct.
+    """
+    config_path = CONFIG_FILE_PATH
+    if os.path.exists(config_path):
+        log.debug('Reading configuration from file %s', config_path)
+        cfg = load_config(config_path)
+        # upgrade.upgrade_prjct_if_necessary(config_path)
+        upgrade_config(cfg)
+        return cfg
     else:
-        return True
+        log.debug('Configuration file not found, installing prjct...')
+        return install()
 
 
-def load(config_file=None):
-    """
-    Load configuration.
+def install():
+    # def autocomplete(text, state):
+    #     expansions = glob.glob(os.path.expanduser(os.path.expandvars(text)) + '*')
+    #     expansions = [e + "/" if os.path.isdir(e) else e for e in expansions]
+    #     expansions.append(None)
+    #     return expansions[state]
 
-    config_file is a pathlib.Path object.
-    """
-    if config_file is None:
-        config_file = file_path()
-    cfg = reyaml.load_from_file(str(config_file))
+    # readline.set_completer_delims(' \t\n;')
+    # readline.parse_and_bind("tab: complete")
+    # readline.set_completer(autocomplete)
 
-    # add key of the location of the configuration file to the configuration
-    # itself
-    cfg['file_path'] = str(config_file)
+    # # Where to create the journal?
+    # path_query = 'Path to your journal file (leave blank for {}): '.format(JOURNAL_FILE_PATH)
+    # journal_path = util.py23_input(path_query).strip() or JOURNAL_FILE_PATH
+    # default_config['journals']['default'] = os.path.expanduser(os.path.expandvars(journal_path))
 
-    # TODO: add error checking
-    # TODO: add inserting default values
+    # path = os.path.split(default_config['journals']['default'])[0]  # If the folder doesn't exist, create it
+    # try:
+    #     os.makedirs(path)
+    # except OSError:
+    #     pass
+
+    # PlainJournal._create(default_config['journals']['default'])
+
+    cfg = default_cfg
+    save_config(cfg)
     return cfg
 
 
-def someday_projects(config_file=None):
+def someday_projects():
     """
     Return a list of "someday" projects.
 
     These tend to be projects that aren't under active progressions at the
     moment, and also haven't been completed.
     """
-    cfg = load(config_file)
+    cfg = load_or_install_prjct()
     someday_projects_list = cfg['someday_projects'] if 'someday_projects' in cfg else []
     return sort_project_list(someday_projects_list)
 
 
-def completed_projects(config_file=None):
+def completed_projects():
     """
     Return a list of "completed" projects.
 
     These are projects deemed completed (at least for now).
     """
-    cfg = load(config_file)
+    cfg = load_or_install_prjct()
     completed_projects_list = cfg['completed_projects'] if 'someday_projects' in cfg else []
     return sort_project_list(completed_projects_list)
 
 
-def project_list(config_file=None):
+def project_list():
     """
     Create a list of projects from the configuration.
 
     Merges the projects lists from the configuration of someday and completed
     projects.
     """
-    cfg = load(config_file)
+    cfg = load_or_install_prjct()
 
     completed_projects_list = set(cfg['completed_projects'] if 'someday_projects' in cfg else [])
     someday_projects_list = set(cfg['someday_projects'] if 'someday_projects' in cfg else [])

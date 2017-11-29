@@ -11,6 +11,7 @@ from pathlib import Path
 
 import click
 import invoke
+import yaml
 
 from . import config as prjct_config
 from . import sphinx as prjct_sphinx
@@ -84,12 +85,12 @@ def config(ctx):
     Prints the location of the configuration files. If none is found, the
     default is written to disk.
     """
-    if prjct_config.confirm():
-        print('Existing configuration file found at\n{}'.format(prjct_config.file_path()))
-    else:
-        print('No existing configuration file found. Default configuration '
-              'written to\n{}\nPlease reveiw configuration.'\
-              .format(prjct_config.file_path()))
+    cfg = prjct_config.load_or_install_prjct()
+
+    print("Configuration for {}, v.{}".format(__title__, __version__))
+    print("    located at {}".format(prjct_config.CONFIG_FILE_PATH))
+    print()
+    print(yaml.dump(cfg, indent=4, default_flow_style=False))
 
 
 @main.command()
