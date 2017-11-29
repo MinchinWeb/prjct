@@ -82,10 +82,10 @@ def upgrade_config(cfg):
         print("[Configuration updated to newest version at {}]".format(CONFIG_FILE_PATH))
 
 
-def save_config(config):
-    config['version'] = __version__
+def save_config(cfg):
+    cfg['version'] = __version__
     with open(CONFIG_FILE_PATH, 'w') as f:
-        yaml.safe_dump(config, f, encoding='utf-8', allow_unicode=True, default_flow_style=False)
+        yaml.safe_dump(cfg, f, encoding='utf-8', allow_unicode=True, default_flow_style=False)
 
 
 def load_config(config_path):
@@ -148,7 +148,7 @@ def someday_projects():
     moment, and also haven't been completed.
     """
     cfg = load_or_install_prjct()
-    someday_projects_list = cfg['someday_projects'] if 'someday_projects' in cfg else []
+    someday_projects_list = cfg['someday_projects'] if cfg['someday_projects'] else []
     return sort_project_list(someday_projects_list)
 
 
@@ -159,7 +159,7 @@ def completed_projects():
     These are projects deemed completed (at least for now).
     """
     cfg = load_or_install_prjct()
-    completed_projects_list = cfg['completed_projects'] if 'someday_projects' in cfg else []
+    completed_projects_list = cfg['completed_projects'] if cfg['completed_projects'] else []
     return sort_project_list(completed_projects_list)
 
 
@@ -172,8 +172,8 @@ def project_list():
     """
     cfg = load_or_install_prjct()
 
-    completed_projects_list = set(cfg['completed_projects'] if 'someday_projects' in cfg else [])
-    someday_projects_list = set(cfg['someday_projects'] if 'someday_projects' in cfg else [])
+    completed_projects_list = set(cfg['completed_projects'] if cfg['completed_projects'] else [])
+    someday_projects_list = set(cfg['someday_projects'] if cfg['someday_projects'] else [])
 
     # operator called 'join' and gives the union of the two sets
     all_projects_list = list(completed_projects_list | someday_projects_list)

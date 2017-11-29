@@ -31,7 +31,7 @@ def file_path(cfg):
 
     # if the path is relative, convert to an absolute path
     if not desc_path.is_absolute():
-        desc_path = Path(cfg['file_path']).parent / desc_path
+        desc_path = Path(prjct_config.CONFIG_FILE_PATH).parent / desc_path
 
     # make the folder, if it doesn't exist yet
     desc_path.mkdir(exist_ok=True)
@@ -39,13 +39,14 @@ def file_path(cfg):
     return str(desc_path)
 
 
-def project_list(cfg):
+def project_list():
     """
     Return a list of the projects for which the appropriate description file can be found.
 
     Returns an empty list is the description filepath is not defined in the
     configuration.
     """
+    cfg = prjct_config.load_or_install_prjct()
     # descriptions folder
     try:
         desc_path = Path(file_path(cfg))

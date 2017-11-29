@@ -9,18 +9,18 @@ from . import __version__, descriptions, todo_export
 from .util import sort_project_list
 
 
-def project_list(config_file=None, todo_config_file=None):
+def project_list(*, todo_config_file=None):
     """
     Create a full list of projects.
 
     Merges the projects lists from the todo file, the done file, the
     description files, and the project configuration.
     """
-    cfg = prjct_config.load(config_file)
+    cfg = prjct_config.load_or_install_prjct()
 
     todo_done_projects = set(todo_export.project_list(todo_config_file))
-    desc_projects = set(descriptions.project_list(cfg))
-    config_projects = set(prjct_config.project_list(config_file))
+    desc_projects = set(descriptions.project_list())
+    config_projects = set(prjct_config.project_list())
 
     # operator called 'join' and gives the union of the two sets
     all_projects_list = list(todo_done_projects | desc_projects |
@@ -28,7 +28,7 @@ def project_list(config_file=None, todo_config_file=None):
     return sort_project_list(all_projects_list)
 
 
-def active_project_list(config_file=None, todo_config_file=None):
+def active_project_list(*, config_file=None, todo_config_file=None):
     """
     Create a full list of projects.
 
@@ -52,7 +52,7 @@ def active_project_list(config_file=None, todo_config_file=None):
 def all_projects_entry():
     """Create a (basic) markdown entry that is tagged with all projects."""
     all_tags_str = ', '.join(project_list())
-    cfg = prjct_config.load()
+    cfg = prjct_config.load_or_install_prjct()
 
     my_entry = """\
 title: All Projects
