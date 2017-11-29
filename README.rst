@@ -37,7 +37,7 @@ A couple of philosophical notes that are built in to this project:
 Programming Language
 --------------------
 
-Python 3.5 on Windows.
+Python 3.6 on Windows.
 
 jrnl Integration
 ''''''''''''''''
@@ -70,14 +70,14 @@ entry.
 Pelican Integration
 '''''''''''''''''''
 
-*Pelican* integration has been deprciated in favour of Sphinx, which now
+*Pelican* integration has been depreciated in favour of Sphinx, which now
 allows *jrnl* content to be written in Markdown, but allows more powerful
 control of the rest of the site presentation.
 
 Sphinx Integration
 ''''''''''''''''''
 
-*Sphinx* is a static site generator, originally concieved for generating
+*Sphinx* is a static site generator, originally conceived for generating
 Python documentation, written in Python. Currently, entries from
 *jrnl* can be exported to Markdown formatted text files, and these text files
 can then be fed to *Sphinx* to create a blog using the *ABlog* extension.
@@ -172,7 +172,7 @@ Data File Structure
       |    |    |                         export of project overviews)
       |    |    |- my_project_name.rst
       |    |    ` ...
-      |    |- conf.py                   (Sphinx main configuraiton file)
+      |    |- conf.py                   (Sphinx main configuration file)
       |    `- index.rst                 (source page for website front
       |                                   page)
       `- build
@@ -193,8 +193,8 @@ Usage
       prjct usage           Displays this screen and exits
       prjct review          Review all projects listed in in the prjct.txt
                                 file to ensure they all have a next item.
-                                If there is nonext item, you are asked to
-                                either select one ofthe existing todo
+                                If there is no next item, you are asked to
+                                either select one of the existing todo
                                 items, or add a new one
       prjct (ls | list)     List all projects in the default prjct.txt
                                 file
@@ -238,7 +238,7 @@ Usage
                                 program
 
     Options:
-      -h --help                         Dispalys a list of available
+      -h --help                         Displays a list of available
                                             commands, recommends running
                                             'usage' for more details, and
                                             exits
