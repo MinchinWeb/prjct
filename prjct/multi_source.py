@@ -28,18 +28,17 @@ def project_list(*, todo_config_file=None):
     return sort_project_list(all_projects_list)
 
 
-def active_project_list(*, config_file=None, todo_config_file=None):
+def active_project_list(*, todo_config_file=None):
     """
     Create a full list of projects.
 
     Merges the projects lists from the todo file, the done file, the
     description files, and the project configuration.
     """
-    all_projects = project_list(config_file=config_file,
-                                todo_config_file=todo_config_file)
+    all_projects = project_list(todo_config_file=todo_config_file)
 
-    completed_projects = set(prjct_config.completed_projects(config_file=config_file))
-    someday_projects = set(prjct_config.someday_projects(config_file=config_file))
+    completed_projects = set(prjct_config.completed_projects())
+    someday_projects = set(prjct_config.someday_projects())
 
     exclude_projects = list(completed_projects | someday_projects)
     exclude_projects_2 = sort_project_list(exclude_projects)

@@ -97,8 +97,8 @@ def sorted_todos_by_project(cfg, todo_cfg=None):
     return active_todos, completed_todos
 
 
-def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
-                                  done_icon='<i class="fa fa-check-square-o"></i> '):
+def to_html_dicts(*, indent='', open_icon='<i class="fa fa-square-o"></i> ',
+                                done_icon='<i class="fa fa-check-square-o"></i> '):
     """
     Takes our todo list, and returns two dictionaries of where the keys equal
     to the project name, and the value is a string of the todo items for that
@@ -123,6 +123,7 @@ def to_html_dicts(cfg, indent='', open_icon='<i class="fa fa-square-o"></i> ',
     Args:
         indent  each line of the output is indented by this
     """
+    cfg = prjct_config.load_or_install_prjct()
 
     active_todos, completed_todos = sorted_todos_by_project(cfg)
 

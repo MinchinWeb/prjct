@@ -62,14 +62,16 @@ def project_list():
     return projects
 
 
-def to_markdown_dicts(cfg):
+def to_markdown_dicts():
     """
     Takes our project description folder, and returns a dictionary where the
     keys equal to the project name, and the value is the contents of project
     description file as unprocessed, raw text.
     """
+    cfg = prjct_config.load_or_install_prjct()
+
     try:
-        desc_path = Path(file_path(cfg))
+        desc_path = Path(prjct_config.CONFIG_FILE_PATH).parent / cfg['descriptions_dir']
     except ConfigKeyMissingError:
         return {}
 
@@ -82,7 +84,7 @@ def to_markdown_dicts(cfg):
     return markdown_dict
 
 
-def to_html_dict(*, cfg, markdown_extension_config=None):
+def to_html_dict(*, markdown_extension_config=None):
     """
     Takes our project description folder, and returns a dictionary where the
     keys equal to the project name, and the value is the contents of project
@@ -95,7 +97,7 @@ def to_html_dict(*, cfg, markdown_extension_config=None):
     """
     if markdown_extension_config is None:
         markdown_extension_config = {}
-    markdown_dict = to_markdown_dicts(cfg)
+    markdown_dict = to_markdown_dicts()
     extensions = [k for k, _ in markdown_extension_config.items()]
     html_dict = {}
 
