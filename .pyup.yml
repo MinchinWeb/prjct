@@ -1,0 +1,8 @@
+requirements:
+  - requirements.txt:
+      updates: all
+  - requirements-dev.txt:
+      updates: security
+
+branch_prefix: pyup/
+schedule: "every month"
