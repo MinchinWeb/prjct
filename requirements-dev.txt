@@ -28,7 +28,7 @@ gitpython==2.1.8          # via minchin.releaser
 green==2.12.0
 idna==2.6
 imagesize==0.7.1          # via sphinx
-invoke==0.21.0
+invoke==0.22.0
 isort==4.2.15             # via minchin.releaser
 jinja2==2.10
 keyring==10.5.0
