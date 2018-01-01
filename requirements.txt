@@ -6,7 +6,7 @@
 #
 appdirs==1.4.3
 arrow==0.12.0             # via topydo
-asn1crypto==0.23.0        # via cryptography
+asn1crypto==0.24.0        # via cryptography
 asteval==0.9.11
 blinker==1.4              # via pelican
 cffi==1.11.2              # via cryptography
