@@ -1,6 +1,8 @@
 prjct Changelog
 ===============
 
+- :feature:`-` ``todo`` command line shortcut installed with ``prjct`` that
+  links to ``topydo``
 - :bug:`-` [BREAKING CHANGE] switch from ``appdirs`` to ``xdg`` to determine
   folder in which to store configuration. This is done so it's easier to find
   the configuration folder to back it up. Run ``prjct config`` to generate the

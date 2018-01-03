@@ -184,8 +184,9 @@ setuptools.setup(
     #                     ],
     entry_points={
         'console_scripts': [
-            'prjct=prjct.cli:main',
+            'prjct = prjct.cli:main',
             'jrnl = prjct._vendor.jrnl.cli:run',
+            'todo = topydo.ui.UILoader:main',  # probably move to separate package for v1 release
         ],
     },
 )
