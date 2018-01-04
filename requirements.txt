@@ -6,7 +6,7 @@
 #
 appdirs==1.4.3
 arrow==0.12.0             # via topydo
-asn1crypto==0.23.0        # via cryptography
+asn1crypto==0.24.0        # via cryptography
 asteval==0.9.11
 blinker==1.4              # via pelican
 cffi==1.11.2              # via cryptography
@@ -18,10 +18,10 @@ docutils==0.14            # via pelican
 feedgenerator==1.9        # via pelican
 future==0.16.0            # via parsedatetime
 idna==2.6                 # via cryptography
-invoke==0.21.0
+invoke==0.22.0
 jinja2==2.10              # via pelican
-keyring==10.5.0
-markdown==2.6.9
+keyring==10.5.1
+markdown==2.6.10
 markupsafe==1.0           # via jinja2
 minchin.pelican.jinja-filters==1.0.4
 numpy==1.13.3             # via asteval
@@ -40,6 +40,6 @@ reyaml==0.2.1
 six==1.11.0
 titlecase==0.12.0         # via minchin.pelican.jinja-filters
 topydo==0.13
-tzlocal==1.4
+tzlocal==1.5.1
 unidecode==0.4.21         # via pelican
 winshell==0.6
