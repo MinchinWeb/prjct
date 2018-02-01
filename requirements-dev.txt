@@ -32,7 +32,7 @@ imagesize==0.7.1          # via sphinx
 invoke==0.22.1
 isort==4.3.0             # via minchin.releaser
 jinja2==2.10
-keyring==10.5.1
+keyring==11.0.0
 markdown==2.6.10
 markupsafe==1.0
 minchin.pelican.jinja-filters==1.0.4
