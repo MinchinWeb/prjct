@@ -60,7 +60,7 @@ semantic-version==2.6.0   # via minchin.releaser, releases
 six==1.11.0
 smmap2==2.0.3             # via gitdb2
 snowballstemmer==1.2.1    # via sphinx
-sphinx==1.6.5             # via releases
+sphinx==1.6.6             # via releases
 sphinxcontrib-websupport==1.0.1  # via sphinx
 titlecase==0.12.0
 topydo==0.13
