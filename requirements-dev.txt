@@ -6,20 +6,20 @@
 #
 alabaster==0.7.10         # via sphinx
 appdirs==1.4.3
-arrow==0.12.0
+arrow==0.12.1
 asn1crypto==0.24.0
 asteval==0.9.11
-babel==2.5.1              # via sphinx
+babel==2.5.3              # via sphinx
 blinker==1.4
-certifi==2017.11.5        # via requests
-cffi==1.11.2
+certifi==2018.1.18        # via requests
+cffi==1.11.4
 chardet==3.0.4            # via requests
 check-manifest==0.36
 click==6.7
 cloudmesh-timestring==1.6.2.1
 colorama==0.3.9
 coverage==4.4.2           # via green
-cryptography==1.9
+cryptography==2.1.4
 docutils==0.14
 feedgenerator==1.9
 first==2.0.1              # via pip-tools
@@ -29,15 +29,15 @@ gitpython==2.1.8          # via minchin.releaser
 green==2.12.0
 idna==2.6
 imagesize==0.7.1          # via sphinx
-invoke==0.22.0
-isort==4.2.15             # via minchin.releaser
+invoke==0.22.1
+isort==4.3.0             # via minchin.releaser
 jinja2==2.10
-keyring==10.5.1
-markdown==2.6.10
+keyring==11.0.0
+markdown==2.6.11
 markupsafe==1.0
 minchin.pelican.jinja-filters==1.0.4
 minchin.releaser==0.5.4
-numpy==1.13.3
+numpy==1.14.0
 parsedatetime==2.4
 passlib==1.7.1
 pelican==3.7.1
@@ -45,7 +45,7 @@ pip-tools==1.11.0
 pkginfo==1.4.1            # via twine
 pycparser==2.18
 pygments==2.2.0
-pypiwin32==220
+pypiwin32==222
 python-dateutil==2.6.1
 python-termstyle==0.1.10  # via green
 pytz==2017.3
@@ -60,14 +60,14 @@ semantic-version==2.6.0   # via minchin.releaser, releases
 six==1.11.0
 smmap2==2.0.3             # via gitdb2
 snowballstemmer==1.2.1    # via sphinx
-sphinx==1.6.5             # via releases
+sphinx==1.6.6             # via releases
 sphinxcontrib-websupport==1.0.1  # via sphinx
 titlecase==0.12.0
 topydo==0.13
 tqdm==4.19.5              # via twine
 twine==1.9.1              # via minchin.releaser
 tzlocal==1.5.1
-unidecode==0.4.21
+unidecode==1.0.22
 urllib3==1.22             # via requests
 wheel==0.30.0             # via minchin.releaser
 winshell==0.6
