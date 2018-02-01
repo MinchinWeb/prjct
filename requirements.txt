@@ -21,7 +21,7 @@ idna==2.6                 # via cryptography
 invoke==0.22.1
 jinja2==2.10              # via pelican
 keyring==11.0.0
-markdown==2.6.10
+markdown==2.6.11
 markupsafe==1.0           # via jinja2
 minchin.pelican.jinja-filters==1.0.4
 numpy==1.13.3             # via asteval
