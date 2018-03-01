@@ -45,7 +45,7 @@ pip-tools==1.11.0
 pkginfo==1.4.1            # via twine
 pycparser==2.18
 pygments==2.2.0
-pypiwin32==220
+pypiwin32==223
 python-dateutil==2.6.1
 python-termstyle==0.1.10  # via green
 pytz==2017.3
