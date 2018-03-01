@@ -48,7 +48,7 @@ pygments==2.2.0
 pypiwin32==223
 python-dateutil==2.6.1
 python-termstyle==0.1.10  # via green
-pytz==2017.3
+pytz==2018.3
 pywin32-ctypes==0.1.2
 pyxdg==0.25
 pyyaml==3.12
