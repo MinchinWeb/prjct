@@ -9,7 +9,7 @@ appdirs==1.4.3
 arrow==0.12.1
 asn1crypto==0.24.0
 asteval==0.9.12
-babel==2.5.1              # via sphinx
+babel==2.5.3              # via sphinx
 blinker==1.4
 certifi==2017.11.5        # via requests
 cffi==1.11.2
