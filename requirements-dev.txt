@@ -18,7 +18,7 @@ check-manifest==0.37
 click==6.7
 cloudmesh-timestring==1.6.2.1
 colorama==0.3.9
-coverage==4.4.2           # via green
+coverage==4.5.1           # via green
 cryptography==1.9
 docutils==0.14
 feedgenerator==1.9
