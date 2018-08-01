@@ -29,7 +29,7 @@ gitpython==2.1.11         # via minchin.releaser
 green==2.12.1
 idna==2.7
 imagesize==1.0.0          # via sphinx
-invoke==0.22.0
+invoke==1.1.1
 isort==4.3.4              # via minchin.releaser
 jinja2==2.10
 keyring==10.5.1
