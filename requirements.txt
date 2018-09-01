@@ -13,19 +13,19 @@ cffi==1.11.5              # via cryptography
 click==6.7
 cloudmesh-timestring==1.6.2.1
 colorama==0.3.9           # via topydo
-cryptography==2.2.2
+cryptography==2.3.1
 docutils==0.14            # via pelican
 entrypoints==0.2.3        # via keyring
 feedgenerator==1.9        # via pelican
 future==0.16.0            # via parsedatetime
-idna==2.6                 # via cryptography
-invoke==1.0.0
+idna==2.7                 # via cryptography
+invoke==1.1.1
 jinja2==2.10              # via pelican
-keyring==12.2.1
+keyring==13.2.1
 markdown==2.6.11
 markupsafe==1.0           # via jinja2
 minchin.pelican.jinja-filters==1.0.4
-numpy==1.14.3             # via asteval
+numpy==1.15.1             # via asteval
 parsedatetime==2.4
 passlib==1.7.1
 pelican==3.7.1            # via minchin.pelican.jinja-filters
@@ -33,11 +33,11 @@ pycparser==2.18           # via cffi
 pygments==2.2.0           # via pelican
 pypiwin32==223
 python-dateutil==2.7.3    # via arrow, pelican
-pytz==2018.4
-pywin32-ctypes==0.1.2     # via keyring
+pytz==2018.5
+pywin32-ctypes==0.2.0     # via keyring
 pywin32==223              # via pypiwin32
 pyxdg==0.26
-pyyaml==3.12
+pyyaml==3.13
 reyaml==0.2.1
 six==1.11.0
 titlecase==0.12.0         # via minchin.pelican.jinja-filters
