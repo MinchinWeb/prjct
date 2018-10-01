@@ -25,7 +25,7 @@ keyring==15.1.0
 markdown==3.0.1
 markupsafe==1.0           # via jinja2
 minchin.pelican.jinja-filters==1.0.4
-numpy==1.14.3             # via asteval
+numpy==1.15.2             # via asteval
 parsedatetime==2.4
 passlib==1.7.1
 pelican==3.7.1            # via minchin.pelican.jinja-filters
