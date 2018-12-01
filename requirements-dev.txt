@@ -24,7 +24,7 @@ docutils==0.14
 feedgenerator==1.9
 first==2.0.1              # via pip-tools
 future==0.17.1
-gitdb2==2.0.3             # via gitpython
+gitdb2==2.0.5             # via gitpython
 gitpython==2.1.10         # via minchin.releaser
 green==2.12.1
 idna==2.6
