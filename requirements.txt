@@ -28,7 +28,7 @@ minchin.pelican.jinja-filters==1.0.4
 numpy==1.15.4             # via asteval
 parsedatetime==2.4
 passlib==1.7.1
-pelican==3.7.1            # via minchin.pelican.jinja-filters
+pelican==4.0.1            # via minchin.pelican.jinja-filters
 pycparser==2.18           # via cffi
 pygments==2.2.0           # via pelican
 pypiwin32==223
