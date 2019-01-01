@@ -33,7 +33,7 @@ pycparser==2.19           # via cffi
 pygments==2.3.1           # via pelican
 pypiwin32==223
 python-dateutil==2.7.5    # via arrow, pelican
-pytz==2018.4
+pytz==2018.7
 pywin32-ctypes==0.1.2     # via keyring
 pywin32==223              # via pypiwin32
 pyxdg==0.26
