@@ -36,7 +36,7 @@ keyring==17.1.1
 markdown==3.0.1
 markupsafe==1.1.0
 minchin.pelican.jinja-filters==1.0.4
-minchin.releaser==0.5.4
+minchin.releaser==0.6.1
 numpy==1.13.3
 parsedatetime==2.4
 passlib==1.7.1
