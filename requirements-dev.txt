@@ -12,7 +12,7 @@ asteval==0.9.13
 babel==2.6.0              # via sphinx
 blinker==1.4
 certifi==2018.11.29        # via requests
-cffi==1.11.2
+cffi==1.11.5
 chardet==3.0.4            # via requests
 check-manifest==0.37
 click==6.7
