@@ -17,7 +17,7 @@ cryptography==2.6.1
 docutils==0.14            # via pelican
 entrypoints==0.2.3        # via keyring
 feedgenerator==1.9        # via pelican
-future==0.16.0            # via parsedatetime
+future==0.17.1            # via parsedatetime
 idna==2.6                 # via cryptography
 invoke==1.0.0
 jinja2==2.10              # via pelican
