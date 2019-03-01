@@ -19,7 +19,7 @@ click==7.0
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.1
 coverage==4.5.2           # via green
-cryptography==1.9
+cryptography==2.6.1
 docutils==0.14
 feedgenerator==1.9
 first==2.0.1              # via pip-tools
