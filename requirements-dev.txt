@@ -26,7 +26,7 @@ first==2.0.2              # via pip-tools
 future==0.17.1
 gitdb2==2.0.5             # via gitpython
 gitpython==2.1.11         # via minchin.releaser
-green==2.12.1
+green==2.14.1
 idna==2.6
 imagesize==1.0.0          # via sphinx
 invoke==0.22.0
