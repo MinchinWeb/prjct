@@ -30,7 +30,7 @@ green==2.16.1
 idna==2.8
 imagesize==1.1.0          # via sphinx
 invoke==1.2.0
-isort==4.3.4              # via minchin.releaser
+isort==4.3.17              # via minchin.releaser
 jinja2==2.10
 keyring==10.5.1
 markdown==2.6.10
