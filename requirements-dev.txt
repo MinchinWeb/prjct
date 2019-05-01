@@ -31,7 +31,7 @@ idna==2.8
 imagesize==1.1.0          # via sphinx
 invoke==1.2.0
 isort==4.3.17              # via minchin.releaser
-jinja2==2.10
+jinja2==2.10.1
 keyring==10.5.1
 markdown==2.6.10
 markupsafe==1.0
