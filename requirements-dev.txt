@@ -37,7 +37,7 @@ markdown==3.1
 markupsafe==1.1.1
 minchin.pelican.jinja-filters==1.0.4
 minchin.releaser==0.7.0
-numpy==1.13.3
+numpy==1.16.3
 parsedatetime==2.4
 passlib==1.7.1
 pelican==3.7.1
