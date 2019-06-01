@@ -40,7 +40,7 @@ minchin.releaser==0.7.0
 numpy==1.16.4
 parsedatetime==2.4
 passlib==1.7.1
-pelican==3.7.1
+pelican==4.0.1
 pip-tools==2.0.2
 pkginfo==1.4.2            # via twine
 pycparser==2.18
