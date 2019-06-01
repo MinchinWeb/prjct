@@ -60,7 +60,7 @@ six==1.12.0
 smmap2==2.0.5             # via gitdb2
 snowballstemmer==1.2.1    # via sphinx
 sphinx==2.0.1             # via releases
-sphinxcontrib-websupport==1.1.0  # via sphinx
+sphinxcontrib-websupport==1.1.2  # via sphinx
 termstyle==0.1.11         # via green
 titlecase==0.12.0
 topydo==0.13
