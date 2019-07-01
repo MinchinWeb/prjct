@@ -21,7 +21,7 @@ future==0.17.1            # via parsedatetime
 idna==2.8                 # via cryptography
 invoke==1.2.0
 jinja2==2.10.1              # via pelican
-keyring==12.2.1
+keyring==19.0.2
 markdown==2.6.11
 markupsafe==1.0           # via jinja2
 minchin.pelican.jinja-filters==1.0.4
