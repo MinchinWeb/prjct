@@ -68,6 +68,6 @@ tqdm==4.32.2              # via twine
 twine==1.13.0             # via minchin.releaser
 tzlocal==1.5.1
 unidecode==1.1.1
-urllib3==1.22             # via requests
+urllib3==1.25.3             # via requests
 wheel==0.31.1             # via minchin.releaser
 winshell==0.6
