@@ -14,7 +14,7 @@ blinker==1.4
 certifi==2019.6.16        # via requests
 cffi==1.12.3
 chardet==3.0.4            # via requests
-check-manifest==0.37
+check-manifest==0.39
 click==6.7
 cloudmesh-timestring==1.6.2.1
 colorama==0.3.9
