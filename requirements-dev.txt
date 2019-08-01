@@ -20,7 +20,7 @@ cloudmesh-timestring==1.6.2.1
 colorama==0.4.1
 coverage==4.5.4           # via green
 cryptography==2.7
-docutils==0.14
+docutils==0.15.2
 feedgenerator==1.9
 first==2.0.1              # via pip-tools
 future==0.16.0
