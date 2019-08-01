@@ -58,7 +58,7 @@ reyaml==0.2.1
 semantic-version==2.6.0   # via minchin.releaser, releases
 six==1.12.0
 smmap2==2.0.5             # via gitdb2
-snowballstemmer==1.2.1    # via sphinx
+snowballstemmer==1.9.0    # via sphinx
 sphinx==1.6.7             # via releases
 sphinxcontrib-websupport==1.1.0  # via sphinx
 termstyle==0.1.11         # via green
