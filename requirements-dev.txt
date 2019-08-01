@@ -69,5 +69,5 @@ twine==1.13.0             # via minchin.releaser
 tzlocal==2.0.0
 unidecode==1.1.1
 urllib3==1.25.3             # via requests
-wheel==0.31.1             # via minchin.releaser
+wheel==0.33.4             # via minchin.releaser
 winshell==0.6
