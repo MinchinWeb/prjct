@@ -14,7 +14,7 @@ click==7.0
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.1           # via topydo
 cryptography==2.7
-docutils==0.14            # via pelican
+docutils==0.15.2            # via pelican
 entrypoints==0.2.3        # via keyring
 feedgenerator==1.9        # via pelican
 future==0.16.0            # via parsedatetime
