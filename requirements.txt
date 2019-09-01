@@ -32,7 +32,7 @@ pelican==4.1.1            # via minchin.pelican.jinja-filters
 pycparser==2.19           # via cffi
 pygments==2.4.2           # via pelican
 pypiwin32==223
-python-dateutil==2.7.3    # via arrow, pelican
+python-dateutil==2.8.0    # via arrow, pelican
 pytz==2018.4
 pywin32-ctypes==0.1.2     # via keyring
 pywin32==223              # via pypiwin32
