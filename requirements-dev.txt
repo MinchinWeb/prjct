@@ -42,7 +42,7 @@ parsedatetime==2.4
 passlib==1.7.1
 pelican==4.1.1
 pip-tools==4.1.0
-pkginfo==1.4.2            # via twine
+pkginfo==1.5.0.1            # via twine
 pycparser==2.18
 pygments==2.2.0
 pypiwin32==220
