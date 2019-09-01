@@ -52,7 +52,7 @@ pywin32-ctypes==0.2.0
 pyxdg==0.26
 pyyaml==5.1.2
 releases==1.6.1
-requests-toolbelt==0.8.0  # via twine
+requests-toolbelt==0.9.1  # via twine
 requests==2.18.4          # via requests-toolbelt, sphinx, twine
 reyaml==0.2.1
 semantic-version==2.6.0   # via minchin.releaser, releases
