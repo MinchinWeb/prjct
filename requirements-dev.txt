@@ -25,7 +25,7 @@ feedgenerator==1.9
 first==2.0.2              # via pip-tools
 future==0.17.1
 gitdb2==2.0.5             # via gitpython
-gitpython==2.1.10         # via minchin.releaser
+gitpython==3.0.2         # via minchin.releaser
 green==2.12.1
 idna==2.6
 imagesize==1.0.0          # via sphinx
