@@ -67,7 +67,7 @@ topydo==0.13
 tqdm==4.35.0              # via twine
 twine==1.13.0             # via minchin.releaser
 tzlocal==2.0.0
-unidecode==0.4.21
+unidecode==1.1.1
 urllib3==1.22             # via requests
 wheel==0.31.1             # via minchin.releaser
 winshell==0.6
