@@ -74,7 +74,7 @@ INSTALL_REQUIRES = [
     'click',
     'invoke',
     'winshell',
-    'pypiwin32',                       # pywin32 is required by winshell, but not automatically installed
+    'pywin32',                       # pywin32 is required by winshell, but not automatically installed
     'appdirs',
     'markdown',
     'minchin.pelican.jinja_filters',   # for titlecase filter
