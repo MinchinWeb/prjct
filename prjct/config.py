@@ -91,7 +91,7 @@ def save_config(cfg):
 def load_config(config_path):
     """Tries to load a config file from YAML."""
     with open(config_path) as f:
-        return yaml.load(f)
+        return yaml.load(f, Loader=yaml.FullLoader)
 
 
 def load_or_install_prjct():

@@ -133,7 +133,7 @@ def generate_project_summaries(export_path=None, relative_path=True):
     else:
         print('No existing configuration file found. Default configuration \
               written to {}.'.format(config.file_path()))
-        print('Please reveiw configuration and re-run.')
+        print('Please review configuration and re-run.')
 
 
 def geneate_projects_page(export_path=None, relative_path=True):

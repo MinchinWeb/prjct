@@ -1,7 +1,7 @@
 prjct
 =====
 
-Project Management for Living Life, v0.6, 2017-11-13
+Project Management for Living Life, v0.7.1, 2019-09-24
 
 .. note:: Not all features have been implemented yet. I use this day-to-day, but really, it's alpha-level software.
 
@@ -37,7 +37,7 @@ A couple of philosophical notes that are built in to this project:
 Programming Language
 --------------------
 
-Python 3.6 on Windows.
+Python 3.7 on Windows.
 
 jrnl Integration
 ''''''''''''''''
