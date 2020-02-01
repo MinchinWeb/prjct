@@ -24,7 +24,7 @@ markdown==3.1.1
 markupsafe==1.1.1         # via jinja2
 minchin.pelican.jinja-filters==1.0.4
 parsedatetime==2.5
-passlib==1.7.1
+passlib==1.7.2
 pelican==4.2.0            # via minchin.pelican.jinja-filters
 pycparser==2.19           # via cffi
 pygments==2.4.2           # via pelican
