@@ -67,7 +67,7 @@ sphinxcontrib-websupport==1.1.2  # via sphinx
 titlecase==0.12.0
 toml==0.10.0              # via check-manifest
 topydo==0.13
-tqdm==4.36.1              # via twine
+tqdm==4.42.0              # via twine
 twine==2.0.0              # via minchin.releaser
 tzlocal==2.0.0
 unidecode==1.1.1
