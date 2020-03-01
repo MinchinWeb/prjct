@@ -42,7 +42,7 @@ packaging==20.1           # via sphinx
 parsedatetime==2.5
 passlib==1.7.2
 pelican==4.2.0
-pip-tools==4.2.0
+pip-tools==4.5.1
 pkginfo==1.5.0.1          # via twine
 pycparser==2.19
 pygments==2.4.2
