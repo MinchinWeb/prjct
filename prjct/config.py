@@ -6,6 +6,7 @@
 import logging
 import os
 from pathlib import Path
+import shutil
 
 import xdg.BaseDirectory  # packaged as pyxdg
 import yaml  # packaged at pyyaml
@@ -79,19 +80,28 @@ def upgrade_config(cfg):
         for key in missing_keys:
             cfg[key] = default_cfg[key]
         save_config(cfg)
-        print("[Configuration updated to newest version at {}]".format(CONFIG_FILE_PATH))
+        print('[Configuration updated to newest version at "{}"]'.format(CONFIG_FILE_PATH))
 
 
 def save_config(cfg):
     cfg['version'] = __version__
+    # backup exiting configuration file
+    if Path(CONFIG_FILE_PATH).is_file():
+        shutil.copy(CONFIG_FILE_PATH, Path(CONFIG_FILE_PATH).with_suffix(".bak"))
     with open(CONFIG_FILE_PATH, 'w') as f:
         yaml.safe_dump(cfg, f, encoding='utf-8', allow_unicode=True, default_flow_style=False)
 
 
 def load_config(config_path):
     """Tries to load a config file from YAML."""
-    with open(config_path) as f:
-        return yaml.load(f, Loader=yaml.FullLoader)
+    try:
+        with open(config_path) as f:
+            return yaml.load(f, Loader=yaml.FullLoader)
+    except yaml.parser.ParserError as e:
+        print('[Error loading prjct configuration from "{}"]'.format(config_path))
+        print(e)
+        print()
+        return {}
 
 
 def load_or_install_prjct():
