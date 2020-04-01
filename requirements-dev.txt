@@ -20,7 +20,7 @@ cloudmesh-timestring==1.6.2.1
 colorama==0.4.3
 coverage==5.0.4           # via green
 cryptography==2.8
-docutils==0.15.2
+docutils==0.16
 entrypoints==0.3
 feedgenerator==1.9
 future==0.18.1
