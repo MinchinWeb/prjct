@@ -47,7 +47,7 @@ pkginfo==1.5.0.1          # via twine
 pycparser==2.20
 pygments==2.6.1
 pyparsing==2.4.6          # via packaging
-python-dateutil==2.8.0
+python-dateutil==2.8.1
 pytz==2019.3
 pywin32-ctypes==0.2.0
 pywin32==225
