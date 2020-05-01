@@ -23,7 +23,7 @@ cryptography==2.9.2
 docutils==0.16
 entrypoints==0.3
 feedgenerator==1.9.1
-future==0.18.1
+future==0.18.2
 gitdb2==2.0.6             # via gitpython
 gitpython==3.0.4          # via minchin.releaser
 green==3.0.0
