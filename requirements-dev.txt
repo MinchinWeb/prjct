@@ -15,7 +15,7 @@ certifi==2020.4.5.1        # via requests
 cffi==1.14.0
 chardet==3.0.4            # via requests
 check-manifest==0.42
-click==7.0
+click==7.1.2
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.1
 coverage==4.5.4           # via green
