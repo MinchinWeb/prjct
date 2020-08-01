@@ -5,7 +5,7 @@
 #    pip-compile --output-file=requirements.txt setup.py
 #
 appdirs==1.4.4
-arrow==0.15.2             # via topydo
+arrow==0.15.8             # via topydo
 asteval==0.9.16
 blinker==1.4              # via pelican
 cffi==1.13.1              # via cryptography
