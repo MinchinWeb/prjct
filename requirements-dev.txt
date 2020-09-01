@@ -22,7 +22,7 @@ coverage==5.2.1           # via green
 cryptography==3.1
 docutils==0.16
 entrypoints==0.3
-feedgenerator==1.9
+feedgenerator==1.9.1
 future==0.18.1
 gitdb2==2.0.6             # via gitpython
 gitpython==3.0.4          # via minchin.releaser
