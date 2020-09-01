@@ -28,7 +28,7 @@ gitdb2==4.0.1             # via gitpython
 gitpython==3.1.7          # via minchin.releaser
 green==3.2.1
 idna==2.10                 # via requests
-imagesize==1.1.0          # via sphinx
+imagesize==1.2.0          # via sphinx
 invoke==1.3.0
 isort==4.3.21             # via minchin.releaser
 jinja2==2.10.3
