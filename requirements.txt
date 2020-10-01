@@ -26,7 +26,7 @@ minchin.pelican.jinja-filters==1.0.4
 parsedatetime==2.6
 passlib==1.7.2
 pelican==4.5.0            # via minchin.pelican.jinja-filters
-pycparser==2.19           # via cffi
+pycparser==2.20           # via cffi
 pygments==2.4.2           # via pelican
 python-dateutil==2.8.0    # via arrow, pelican
 pytz==2019.3
