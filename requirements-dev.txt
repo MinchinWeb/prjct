@@ -25,7 +25,7 @@ entrypoints==0.3
 feedgenerator==1.9.1
 future==0.18.2
 gitdb2==4.0.1             # via gitpython
-gitpython==3.0.4          # via minchin.releaser
+gitpython==3.1.9          # via minchin.releaser
 green==3.0.0
 idna==2.8                 # via requests
 imagesize==1.1.0          # via sphinx
