@@ -11,7 +11,7 @@ blinker==1.4              # via pelican
 cffi==1.14.3              # via cryptography
 click==7.1.2
 cloudmesh-timestring==1.6.2.1
-colorama==0.4.1           # via topydo
+colorama==0.4.4           # via topydo
 cryptography==2.8
 docutils==0.15.2          # via pelican
 entrypoints==0.3          # via keyring
