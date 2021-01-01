@@ -39,7 +39,7 @@ markupsafe==1.1.1
 minchin.pelican.jinja-filters==1.0.4
 minchin.releaser==0.7.2
 packaging==20.8           # via sphinx
-parsedatetime==2.4
+parsedatetime==2.6
 passlib==1.7.1
 pelican==4.2.0
 pip-tools==4.2.0
