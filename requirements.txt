@@ -8,7 +8,7 @@ appdirs==1.4.4
 arrow==0.17.0             # via topydo
 asteval==0.9.16
 blinker==1.4              # via pelican
-cffi==1.13.1              # via cryptography
+cffi==1.14.4              # via cryptography
 click==7.0
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.1           # via topydo
