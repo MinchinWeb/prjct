@@ -54,7 +54,7 @@ pywin32==300
 pyxdg==0.27
 pyyaml==5.3.1
 readme-renderer==28.0     # via twine
-releases==1.6.1
+releases==1.6.3
 requests-toolbelt==0.9.1  # via twine
 requests==2.22.0          # via requests-toolbelt, sphinx, twine
 reyaml==0.2.1
