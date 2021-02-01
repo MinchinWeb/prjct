@@ -45,7 +45,7 @@ pelican==4.5.4
 pip-tools==5.5.0
 pkginfo==1.7.0          # via twine
 pycparser==2.20
-pygments==2.4.2
+pygments==2.7.4
 pyparsing==2.4.2          # via packaging
 python-dateutil==2.8.0
 pytz==2019.3
