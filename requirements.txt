@@ -9,7 +9,7 @@ arrow==1.0.2             # via topydo
 asteval==0.9.16
 blinker==1.4              # via pelican
 cffi==1.14.5              # via cryptography
-click==7.0
+click==7.1.2
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.1           # via topydo
 cryptography==2.8
