@@ -34,7 +34,7 @@ isort==5.7.0             # via minchin.releaser
 jinja2==2.11.3
 keyring==22.3.0
 lxml==4.6.2               # via green
-markdown==3.1.1
+markdown==3.3.4
 markupsafe==1.1.1
 minchin.pelican.jinja-filters==1.0.4
 minchin.releaser==0.7.0
