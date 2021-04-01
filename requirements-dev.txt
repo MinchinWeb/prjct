@@ -44,7 +44,7 @@ passlib==1.7.4
 pelican==4.6.0
 pip-tools==6.0.1
 pkginfo==1.7.0          # via twine
-pycparser==2.19
+pycparser==2.20
 pygments==2.4.2
 pyparsing==2.4.2          # via packaging
 python-dateutil==2.8.0
