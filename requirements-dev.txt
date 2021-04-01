@@ -13,7 +13,7 @@ bleach==3.3.0             # via readme-renderer
 blinker==1.4
 certifi==2020.12.5        # via requests
 cffi==1.14.5
-chardet==3.0.4            # via requests
+chardet==4.0.0            # via requests
 check-manifest==0.40
 click==7.0
 cloudmesh-timestring==1.6.2.1
