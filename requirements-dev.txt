@@ -11,7 +11,7 @@ asteval==0.9.16
 babel==2.9.0              # via sphinx
 bleach==3.3.0             # via readme-renderer
 blinker==1.4
-certifi==2019.9.11        # via requests
+certifi==2020.12.5        # via requests
 cffi==1.13.1
 chardet==3.0.4            # via requests
 check-manifest==0.40
