@@ -36,7 +36,7 @@ pyxdg==0.27
 pyyaml==5.4.1
 reyaml==0.2.2
 six==1.15.0
-titlecase==0.12.0         # via minchin.pelican.jinja-filters
+titlecase==2.0.0         # via minchin.pelican.jinja-filters
 topydo==0.13
 tzlocal==2.0.0
 unidecode==1.1.1          # via pelican
