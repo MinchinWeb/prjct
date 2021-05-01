@@ -41,7 +41,7 @@ minchin.releaser==0.7.4
 packaging==20.9           # via sphinx
 parsedatetime==2.6
 passlib==1.7.4
-pelican==4.2.0
+pelican==4.6.0
 pip-tools==4.2.0
 pkginfo==1.5.0.1          # via twine
 pycparser==2.19
