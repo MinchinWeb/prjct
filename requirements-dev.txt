@@ -19,7 +19,7 @@ click==8.0.1
 cloudmesh-timestring==1.6.2.1
 colorama==0.4.4
 coverage==5.5           # via green
-cryptography==2.8
+cryptography==3.4.7
 docutils==0.15.2
 entrypoints==0.3
 feedgenerator==1.9
