@@ -68,7 +68,7 @@ titlecase==2.2.0
 toml==0.10.2              # via check-manifest
 topydo==0.14
 tqdm==4.61.1              # via twine
-twine==2.0.0              # via minchin.releaser
+twine==3.4.1              # via minchin.releaser
 tzlocal==2.0.0
 unidecode==1.1.1
 urllib3==1.25.6           # via requests
