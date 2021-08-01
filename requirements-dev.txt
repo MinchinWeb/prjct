@@ -40,7 +40,7 @@ minchin.pelican.jinja-filters==1.1.0
 minchin.releaser==0.8.1
 packaging==21.0           # via sphinx
 parsedatetime==2.6
-passlib==1.7.1
+passlib==1.7.4
 pelican==4.2.0
 pip-tools==4.2.0
 pkginfo==1.5.0.1          # via twine
