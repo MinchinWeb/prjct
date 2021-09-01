@@ -21,7 +21,7 @@ invoke==1.6.0
 jinja2==3.0.1            # via pelican
 keyring==23.1.0
 markdown==3.3.4
-markupsafe==1.1.1         # via jinja2
+markupsafe==2.0.1         # via jinja2
 minchin.pelican.jinja-filters==1.0.4
 parsedatetime==2.4
 passlib==1.7.1
