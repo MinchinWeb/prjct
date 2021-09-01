@@ -15,7 +15,7 @@ colorama==0.4.4           # via topydo
 cryptography==3.4.8
 docutils==0.17.1          # via pelican
 entrypoints==0.3          # via keyring
-feedgenerator==1.9        # via pelican
+feedgenerator==1.9.2        # via pelican
 future==0.18.1            # via parsedatetime
 invoke==1.3.0
 jinja2==2.10.3            # via pelican
