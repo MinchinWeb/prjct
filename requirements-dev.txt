@@ -36,7 +36,7 @@ keyring==23.1.0
 lxml==4.6.3               # via green
 markdown==3.3.4
 markupsafe==2.0.1
-minchin.pelican.jinja-filters==1.0.4
+minchin.pelican.jinja-filters==1.1.0
 minchin.releaser==0.7.0
 packaging==19.2           # via sphinx
 parsedatetime==2.4
