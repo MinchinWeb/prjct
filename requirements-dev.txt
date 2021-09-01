@@ -5,7 +5,7 @@
 #    pip-compile --output-file='.\requirements-dev.txt' '.\requirements-dev.in'
 #
 alabaster==0.7.12         # via sphinx
-appdirs==1.4.3
+appdirs==1.4.4
 arrow==0.15.2
 asteval==0.9.16
 babel==2.7.0              # via sphinx
