@@ -39,7 +39,7 @@ six==1.16.0
 titlecase==2.3         # via minchin.pelican.jinja-filters
 topydo==0.14
 tzlocal==3.0
-unidecode==1.1.1          # via pelican
+unidecode==1.2.0          # via pelican
 winshell==0.6
 
 # The following packages are considered to be unsafe in a requirements file:
