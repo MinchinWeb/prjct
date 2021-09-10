@@ -7,11 +7,11 @@ prjct: Project Management for Living Life
 
 __title__ = 'prjct'
 __tagline__ = 'Project Management for Living Life'
-__version__ = "0.7.2-dev20200311"
+__version__ = "0.7.2-dev20210910"
 __author__ = 'William Minchin'
 __email__ = 'w_minchin@hotmail.com'
 __license__ = 'MIT License'
-__copyright__ = 'Copyright 2013-20 William Minchin'
+__copyright__ = 'Copyright 2013-21 William Minchin'
 __url__ = 'https://github.com/MinchinWeb/prjct'
 
 # import submodules
