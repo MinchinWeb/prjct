@@ -90,8 +90,10 @@ jinja2==2.10.3
     #   sphinx
 keyring==19.2.0
     # via -r .\requirements.txt
-lxml==4.4.1
-    # via green
+lxml==4.6.3
+    # via
+    #   -r .\requirements-dev.in
+    #   green
 markdown==3.1.1
     # via -r .\requirements.txt
 markupsafe==1.1.1
