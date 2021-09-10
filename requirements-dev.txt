@@ -47,7 +47,7 @@ colorama==0.4.1 ; sys_platform == "win32"
     #   topydo
 coverage==4.5.4
     # via green
-cryptography==2.8
+cryptography==3.4.8
     # via -r .\requirements.txt
 docutils==0.15.2
     # via
@@ -178,11 +178,9 @@ six==1.12.0
     # via
     #   -r .\requirements.txt
     #   bleach
-    #   cryptography
     #   feedgenerator
     #   packaging
     #   pelican
-    #   pip-tools
     #   python-dateutil
     #   readme-renderer
     #   sphinx

@@ -22,7 +22,7 @@ colorama==0.4.1 ; sys_platform == "win32"
     # via
     #   prjct (setup.py)
     #   topydo
-cryptography==2.8
+cryptography==3.4.8
     # via prjct (setup.py)
 docutils==0.15.2
     # via pelican
@@ -82,7 +82,6 @@ reyaml==0.2.1
     # via prjct (setup.py)
 six==1.12.0
     # via
-    #   cryptography
     #   feedgenerator
     #   pelican
     #   prjct (setup.py)
