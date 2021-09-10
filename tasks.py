@@ -1,4 +1,7 @@
 import invoke
 
 #import minchin.releaser
-from minchin.releaser import make_release, vendorize
+try:
+    from minchin.releaser import make_release, vendorize
+except ImportError:
+    print("[WARN] minchin.releaser not installed")
