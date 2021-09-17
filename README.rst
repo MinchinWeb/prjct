@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMinchinWeb%2Fprjct.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMinchinWeb%2Fprjct?ref=badge_shield)
+
 prjct
 =====
 
@@ -281,3 +283,7 @@ is designed, ultimately, to be supported.
 
    prjct Changelog
    *
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMinchinWeb%2Fprjct.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMinchinWeb%2Fprjct?ref=badge_large)
