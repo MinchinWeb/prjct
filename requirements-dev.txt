@@ -63,7 +63,7 @@ docutils==0.17.1
     #   pelican
     #   readme-renderer
     #   sphinx
-feedgenerator==1.9.2
+feedgenerator==2.0.0
     # via
     #   -r .\requirements.txt
     #   pelican
