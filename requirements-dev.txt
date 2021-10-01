@@ -191,7 +191,7 @@ reyaml==0.2.2
     # via -r .\requirements.txt
 rfc3986==1.5.0
     # via twine
-semantic-version==2.6.0
+semantic-version==2.8.5
     # via
     #   minchin.releaser
     #   releases
