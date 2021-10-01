@@ -24,7 +24,7 @@ blinker==1.4
     # via
     #   -r .\requirements.txt
     #   pelican
-build==0.6.0.post1
+build==0.7.0
     # via check-manifest
 certifi==2021.5.30
     # via requests
