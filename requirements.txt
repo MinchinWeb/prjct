@@ -91,7 +91,7 @@ titlecase==2.3
     # via pelican-jinja-filters
 topydo==0.14
     # via prjct (setup.py)
-tzdata==2021.1
+tzdata==2021.5
     # via tzlocal
 tzlocal==3.0
     # via prjct (setup.py)
