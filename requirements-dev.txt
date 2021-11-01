@@ -53,7 +53,7 @@ colorama==0.4.4 ; sys_platform == "win32"
     #   topydo
     #   tqdm
     #   twine
-coverage==5.5
+coverage==6.1.1
     # via green
 cryptography==3.4.8
     # via -r .\requirements.txt
