@@ -226,7 +226,7 @@ titlecase==2.3
     #   pelican-jinja-filters
 toml==0.10.2
     # via check-manifest
-tomli==1.2.1
+tomli==1.2.2
     # via
     #   build
     #   pep517
