@@ -55,7 +55,7 @@ colorama==0.4.4 ; sys_platform == "win32"
     #   twine
 coverage==6.1.1
     # via green
-cryptography==3.4.8
+cryptography==35.0.0
     # via -r .\requirements.txt
 docutils==0.17.1
     # via
