@@ -88,7 +88,7 @@ invoke==1.6.0
     #   minchin.releaser
 isort==5.9.3
     # via minchin.releaser
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   -r .\requirements.txt
     #   pelican
