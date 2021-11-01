@@ -111,7 +111,7 @@ minchin.pelican.jinja-filters==1.1.0
     # via -r .\requirements.txt
 minchin.releaser==0.8.1
     # via -r .\requirements-dev.in
-packaging==21.0
+packaging==21.2
     # via
     #   bleach
     #   build
