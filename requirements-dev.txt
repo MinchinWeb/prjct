@@ -129,7 +129,7 @@ pelican-jinja-filters==2.1.1
     # via
     #   -r .\requirements.txt
     #   minchin.pelican.jinja-filters
-pep517==0.11.0
+pep517==0.12.0
     # via
     #   build
     #   pip-tools
