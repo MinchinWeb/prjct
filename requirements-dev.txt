@@ -57,7 +57,7 @@ coverage==6.2
     # via green
 cryptography==36.0.0
     # via -r .\requirements.txt
-docutils==0.17.1
+docutils==0.18.1
     # via
     #   -r .\requirements.txt
     #   pelican
