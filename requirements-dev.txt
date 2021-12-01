@@ -75,7 +75,7 @@ green==3.3.0
     # via -r .\requirements-dev.in
 idna==3.3
     # via requests
-imagesize==1.2.0
+imagesize==1.3.0
     # via sphinx
 importlib-metadata==4.8.1
     # via
