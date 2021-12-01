@@ -135,7 +135,7 @@ pep517==0.12.0
     #   pip-tools
 pip-tools==6.4.0
     # via -r .\requirements-dev.in
-pkginfo==1.7.1
+pkginfo==1.8.1
     # via twine
 pycparser==2.20
     # via
