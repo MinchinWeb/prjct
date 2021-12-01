@@ -234,7 +234,7 @@ topydo==0.14
     # via -r .\requirements.txt
 tqdm==4.62.3
     # via twine
-twine==3.4.2
+twine==3.7.0
     # via minchin.releaser
 tzdata==2021.1
     # via
