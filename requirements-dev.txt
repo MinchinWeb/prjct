@@ -164,7 +164,7 @@ pytz==2021.3
     #   cloudmesh-timestring
     #   feedgenerator
     #   pelican
-pywin32==301
+pywin32==302
     # via -r .\requirements.txt
 pywin32-ctypes==0.2.0
     # via
