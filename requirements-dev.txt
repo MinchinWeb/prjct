@@ -176,7 +176,7 @@ pyyaml==6.0
     # via
     #   -r .\requirements.txt
     #   reyaml
-readme-renderer==29.0
+readme-renderer==30.0
     # via twine
 releases==1.6.3
     # via -r .\requirements-dev.in
