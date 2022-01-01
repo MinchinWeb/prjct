@@ -73,7 +73,7 @@ gitpython==3.1.24
     # via minchin.releaser
 green==3.3.0
     # via -r .\requirements-dev.in
-idna==3.2
+idna==3.3
     # via requests
 imagesize==1.2.0
     # via sphinx
