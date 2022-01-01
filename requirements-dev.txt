@@ -32,7 +32,7 @@ cffi==1.15.0
     # via
     #   -r .\requirements.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.9
     # via requests
 check-manifest==0.46
     # via -r .\requirements-dev.in
