@@ -202,7 +202,7 @@ six==1.16.0
     #   feedgenerator
     #   python-dateutil
     #   readme-renderer
-smmap==4.0.0
+smmap==5.0.0
     # via gitdb
 snowballstemmer==2.1.0
     # via sphinx
