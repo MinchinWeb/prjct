@@ -23,7 +23,7 @@ colorama==0.4.4 ; sys_platform == "win32"
     #   click
     #   prjct (setup.py)
     #   topydo
-cryptography==3.4.8
+cryptography==36.0.1
     # via prjct (setup.py)
 docutils==0.17.1
     # via pelican
