@@ -86,7 +86,7 @@ invoke==1.6.0
     # via
     #   -r .\requirements.txt
     #   minchin.releaser
-isort==5.9.3
+isort==5.10.1
     # via minchin.releaser
 jinja2==3.0.1
     # via
