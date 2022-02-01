@@ -55,7 +55,7 @@ pelican-jinja-filters==2.1.1
     # via minchin.pelican.jinja-filters
 pycparser==2.21
     # via cffi
-pygments==2.10.0
+pygments==2.11.2
     # via pelican
 pyreadline==2.1 ; sys_platform == "win32"
     # via prjct (setup.py)
