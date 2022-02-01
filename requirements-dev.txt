@@ -69,7 +69,7 @@ feedgenerator==2.0.0
     #   pelican
 gitdb==4.0.9
     # via gitpython
-gitpython==3.1.18
+gitpython==3.1.26
     # via minchin.releaser
 green==3.3.0
     # via -r .\requirements-dev.in
