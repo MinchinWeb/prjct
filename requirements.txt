@@ -70,7 +70,7 @@ pytz==2021.3
     #   feedgenerator
     #   pelican
     #   prjct (setup.py)
-pywin32==301
+pywin32==303
     # via prjct (setup.py)
 pywin32-ctypes==0.2.0
     # via keyring
