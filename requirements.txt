@@ -47,7 +47,7 @@ parsedatetime==2.6
     # via prjct (setup.py)
 passlib==1.7.4
     # via prjct (setup.py)
-pelican==4.6.0
+pelican==4.7.2
     # via
     #   minchin.pelican.jinja-filters
     #   pelican-jinja-filters
