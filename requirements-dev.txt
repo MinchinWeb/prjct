@@ -141,7 +141,7 @@ pycparser==2.21
     # via
     #   -r .\requirements.txt
     #   cffi
-pygments==2.10.0
+pygments==2.11.2
     # via
     #   -r .\requirements.txt
     #   minchin.releaser
