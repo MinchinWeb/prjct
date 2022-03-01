@@ -236,7 +236,7 @@ tqdm==4.63.0
     # via twine
 twine==3.8.0
     # via minchin.releaser
-tzdata==2021.1
+tzdata==2021.5
     # via
     #   -r .\requirements.txt
     #   tzlocal
