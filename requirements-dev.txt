@@ -120,7 +120,7 @@ parsedatetime==2.6
     # via -r .\requirements.txt
 passlib==1.7.4
     # via -r .\requirements.txt
-pelican==4.6.0
+pelican==4.7.2
     # via
     #   -r .\requirements.txt
     #   minchin.pelican.jinja-filters
