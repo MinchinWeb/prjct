@@ -39,7 +39,7 @@ keyring==23.5.0
     # via prjct (setup.py)
 markdown==3.3.6
     # via prjct (setup.py)
-markupsafe==2.0.1
+markupsafe==2.1.0
     # via jinja2
 minchin.pelican.jinja-filters==1.1.0
     # via prjct (setup.py)
