@@ -180,7 +180,7 @@ readme-renderer==32.0
     # via twine
 releases==1.6.3
     # via -r .\requirements-dev.in
-requests==2.26.0
+requests==2.27.1
     # via
     #   requests-toolbelt
     #   sphinx
