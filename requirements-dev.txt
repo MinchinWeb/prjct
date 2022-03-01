@@ -8,7 +8,7 @@ alabaster==0.7.12
     # via sphinx
 appdirs==1.4.4
     # via -r .\requirements.txt
-arrow==1.1.1
+arrow==1.2.2
     # via
     #   -r .\requirements.txt
     #   topydo
