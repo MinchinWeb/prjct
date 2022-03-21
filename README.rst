@@ -8,7 +8,7 @@ Project Management for Living Life, v0.7.1, 2019-09-24
     :alt: PyPI version number
 
 .. image:: https://img.shields.io/badge/-Changelog-success
-   :target: https://github.com/MinchinWeb/prjct/blob/master/CHANGELOG.txt
+   :target: https://github.com/MinchinWeb/prjct/blob/master/CHANGELOG.rst
    :alt: Changelog
 
 .. image:: https://img.shields.io/pypi/pyversions/prjct?style=flat
