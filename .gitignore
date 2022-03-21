@@ -40,6 +40,7 @@ test_todo_export.html
 *.sublime-workspace
 .vscode/tags
 env/*
+.vscode/
 
 # vendorized items
 prjct/_vendor

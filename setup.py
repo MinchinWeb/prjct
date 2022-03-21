@@ -69,8 +69,8 @@ PACKAGES     = setuptools.find_packages()
 INSTALL_REQUIRES = [
 
     'cloudmesh-timestring',            # timestring>1.6.2
-    'topydo>=0.11.0',
-    # 'jrnl>=2.0.0rc1',                # updated jrnl is not on PyPI, so vendor...
+    'topydo >= 0.11.0',
+    # 'jrnl >= 2.0.0rc1',                # updated jrnl is not on PyPI, so vendor...
     'click',
     'invoke',
     'winshell',
@@ -81,16 +81,16 @@ INSTALL_REQUIRES = [
     'reyaml',                          # switch to PyYAML?
 
     # jrnl
-    "parsedatetime>=1.5",
-    "pytz>=2015.7",
-    "six>=1.10.0",
-    "cryptography>=1.4,<4.0",           # was pinned to 1.4
-    "tzlocal>=1.2",
-    "pyyaml>=3.11",
-    "keyring>=7.3",
-    "passlib>=1.6.2",
-    "pyxdg>=0.25",
-    "asteval>=0.9.8",                   # requires numpy
+    "parsedatetime >= 1.5",
+    "pytz >= 2015.7",
+    "six >= 1.10.0",
+    "cryptography >= 1.4, < 4.0",           # was pinned to 1.4
+    "tzlocal >= 1.2",
+    "pyyaml >= 3.11",
+    "keyring >= 7.3",
+    "passlib >= 1.6.2",
+    "pyxdg >= 0.25",
+    "asteval >= 0.9.8",                   # requires numpy
 ]
 
 DEV_REQUIRES = read_requirements('requirements-dev.in')
@@ -98,12 +98,12 @@ DEV_REQUIRES = read_requirements('requirements-dev.in')
 EXTRA_REQUIRES = {
     # conditional requirements for jrnl
     ":python_version<'3.3'": ["monotonic"],
-    ":sys_platform == 'win32'" : ["pyreadline>=2.0",     # if readline is unavailable
-                                  "colorama>=0.2.5"],
-    ":sys_platform != 'win32'" :["readline>=6.2"],       # if readline is unavailable
-    ":python_version == '2.6'": ["python-dateutil==1.5"],
-    ":python_version == '2.7'": ["python-dateutil==1.5"],
-    ":python_version >= '3.0'": ["python-dateutil>=2.2"],
+    ":sys_platform == 'win32'" : ["pyreadline >= 2.0",     # if readline is unavailable
+                                  "colorama >= 0.2.5"],
+    ":sys_platform != 'win32'" :["readline >= 6.2"],       # if readline is unavailable
+    ":python_version == '2.6'": ["python-dateutil == 1.5"],
+    ":python_version == '2.7'": ["python-dateutil == 1.5"],
+    ":python_version >= '3.0'": ["python-dateutil >= 2.2"],
 
     'dev': DEV_REQUIRES,
 }
@@ -167,6 +167,7 @@ setuptools.setup(
     author_email=AUTHOR_EMAIL,
     description=SHORT_DESC,
     long_description=LONG_DESC,
+    long_description_content_type="text/x-rst",
     packages=PACKAGES,
     package_data={'': ['README.rst',
                        'CHANGELOG.rst',
