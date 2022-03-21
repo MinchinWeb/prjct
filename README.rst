@@ -3,6 +3,27 @@ prjct
 
 Project Management for Living Life, v0.7.1, 2019-09-24
 
+.. image:: https://img.shields.io/pypi/v/prjct.svg?style=flat
+    :target: https://pypi.python.org/pypi/prjct/
+    :alt: PyPI version number
+
+.. image:: https://img.shields.io/badge/-Changelog-success
+   :target: https://github.com/MinchinWeb/prjct/blob/master/CHANGELOG.txt
+   :alt: Changelog
+
+.. image:: https://img.shields.io/pypi/pyversions/prjct?style=flat
+    :target: https://pypi.python.org/pypi/prjct/
+    :alt: Supported Python version
+
+.. image:: https://img.shields.io/pypi/l/prjct.svg?style=flat&color=green
+    :target: https://github.com/MinchinWeb/prjct/blob/master/LICENSE.txt
+    :alt: License
+
+.. image:: https://img.shields.io/pypi/dm/prjct.svg?style=flat
+    :target: https://pypi.python.org/pypi/prjct/
+    :alt: Download Count
+
+
 .. note:: Not all features have been implemented yet. I use this day-to-day, but really, it's alpha-level software.
 
 Background
