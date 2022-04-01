@@ -59,7 +59,7 @@ commonmark==0.9.1
     #   rich
 coverage==6.3.2
     # via green
-cryptography==3.4.8
+cryptography==36.0.2
     # via -r .\requirements.txt
 docutils==0.17.1
     # via
