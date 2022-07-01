@@ -14,7 +14,7 @@ arrow==1.2.2
     #   topydo
 asteval==0.9.27
     # via -r .\requirements.txt
-babel==2.9.1
+babel==2.10.3
     # via sphinx
 bleach==4.1.0
     # via
