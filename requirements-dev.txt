@@ -105,7 +105,7 @@ lxml==4.9.0
     # via
     #   -r .\requirements-dev.in
     #   green
-markdown==3.3.6
+markdown==3.3.7
     # via -r .\requirements.txt
 markupsafe==2.1.1
     # via
