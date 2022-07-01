@@ -173,7 +173,7 @@ pytz-deprecation-shim==0.1.0.post0
     # via
     #   -r .\requirements.txt
     #   tzlocal
-pywin32==303
+pywin32==304
     # via -r .\requirements.txt
 pywin32-ctypes==0.2.0
     # via
