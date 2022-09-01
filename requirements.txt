@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via prjct (setup.py)
 arrow==1.2.2
     # via topydo
-asteval==0.9.26
+asteval==0.9.27
     # via prjct (setup.py)
 blinker==1.4
     # via pelican
