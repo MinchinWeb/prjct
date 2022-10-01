@@ -101,7 +101,7 @@ keyring==23.9.3
     # via
     #   -r .\requirements.txt
     #   twine
-lxml==4.8.0
+lxml==4.9.1
     # via
     #   -r .\requirements-dev.in
     #   green
