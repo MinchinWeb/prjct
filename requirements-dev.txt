@@ -251,7 +251,7 @@ tzdata==2022.4
     #   -r .\requirements.txt
     #   pytz-deprecation-shim
     #   tzlocal
-tzlocal==4.1
+tzlocal==4.2
     # via -r .\requirements.txt
 unidecode==1.3.4
     # via
