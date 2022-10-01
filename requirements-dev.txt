@@ -75,7 +75,7 @@ gitdb==4.0.9
     # via gitpython
 gitpython==3.1.27
     # via minchin-releaser
-green==3.4.1
+green==3.4.3
     # via -r .\requirements-dev.in
 idna==3.3
     # via requests
