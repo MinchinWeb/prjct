@@ -253,7 +253,7 @@ tzdata==2022.6
     #   tzlocal
 tzlocal==4.2
     # via -r .\requirements.txt
-unidecode==1.3.4
+unidecode==1.3.6
     # via
     #   -r .\requirements.txt
     #   green
