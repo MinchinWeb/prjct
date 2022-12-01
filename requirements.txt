@@ -27,7 +27,7 @@ commonmark==0.9.1
     # via rich
 cryptography==38.0.4
     # via prjct (setup.py)
-docutils==0.17.1
+docutils==0.19
     # via pelican
 feedgenerator==2.0.0
     # via pelican
