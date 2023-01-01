@@ -90,7 +90,7 @@ invoke==1.7.3
     # via
     #   -r .\requirements.txt
     #   minchin-releaser
-isort==5.10.1
+isort==5.11.4
     # via minchin-releaser
 jinja2==3.0.3
     # via
