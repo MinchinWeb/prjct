@@ -187,7 +187,7 @@ pyyaml==6.0
     #   reyaml
 readme-renderer==37.3
     # via twine
-releases==1.6.3
+releases==2.0.0
     # via -r .\requirements-dev.in
 requests==2.27.1
     # via
