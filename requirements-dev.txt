@@ -204,7 +204,7 @@ rich==13.0.0
     # via
     #   -r .\requirements.txt
     #   pelican
-semantic-version==2.6.0
+semantic-version==2.10.0
     # via
     #   minchin-releaser
     #   releases
