@@ -20,7 +20,7 @@ bleach==5.0.1
     # via
     #   minchin-releaser
     #   readme-renderer
-blinker==1.4
+blinker==1.5
     # via
     #   -r .\requirements.txt
     #   pelican
