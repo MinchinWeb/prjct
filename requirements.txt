@@ -37,7 +37,7 @@ invoke==1.7.3
     # via prjct (setup.py)
 jinja2==3.1.2
     # via pelican
-keyring==23.5.0
+keyring==23.13.1
     # via prjct (setup.py)
 markdown==3.3.6
     # via prjct (setup.py)
