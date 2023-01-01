@@ -28,7 +28,7 @@ build==0.9.0
     # via check-manifest
 certifi==2022.12.7
     # via requests
-cffi==1.15.0
+cffi==1.15.1
     # via
     #   -r .\requirements.txt
     #   cryptography
