@@ -12,7 +12,7 @@ asteval==0.9.29
     # via prjct (setup.py)
 blinker==1.5
     # via pelican
-cffi==1.15.0
+cffi==1.15.1
     # via cryptography
 click==8.0.4
     # via prjct (setup.py)
