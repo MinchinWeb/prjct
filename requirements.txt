@@ -33,7 +33,7 @@ feedgenerator==2.0.0
     # via pelican
 importlib-metadata==6.0.0
     # via keyring
-invoke==1.7.0
+invoke==2.0.0
     # via prjct (setup.py)
 jinja2==3.0.3
     # via pelican
