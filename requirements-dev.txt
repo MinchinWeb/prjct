@@ -107,7 +107,7 @@ lxml==4.9.2
     #   green
 markdown==3.4.1
     # via -r .\requirements.txt
-markupsafe==2.1.1
+markupsafe==2.1.2
     # via
     #   -r .\requirements.txt
     #   jinja2
