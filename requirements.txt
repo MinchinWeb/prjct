@@ -98,7 +98,7 @@ titlecase==2.4
     # via pelican-jinja-filters
 topydo==0.14
     # via prjct (setup.py)
-tzdata==2022.1
+tzdata==2022.7
     # via
     #   pytz-deprecation-shim
     #   tzlocal
