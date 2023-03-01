@@ -34,7 +34,7 @@ cffi==1.15.1
     #   cryptography
 charset-normalizer==3.0.1
     # via requests
-check-manifest==0.48
+check-manifest==0.49
     # via -r .\requirements-dev.in
 click==8.0.4
     # via
