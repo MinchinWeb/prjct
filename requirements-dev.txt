@@ -57,7 +57,7 @@ commonmark==0.9.1
     # via
     #   -r .\requirements.txt
     #   rich
-coverage==6.3.2
+coverage==7.2.2
     # via green
 cryptography==3.4.8
     # via -r .\requirements.txt
