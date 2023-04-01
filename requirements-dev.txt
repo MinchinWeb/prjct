@@ -200,7 +200,7 @@ reyaml==0.2.2
     # via -r .\requirements.txt
 rfc3986==2.0.0
     # via twine
-rich==12.0.0
+rich==13.3.3
     # via
     #   -r .\requirements.txt
     #   pelican
