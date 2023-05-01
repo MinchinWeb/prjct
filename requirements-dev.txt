@@ -194,7 +194,7 @@ requests==2.29.0
     #   requests-toolbelt
     #   sphinx
     #   twine
-requests-toolbelt==0.9.1
+requests-toolbelt==1.0.0
     # via twine
 reyaml==0.2.2
     # via -r .\requirements.txt
