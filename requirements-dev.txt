@@ -242,7 +242,7 @@ tomli==2.0.1
     #   pep517
 topydo==0.14
     # via -r .\requirements.txt
-tqdm==4.63.0
+tqdm==4.65.0
     # via twine
 twine==3.8.0
     # via minchin-releaser
