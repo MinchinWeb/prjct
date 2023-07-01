@@ -94,7 +94,7 @@ six==1.16.0
     # via
     #   prjct (setup.py)
     #   python-dateutil
-titlecase==2.3
+titlecase==2.4
     # via pelican-jinja-filters
 topydo==0.14
     # via prjct (setup.py)
