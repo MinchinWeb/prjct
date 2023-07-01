@@ -217,7 +217,7 @@ smmap==5.0.0
     # via gitdb
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.4.0
+sphinx==7.0.1
     # via releases
 sphinxcontrib-applehelp==1.0.2
     # via sphinx
