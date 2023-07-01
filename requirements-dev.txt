@@ -86,7 +86,7 @@ importlib-metadata==6.7.0
     #   -r .\requirements.txt
     #   keyring
     #   twine
-invoke==1.7.0
+invoke==2.1.3
     # via
     #   -r .\requirements.txt
     #   minchin-releaser
