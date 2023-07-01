@@ -10,7 +10,7 @@ arrow==1.2.3
     # via topydo
 asteval==0.9.30
     # via prjct (setup.py)
-blinker==1.4
+blinker==1.6.2
     # via pelican
 cffi==1.15.0
     # via cryptography
