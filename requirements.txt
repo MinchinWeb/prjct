@@ -78,7 +78,7 @@ pytz-deprecation-shim==0.1.0.post0
     # via tzlocal
 pywin32==306
     # via prjct (setup.py)
-pywin32-ctypes==0.2.0
+pywin32-ctypes==0.2.2
     # via keyring
 pyxdg==0.27
     # via prjct (setup.py)
