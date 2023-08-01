@@ -271,7 +271,7 @@ wheel==0.41.0
     #   pip-tools
 winshell==0.6
     # via -r .\requirements.txt
-zipp==3.7.0
+zipp==3.16.2
     # via
     #   -r .\requirements.txt
     #   importlib-metadata
