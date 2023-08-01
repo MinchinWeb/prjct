@@ -29,7 +29,7 @@ cryptography==41.0.2
     # via prjct (setup.py)
 docutils==0.20.1
     # via pelican
-feedgenerator==2.0.0
+feedgenerator==2.1.0
     # via pelican
 importlib-metadata==4.11.3
     # via keyring
