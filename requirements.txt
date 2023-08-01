@@ -82,7 +82,7 @@ pywin32-ctypes==0.2.2
     # via keyring
 pyxdg==0.28
     # via prjct (setup.py)
-pyyaml==6.0
+pyyaml==6.0.1
     # via
     #   prjct (setup.py)
     #   reyaml
