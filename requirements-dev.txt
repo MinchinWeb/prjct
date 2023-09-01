@@ -71,7 +71,7 @@ feedgenerator==2.1.0
     # via
     #   -r .\requirements.txt
     #   pelican
-gitdb==4.0.9
+gitdb==4.0.10
     # via gitpython
 gitpython==3.1.27
     # via minchin-releaser
