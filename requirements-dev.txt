@@ -231,7 +231,7 @@ sphinxcontrib-qthelp==1.0.6
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.9
     # via sphinx
-titlecase==2.3
+titlecase==2.4
     # via
     #   -r .\requirements.txt
     #   pelican-jinja-filters
