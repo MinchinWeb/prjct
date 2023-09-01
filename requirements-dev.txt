@@ -175,7 +175,7 @@ pytz-deprecation-shim==0.1.0.post0
     #   tzlocal
 pywin32==306
     # via -r .\requirements.txt
-pywin32-ctypes==0.2.0
+pywin32-ctypes==0.2.2
     # via
     #   -r .\requirements.txt
     #   keyring
