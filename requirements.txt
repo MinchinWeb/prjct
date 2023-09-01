@@ -31,7 +31,7 @@ docutils==0.20.1
     # via pelican
 feedgenerator==2.1.0
     # via pelican
-importlib-metadata==4.11.3
+importlib-metadata==6.8.0
     # via keyring
 invoke==1.7.0
     # via prjct (setup.py)
